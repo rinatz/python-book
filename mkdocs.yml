@@ -1,0 +1,72 @@
+site_name: ゼロから学ぶ Python
+site_description: ゼロから学ぶ Python
+site_author: 井田 献一朗
+site_url: http://rinatz.github.io/python-book
+repo_name: rinatz/python-book
+repo_url: https://github.com/rinatz/python-book
+copyright: Copyright &copy 2019 Kenichiro IDA
+
+theme:
+  name: material
+  language: ja
+  logo: img/python.svg
+  palette:
+    primary: orange
+    accent: teal
+  font:
+    text: Noto Sans
+    code: Inconsolata
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - ホーム: index.md
+  - はじめに: ch00-00-introduction.md
+  - 1. Python を始める:
+    - 1.1. インストール: ch01-01-installation.md
+    - 1.2. Hello, World!: ch01-02-hello-world.md
+  - 2. 基本仕様:
+    - 2.1. 変数: ch02-01-variables.md
+    - 2.2. 関数: ch02-02-functions.md
+    - 2.3. コメント: ch02-03-comments.md
+    - 2.4. 条件文: ch02-04-conditions.md
+    - 2.5. ループ文: ch02-05-loops.md
+  - 3. クラス:
+    - 3.1. クラス: ch03-01-classes.md
+  - 4. モジュールとパッケージ:
+    - 4.1. モジュール: ch04-01-modules.md
+    - 4.2. パッケージ: ch04-02-packages.md
+    - 4.3. pip: ch04-03-pip.md
+    - 4.4. venv: ch04-04-venv.md
+    - 4.5. pipenv: ch04-05-pipenv.md
+    - 4.6. プロジェクト構成: ch04-06-project-structures.md
+  - 5. コレクション:
+    - 5.1. リスト: ch05-01-lists.md
+    - 5.2. 辞書: ch05-01-dists.md
+  - 6. 例外:
+    - 6.1. 例外: ch06-01-exceptions.md
+  - 7. テスト:
+    - 7.1. doctest: ch07-01-doctest.md
+    - 7.2. 単体テスト: ch07-02-unittests.md

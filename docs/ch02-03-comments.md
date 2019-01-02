@@ -1,0 +1,14 @@
+# コメント
+
+`#` から始まる行はコメントと見なされます。コメントはプログラム上は無視されるため、自由にメッセージを書くことができます。
+
+```python
+# Hello, World!
+```
+
+コードの末尾に置くことも可能です。
+
+```python
+def main():
+    lucky_number = 7    # I’m feeling lucky today.
+```
