@@ -1,0 +1,1157 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="ゼロから学ぶ Python">
+      
+      
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch02-01-variables/">
+      
+      
+        <meta name="author" content="井田 献一朗">
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>2.1. 変数 - ゼロから学ぶ Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#fb8c00">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700|Inconsolata">
+        <style>body,input{font-family:"Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Inconsolata","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="orange" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-header-nav__button md-logo">
+          
+            <img src="../img/python.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                ゼロから学ぶ Python
+              </span>
+              <span class="md-header-nav__topic">
+                2.1. 変数
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      rinatz/python-book
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-nav__button md-logo">
+      
+        <img src="../img/python.svg" width="48" height="48">
+      
+    </a>
+    ゼロから学ぶ Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      rinatz/python-book
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="ホーム" class="md-nav__link">
+      ホーム
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ch00-00-introduction/" title="はじめに" class="md-nav__link">
+      はじめに
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      1. Python を始める
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        1. Python を始める
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch01-01-installation/" title="1.1. インストール" class="md-nav__link">
+      1.1. インストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
+      1.2. Hello, World!
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      2. 基本仕様
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        2. 基本仕様
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2.1. 変数
+      </label>
+    
+    <a href="./" title="2.1. 変数" class="md-nav__link md-nav__link--active">
+      2.1. 変数
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="整数" class="md-nav__link">
+    整数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="浮動小数点" class="md-nav__link">
+    浮動小数点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="数値演算" class="md-nav__link">
+    数値演算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="真偽値" class="md-nav__link">
+    真偽値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="文字列" class="md-nav__link">
+    文字列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="バイト" class="md-nav__link">
+    バイト
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="リスト" class="md-nav__link">
+    リスト
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="タプル" class="md-nav__link">
+    タプル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="辞書" class="md-nav__link">
+    辞書
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="集合" class="md-nav__link">
+    集合
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#none" title="None" class="md-nav__link">
+    None
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="アンパック代入" class="md-nav__link">
+    アンパック代入
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-02-functions/" title="2.2. 関数" class="md-nav__link">
+      2.2. 関数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-03-comments/" title="2.3. コメント" class="md-nav__link">
+      2.3. コメント
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-04-conditions/" title="2.4. 条件文" class="md-nav__link">
+      2.4. 条件文
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-nav__link">
+      2.5. ループ文
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      3. クラス
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        3. クラス
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-01-classes/" title="3.1. クラス" class="md-nav__link">
+      3.1. クラス
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      4. モジュールとパッケージ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        4. モジュールとパッケージ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-nav__link">
+      4.1. モジュール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-02-packages/" title="4.2. パッケージ" class="md-nav__link">
+      4.2. パッケージ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-03-pip/" title="4.3. pip" class="md-nav__link">
+      4.3. pip
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-04-venv/" title="4.4. venv" class="md-nav__link">
+      4.4. venv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-05-pipenv/" title="4.5. pipenv" class="md-nav__link">
+      4.5. pipenv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-06-project-structures/" title="4.6. プロジェクト構成" class="md-nav__link">
+      4.6. プロジェクト構成
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      5. コレクション
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        5. コレクション
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-01-lists/" title="5.1. リスト" class="md-nav__link">
+      5.1. リスト
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-01-dists.md" title="5.2. 辞書" class="md-nav__link">
+      5.2. 辞書
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      6. 例外
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        6. 例外
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-nav__link">
+      6.1. 例外
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      7. テスト
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        7. テスト
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-01-doctest/" title="7.1. doctest" class="md-nav__link">
+      7.1. doctest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-02-unittests/" title="7.2. 単体テスト" class="md-nav__link">
+      7.2. 単体テスト
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="整数" class="md-nav__link">
+    整数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="浮動小数点" class="md-nav__link">
+    浮動小数点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="数値演算" class="md-nav__link">
+    数値演算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="真偽値" class="md-nav__link">
+    真偽値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="文字列" class="md-nav__link">
+    文字列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="バイト" class="md-nav__link">
+    バイト
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="リスト" class="md-nav__link">
+    リスト
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="タプル" class="md-nav__link">
+    タプル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="辞書" class="md-nav__link">
+    辞書
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="集合" class="md-nav__link">
+    集合
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#none" title="None" class="md-nav__link">
+    None
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="アンパック代入" class="md-nav__link">
+    アンパック代入
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch02-01-variables.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Python における変数と使用できる基本データ型について説明します。Python の変数は値を代入した時点で型が確定します。例えば</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+
+<p>とすると変数 <code>x</code> は整数型 <code>int</code> になりますし、</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
+</pre></div>
+
+<p>とすると文字列型 <code>str</code> になります。また、値を代入するたびに変数の型は動的に変化します。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
+</pre></div>
+
+<p>とすると最初は整数型でその後、文字列型に変化します。</p>
+<h2 id="_2">整数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>整数値を代入した変数は整数型 <code>int</code> になります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+
+<p>多くのプログラム言語では表現できる最大の整数が定義されていて、加算などによってその最大値を超えるとオーバーフローというエラーが発生しますが、Python はいくらでも大きな整数を扱うことができます（すなわちオーバーフローしません）。</p>
+<h2 id="_3">浮動小数点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>浮動小数点（3.14 など）を代入した変数は浮動小数点型 <code>float</code> になります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>
+</pre></div>
+
+<h2 id="_4">数値演算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>数値に対しては四則演算ができます。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 加算</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">10</span>
+
+<span class="c1"># 減算</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="mf">95.5</span> <span class="o">-</span> <span class="mf">4.3</span>
+
+<span class="c1"># 乗算</span>
+<span class="n">product</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">30</span>
+
+<span class="c1"># 除算</span>
+<span class="n">division</span> <span class="o">=</span> <span class="mf">56.7</span> <span class="o">/</span> <span class="mf">32.2</span>
+
+<span class="c1"># 商</span>
+<span class="n">quotient</span> <span class="o">=</span> <span class="mi">62</span> <span class="o">//</span> <span class="mi">12</span>
+
+<span class="c1"># 剰余</span>
+<span class="n">remainder</span> <span class="o">=</span> <span class="mi">43</span> <span class="o">%</span> <span class="mi">5</span>
+</pre></div>
+
+<div class="admonition warning">
+<p class="admonition-title">整数 / 整数 = ?</p>
+<p>整数に対する <code>/</code> は Python 2 系と 3 系では意味が変わります。2 系では商でしたが 3 系では除算になります。例えば <code>5 / 2</code> は 2 系では <code>2</code> になり 3 系では <code>2.5</code> になります。</p>
+</div>
+<h2 id="_5">真偽値<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>真偽値を扱う型は <code>bool</code> になります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">y</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+<h2 id="_6">文字列<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>文字列を代入した変数は文字列型 <code>str</code> になります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;日本語&#39;</span>
+</pre></div>
+
+<p>文字列の先頭に <code>f</code> を付けると文字列内に変数や式の埋め込みができるようになります（f-string）。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span>    <span class="c1"># &#39;The value of x is 10&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;The value of x * x is {x * x}&#39;</span>    <span class="c1"># &#39;The value of x * x is 100&#39;</span>
+</pre></div>
+
+<p>この表記は下記と等価になっています。</p>
+<div class="codehilite"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;The value of x is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;The value of x * x is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+<p><code>str</code> 型の変数は <code>.format()</code> という関数を持っており、これを使うことで <code>{}</code> の箇所に <code>format()</code> に渡した変数や式を埋め込むことができます。f-string はその糖衣構文です。</p>
+<h2 id="_7">バイト<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>バイト列を扱うにはバイト型 <code>byte</code> を使います。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;0xDEADBEEF&#39;</span>
+</pre></div>
+
+<h2 id="_8">リスト<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>リスト <code>list</code> は配列を扱うための型です。リストの各要素は必ずしも同じ型である必要はありません。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
+</pre></div>
+
+<p>要素の末尾に <code>,</code> が入っていても大丈夫です。</p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">,]</span>
+</pre></div>
+
+<p>要素参照は次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># 10</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># 3.14</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># &#39;Hello, World!&#39;</span>
+</pre></div>
+
+<p>要素が空のリストを作る場合は <code>x = []</code> とします。</p>
+<h2 id="_9">タプル<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>タプル <code>tuple</code> はリストと同じで複数要素を扱うための型です。リストとの違いはリストは要素数が可変長なのに対しタプルは固定長であることです。要素の末尾に <code>,</code> が入っていても大丈夫です。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>要素参照はリストと同じようにしてできます。<code>()</code> はただの飾りであり、必須ではありません。タプルになるかどうかは <code>,</code> が含まれているかどうかで決まります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span>   <span class="c1"># 3 要素のタプル</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>                         <span class="c1"># 1 要素のタプル</span>
+</pre></div>
+
+<p>ただし空のタプルを作りたいときは <code>()</code> を使います。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">()</span>
+</pre></div>
+
+<h2 id="_10">辞書<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>辞書 <code>dict</code> はキーに対する値を管理するための型です。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+</pre></div>
+
+<p><code>x['name']</code> と書くと <code>'John Doe'</code> という文字列が取得でき、<code>x['age']</code> とすると <code>30</code> が取得できます。キーも値も任意の型を使用することができます。要素が空の辞書を作る場合は <code>x = {}</code> とします。</p>
+<h2 id="_11">集合<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>集合 <code>set</code> は重複を取り除いて複数の要素を扱うための型です。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</pre></div>
+
+<p><code>set()</code> を使うとリストやタプルから集合を作ることができます。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>                 <span class="c1"># {1, 2, 3, 4}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>   <span class="c1"># {&#39;x&#39;, 3.14, [1, 2]}</span>
+</pre></div>
+
+<p>空の集合を作る場合は <code>x = set()</code> とします。<code>x = {}</code> としても空の辞書となるので注意してください。</p>
+<h2 id="none"><code>None</code><a class="headerlink" href="#none" title="Permanent link">&para;</a></h2>
+<p>変数に <code>None</code> というキーワードを代入すると、その変数はどの型にも属さない変数になります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="bp">None</span>
+</pre></div>
+
+<p>変数は用意したいけど、どのような値を入れるかは後で決めたいといったケースでは <code>None</code> が使用されます。</p>
+<h2 id="_12">アンパック代入<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>リストやタプルの要素を複数の変数に同時に代入する構文を <strong>アンパック代入</strong> といいます。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># a: 10, b: 3.14, c: &#39;Hello, World!&#39;</span>
+</pre></div>
+
+<p>アンパック代入の代入先の変数と代入元の要素の数が一致しない場合はエラーとなります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># エラー</span>
+</pre></div>
+
+<p>しかし代入先の変数に <code>*</code> を付けておくと、その変数はリスト型になるため数が一致しなくてもアンパック代入ができるようになります。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># a: 0, b: 1, c: [2, 3, 4]</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                1.2. Hello, World!
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ch02-02-functions/" title="2.2. 関数" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                2.2. 関数
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy 2019 Kenichiro IDA
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
