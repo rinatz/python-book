@@ -64,7 +64,7 @@ nav:
     - 4.6. プロジェクト構成: ch04-06-project-structures.md
   - 5. コレクション:
     - 5.1. リスト: ch05-01-lists.md
-    - 5.2. 辞書: ch05-01-dists.md
+    - 5.2. 辞書: ch05-02-dists.md
   - 6. 例外:
     - 6.1. 例外: ch06-01-exceptions.md
   - 7. テスト:
