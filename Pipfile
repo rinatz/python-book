@@ -7,6 +7,7 @@ name = "pypi"
 mkdocs = "*"
 mkdocs-material = "*"
 pymdown-extensions = "*"
+pyyaml = ">=4.2b1"
 
 [dev-packages]
 
@@ -18,3 +19,6 @@ build = "mkdocs build"
 serve = "mkdocs serve -a 0.0.0.0:8000"
 gh-deploy = "mkdocs gh-deploy"
 repl = "docker run -it --rm python:3.7 python"
+
+[pipenv]
+allow_prereleases = true
