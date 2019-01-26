@@ -98,7 +98,7 @@ def another_function(x, y):
     print(f'The value of y is {y}')
 ```
 
-引数を順不同で渡さないといけないケースはデフォルト引数が複数あり、かつ一部のデフォルト引数を渡す場合です。キーワード引数は慣習的に `=` の両端にはスペースを入れずに書きます。
+デフォルト引数が複数あり、かつ一部のデフォルト引数だけを渡す場合によく使用されます。キーワード引数は慣習的に `=` の両端にはスペースを入れずに書きます。
 
 ## `*args, **kwargs`
 
@@ -141,7 +141,7 @@ def another_function(x, *args, **kwargs):
 
 `*` 引数と `**` 引数はどのような名前にしても構いませんが、慣習的に `*args, **kwargs` が使われます。Python には同名の関数を定義する機能（関数のオーバーロード）がないため、引数に `*args, **kwargs` を用意させておくことでオーバーロドの代用ができます。
 
-## 引数に `*, **` を付けて渡す
+## 引数のアンパック
 
 関数に引数を渡すときにタプルに `*` を付けて渡すとタプルの各要素を個別の引数として渡せるようになります。
 
@@ -199,7 +199,7 @@ def another_function(x: int, y: int):
 
 ```python
 def main():
-    x = plus_one(5)
+    x = plus_one(5)     # x: 6
 
     print(f'The value of x is {x}')
 
@@ -228,7 +228,14 @@ def plus_one(x: int) -> int:
 Python の関数は必ず戻り値を持っており、`return` を明示的に使わなかった場合は `None` が返ります。
 
 ```python
-# return None と書いたのと同じ
 def f(x):
     print(f'The value of x is {x}')
+```
+
+この関数は下記と同じ意味になります。
+
+```python
+def f(x):
+    print(f'The value of x is {x}')
+    return None
 ```

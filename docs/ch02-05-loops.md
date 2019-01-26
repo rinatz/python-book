@@ -10,7 +10,7 @@
 values = [0, 1, 2, 3, 4]
 
 for value in values:
-    print(f'the value is {value}')
+    print(f'The value is {value}')
 ```
 
 タプルの場合も同様にして `for` に渡すことができます。辞書も渡すことができますが、この場合キーが各ループで参照されます。
@@ -19,7 +19,7 @@ for value in values:
 items = {'a': 1, 'b': 2, 'c': 3}
 
 for key in items:
-    print(f'the key is {key}')
+    print(f'The key is {key}')
 ```
 
 キーに対する値のループあるいはキーと値の両方をループで参照したい場合はそれぞれ `values(), items()` メソッドを使用します。
@@ -28,10 +28,10 @@ for key in items:
 items = {'a': 1, 'b': 2, 'c': 3}
 
 for value in items.values():
-    print(f'the value is {value}')
+    print(f'The value is {value}')
 
 for key, value in items.items():
-    print(f'the pair of key and value is ({key}, {value})')
+    print(f'The pair of key and value is ({key}, {value})')
 ```
 
 ### `range()`
@@ -63,6 +63,6 @@ x = [10, 20, 30, 40, 50]
 index = 0
 
 while index < 5:
-    print(f'the value is {x[index]}')
+    print(f'The value is {x[index]}')
     index += 1
 ```

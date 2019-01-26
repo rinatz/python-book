@@ -17,7 +17,7 @@ macOS, Linux では最初から Python がインストールされています�
 
 ### Windows
 
-pyenv は Windows には対応していませんので pyenv を使用しません。
+pyenv は Windows には対応していませんので pyenv を使用しません。Windows では複数の Python がインストールされていてもそれらを切り替えて使用する機構が用意されているので pyenv が使用できなくても問題ありません。
 
 ### macOS
 
@@ -29,7 +29,7 @@ $ brew install pyenv
 ```
 
 !!! info "Homebrew について"
-    `brew` は Homebrew というパッケージ管理ツールのコマンドです。Homebrew をインストールしていなければ[公式サイト](https://brew.sh/index_ja)よりインストールをしてください。
+    `brew` は Homebrew というパッケージ管理ツールのコマンドです。Homebrew をインストールしていなければ [公式サイト](https://brew.sh/index_ja) よりインストールをしてください。
 
 ### Linux
 
@@ -65,7 +65,7 @@ $ python -V
 ```
 
 !!! info "Windows でのインストール"
-    Windows での Python のインストール手順は Python 公式の[環境構築ガイド](https://www.python.jp/install/windows/index.html)を参考にして`Python3 のインストール`と`Cコンパイラのインストール`の手順を行ってください。
+    Windows での Python のインストール手順は Python 公式の [環境構築ガイド](https://www.python.jp/install/windows/index.html) を参考にしてください。あわせて [Cコンパイラのインストール](https://www.python.jp/install/windows/install_vstools2017.html) も行っておくといいでしょう。
 
     Windows で Python のバージョンを確認するにはコマンドプロンプト上で下記を実行してください。
 
@@ -73,11 +73,17 @@ $ python -V
     $ py -V
     ```
 
+    Windows に複数バージョンの Python がインストールされている場合は実行する Python のバージョンを `py` コマンドに指定することで Python のバージョンを切り替えながら使用ができます。
+
+    ```shell
+    $ py -3.7.1 -V
+    ```
+
     今後 `python` コマンドを叩く説明が出てきた際は `py` コマンドに置き換えて読んでください。
 
 ## PyCharm のインストール
 
-PyCharm は Python 用の IDE（統合開発環境）です。補完機能やデバッグなど、開発する上で欠かせない機能が豊富に含まれており、開発者の手助けとなってくれるはずです。これも Python と一緒にインストールをしておきます。
+PyCharm は Python 用の IDE（統合開発環境）です。補完機能やデバッグ機能など、開発する上で欠かせない機能が豊富に含まれており、開発者の手助けとなってくれるはずです。これも Python と一緒にインストールをしておきます。
 
 !!! Info "PyCharm"
     https://www.jetbrains.com/pycharm/

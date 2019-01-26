@@ -54,6 +54,11 @@ def check(number):
         print('number is not divisible by 4, 3, or 2')
 ```
 
+`else if` ではなく `elif` であることに注意してください。
+
+!!! tip "switch 文"
+    Python には switch 文がありません。これは `if, elif, else` で代用できて Python の書き方は 1 つというポリシーに従っているためでしょう。
+
 ## 演算子
 
 条件文で使用できる演算子には次のようなものがあります。
@@ -100,7 +105,7 @@ def check(x, y):
 
 ### `in`
 
-リストやタプル内に特定の要素が含まれているかどうかを調べます。
+リスト・タプル・集合内に特定の要素が含まれているかどうかを調べます。
 
 ```python
 def main():
@@ -110,6 +115,18 @@ def main():
 def check(data, x):
     if x in data:
         print(f'{data} contains {x}')
+```
+
+辞書に対して使用するとキーの存在を調べることができます。
+
+```python
+def main():
+    check({'x': 0, 'y': 1, 'z': 2}, 'x')
+
+
+def check(data, key):
+    if key in data:
+        print(f'{data} contains the value of key {key}')
 ```
 
 ### `is`
@@ -129,7 +146,7 @@ def check(x, y):
         print('x is y == True')
 ```
 
-ここでいう **同じ** とは、値が等価という意味ではなく、参照しているインスタンスが同じかどうかを意味しています。言い換えれば、代入元の変数に同じ変数が使用されているかどうかという意味です。
+ここでいう **同じ** とは、値が等価という意味ではなく、参照しているインスタンスが同じかどうかを意味しています。言い換えれば、`is` で比較しようとしている 2 つの変数の代入元を追っていって同じ変数にたどり着く場合に `is` の結果は `True` になります。
 
 ```python
 x = [0, 1, 2]
