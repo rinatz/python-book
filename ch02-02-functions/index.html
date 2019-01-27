@@ -408,8 +408,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="引数に *, ** を付けて渡す" class="md-nav__link">
-    引数に *, ** を付けて渡す
+  <a href="#_5" title="引数のアンパック" class="md-nav__link">
+    引数のアンパック
   </a>
   
 </li>
@@ -793,8 +793,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="引数に *, ** を付けて渡す" class="md-nav__link">
-    引数に *, ** を付けて渡す
+  <a href="#_5" title="引数のアンパック" class="md-nav__link">
+    引数のアンパック
   </a>
   
 </li>
@@ -913,7 +913,7 @@
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of y is {y}&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>引数を順不同で渡さないといけないケースはデフォルト引数が複数あり、かつ一部のデフォルト引数を渡す場合です。キーワード引数は慣習的に <code>=</code> の両端にはスペースを入れずに書きます。</p>
+<p>デフォルト引数が複数あり、かつ一部のデフォルト引数だけを渡す場合によく使用されます。キーワード引数は慣習的に <code>=</code> の両端にはスペースを入れずに書きます。</p>
 <h2 id="args-kwargs"><code>*args, **kwargs</code><a class="headerlink" href="#args-kwargs" title="Permanent link">&para;</a></h2>
 <p>関数の引数名に <code>*</code> が付いたものがあると、その変数は複数の引数を 1 つのタプルとして受け取るようになます。</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -947,7 +947,7 @@
 </pre></div>
 
 <p><code>*</code> 引数と <code>**</code> 引数はどのような名前にしても構いませんが、慣習的に <code>*args, **kwargs</code> が使われます。Python には同名の関数を定義する機能（関数のオーバーロード）がないため、引数に <code>*args, **kwargs</code> を用意させておくことでオーバーロドの代用ができます。</p>
-<h2 id="_5">引数に <code>*, **</code> を付けて渡す<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">引数のアンパック<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>関数に引数を渡すときにタプルに <code>*</code> を付けて渡すとタプルの各要素を個別の引数として渡せるようになります。</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -991,7 +991,7 @@
 <h2 id="_7">戻り値<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>関数内で <code>return</code> キーワードを使うとその行で関数を抜け呼び出し側に制御が戻ります。また <code>return</code> を使うと関数の呼び出し側に値を返すことができます。</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">plus_one</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">plus_one</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># x: 6</span>
 
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
 
@@ -1014,9 +1014,14 @@
 </pre></div>
 
 <p>Python の関数は必ず戻り値を持っており、<code>return</code> を明示的に使わなかった場合は <code>None</code> が返ります。</p>
-<div class="codehilite"><pre><span></span><span class="c1"># return None と書いたのと同じ</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>この関数は下記と同じ意味になります。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
                 
                   

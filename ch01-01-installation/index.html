@@ -845,7 +845,7 @@
 </div>
 <p>プラットフォームごとにインストール手順を説明します。</p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
-<p>pyenv は Windows には対応していませんので pyenv を使用しません。</p>
+<p>pyenv は Windows には対応していませんので pyenv を使用しません。Windows では複数の Python がインストールされていてもそれらを切り替えて使用する機構が用意されているので pyenv が使用できなくても問題ありません。</p>
 <h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
 <p>ターミナル上で下記のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span>$ brew update
@@ -854,7 +854,7 @@ $ brew install pyenv
 
 <div class="admonition info">
 <p class="admonition-title">Homebrew について</p>
-<p><code>brew</code> は Homebrew というパッケージ管理ツールのコマンドです。Homebrew をインストールしていなければ<a href="https://brew.sh/index_ja">公式サイト</a>よりインストールをしてください。</p>
+<p><code>brew</code> は Homebrew というパッケージ管理ツールのコマンドです。Homebrew をインストールしていなければ <a href="https://brew.sh/index_ja">公式サイト</a> よりインストールをしてください。</p>
 </div>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
 <p>ターミナル上で下記のコマンドを実行します。</p>
@@ -881,15 +881,19 @@ $ pyenv rehash
 
 <div class="admonition info">
 <p class="admonition-title">Windows でのインストール</p>
-<p>Windows での Python のインストール手順は Python 公式の<a href="https://www.python.jp/install/windows/index.html">環境構築ガイド</a>を参考にして<code>Python3 のインストール</code>と<code>Cコンパイラのインストール</code>の手順を行ってください。</p>
+<p>Windows での Python のインストール手順は Python 公式の <a href="https://www.python.jp/install/windows/index.html">環境構築ガイド</a> を参考にしてください。あわせて <a href="https://www.python.jp/install/windows/install_vstools2017.html">Cコンパイラのインストール</a> も行っておくといいでしょう。</p>
 <p>Windows で Python のバージョンを確認するにはコマンドプロンプト上で下記を実行してください。</p>
 <div class="codehilite"><pre><span></span>$ py -V
+</pre></div>
+
+<p>Windows に複数バージョンの Python がインストールされている場合は実行する Python のバージョンを <code>py</code> コマンドに指定することで Python のバージョンを切り替えながら使用ができます。</p>
+<div class="codehilite"><pre><span></span>$ py -3.7.1 -V
 </pre></div>
 
 <p>今後 <code>python</code> コマンドを叩く説明が出てきた際は <code>py</code> コマンドに置き換えて読んでください。</p>
 </div>
 <h2 id="pycharm">PyCharm のインストール<a class="headerlink" href="#pycharm" title="Permanent link">&para;</a></h2>
-<p>PyCharm は Python 用の IDE（統合開発環境）です。補完機能やデバッグなど、開発する上で欠かせない機能が豊富に含まれており、開発者の手助けとなってくれるはずです。これも Python と一緒にインストールをしておきます。</p>
+<p>PyCharm は Python 用の IDE（統合開発環境）です。補完機能やデバッグ機能など、開発する上で欠かせない機能が豊富に含まれており、開発者の手助けとなってくれるはずです。これも Python と一緒にインストールをしておきます。</p>
 <div class="admonition info">
 <p class="admonition-title">PyCharm</p>
 <p><a href="https://www.jetbrains.com/pycharm/">https://www.jetbrains.com/pycharm/</a></p>

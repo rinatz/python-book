@@ -802,7 +802,14 @@ $ ./main.py
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
-<p>これは <code>main()</code> 関数を呼び出しているコードです。<code>__name__ == '__main__'</code> の時だけ <code>main()</code> を呼び出すという意味になりますが、この <code>if</code> 文の意味はモジュールの章で説明します。他の言語ではエントリーポイント（プログラムの最初に呼び出される関数）となる関数の名前が <code>main</code> となっていることが多いですが、Python はそもそもエントリーポイントの概念がありません。単純にソースコードの上の行から順番に処理を実行するだけです。</p>
+<p>これは <code>main()</code> 関数を呼び出しているコードです。この <code>if</code> 文の意味はモジュールの章で説明しますので、とりあえずこのように <code>main()</code> を呼ぶのだと理解しておいてください。他の言語ではエントリーポイント（プログラムの最初に呼び出される関数）となる関数の名前が <code>main</code> となっていることが多いですが、Python はそもそもエントリーポイントの概念がありません。さらには、全ての処理を関数内に定義する必要は必ずしもありません。<code>Hello, World!</code> と表示するだけであれば次のように書くこともできます。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>Python の処理はソースコードの上の行から実行されます。そのため、処理を関数内に収めなくても正しく実行することができます。しかし、特別な理由がある場合を除いて、大抵の処理は関数内に書いておいたほうが分かりやすいです。</p>
                 
                   
                 
