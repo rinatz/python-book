@@ -501,6 +501,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-import" title="from-import" class="md-nav__link">
+    from-import
+  </a>
+  
+</li>
+      
       
       
       
@@ -743,6 +750,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#from-import" title="from-import" class="md-nav__link">
+    from-import
+  </a>
+  
+</li>
+      
       
       
       
@@ -763,7 +777,7 @@
                 
                 
                 <h1 id="_1">モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>モジュールとは関数やクラスなどを別ファイルで再利用可能な状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを意識して実装を行います。</p>
+<p>モジュールとは関数やクラスなどを別ファイルで利用できる状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを意識して実装を行います。</p>
 <h2 id="_2">モジュールの書き方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただし <code>Hello, World!</code> プログラムで見たシバン</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -818,6 +832,58 @@
 </pre></div>
 
 <p>しかしこの状態で <code>main.py</code> から <code>import fib</code> をすると import した時点でフィボナッチ数列を出力する処理が突然実行されてしまいます。こういった問題が起こらないようにモジュールとして提供する機能は基本的に関数やクラスにまとめておく必要があります。</p>
+<h2 id="from-import"><code>from-import</code><a class="headerlink" href="#from-import" title="Permanent link">&para;</a></h2>
+<p>モジュール内の関数やクラスにアクセスするときは <code>モジュール名.関数名</code> のように <code>.</code> を使ってアクセスしますが、モジュール名や関数名が長くなってくると少し書き方が面倒になります。こういうときは <code>from</code> 文を使って参照名を短くすることができます。</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="p">(</span><span class="err">関数名</span><span class="p">)</span>
+</pre></div>
+
+<p>このようにすると <code>モジュール名.関数名</code> としていたところが <code>関数名</code> だけで参照できるようになります。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="kn">from</span> <span class="nn">fib</span> <span class="kn">import</span> <span class="n">fib</span>     <span class="c1"># fib.py 内の fib() をインポート</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>             <span class="c1"># fib() を呼び出す</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>ただし <code>import fib</code> とインポートしたときは <code>fib.py</code> 内のすべての関数やクラスが参照できるのに対し、 <code>from fib import fib</code> は <code>fib()</code> のみが参照できます。複数の定義をインポートしたいときは次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="p">(</span><span class="err">関数名</span><span class="p">),</span> <span class="p">(</span><span class="err">関数名</span><span class="p">),</span> <span class="o">...</span>
+</pre></div>
+
+<p>モジュール内の全定義をまとめて <code>from</code> でインポートしたければ次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+<p>ただしこのインポート文は余計な定義をインポートしてしまう恐れがあるため推奨されません。モジュールのインポート方法は次の優先度で検討すべきです。</p>
+<table>
+<thead>
+<tr>
+<th>おすすめ</th>
+<th>インポート文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="😍" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f60d.svg" title=":heart_eyes:" /></td>
+<td><code>import (モジュール名)</code></td>
+</tr>
+<tr>
+<td><img alt="😃" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f603.svg" title=":smiley:" /></td>
+<td><code>from (モジュール名) import (関数名)</code></td>
+</tr>
+<tr>
+<td><img alt="😖" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f616.svg" title=":confounded:" /></td>
+<td><code>from (モジュール名) import *</code></td>
+</tr>
+</tbody>
+</table>
                 
                   
                 

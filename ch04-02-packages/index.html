@@ -481,9 +481,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.2. パッケージ
+      </label>
+    
     <a href="./" title="4.2. パッケージ" class="md-nav__link md-nav__link--active">
       4.2. パッケージ
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="パッケージの作り方" class="md-nav__link">
+    パッケージの作り方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="パッケージを使用する" class="md-nav__link">
+    パッケージを使用する
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -690,6 +726,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="パッケージの作り方" class="md-nav__link">
+    パッケージの作り方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="パッケージを使用する" class="md-nav__link">
+    パッケージを使用する
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -704,6 +763,75 @@
                 
                 
                 <h1 id="_1">パッケージ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>モジュールを使うことで関数やクラスをまとめることができますが、1 つのモジュール内にたくさんの定義を含めてしまうとコードが長くなってしまい分かりづらくなってしまいます。そういうときはファイルを分割して複数のモジュールを作成し、それを 1 つのディレクトリに集約することで綺麗に整理することができます。このように複数のモジュールを集約したディレクトリのことをパッケージといいます。</p>
+<p>モジュールとパッケージの関係はファイルシステムでいうところのファイルとディレクトリの関係に一致します。</p>
+<table>
+<thead>
+<tr>
+<th>ファイルシステム</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ファイル</td>
+<td>モジュール</td>
+</tr>
+<tr>
+<td>ディレクトリ</td>
+<td>パッケージ</td>
+</tr>
+</tbody>
+</table>
+<p>ファイル・ディレクトリのことを Python の世界ではモジュール・パッケージと呼んでいると理解して概ね問題ありません。</p>
+<h2 id="_2">パッケージの作り方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>パッケージはディレクトリのことだと説明しましたが、単に Python のソースコードをディレクトリに集約しただけではパッケージにはなりません。ディレクトリをパッケージとして扱うためには <code>__init__.py</code> というファイルをディレクトリ内に用意しておく必要があります。</p>
+<div class="codehilite"><pre><span></span>example
+├── __init__.py     # これがないとパッケージとは呼べない
+├── a.py
+└── b.py
+</pre></div>
+
+<p><code>__init__.py</code> は空ファイルとして作成してもらって問題ありません。Python のソースコードをディレクトリに集約するときは、ほぼ間違いなくパッケージを作るときなので、必ず <code>__init__.py</code> を作るようにしましょう。</p>
+<h2 id="_3">パッケージを使用する<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>パッケージもモジュールと同様、他のファイルに取り込まれることを想定した機能なので <code>import</code> 構文を使って取り込む
+ことができます。いま、パッケージの構成が次のようになっていたとしましょう。</p>
+<div class="codehilite"><pre><span></span>example
+├── __init__.py
+├── a.py
+│  └── def fib(n)
+└── b.py
+</pre></div>
+
+<p>このとき、関数 <code>fib(n)</code> を呼び出したいときには次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="kn">import</span> <span class="nn">example</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">example</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p><code>パッケージ名.モジュール名.関数名</code> のように <code>.</code> で区切って関数にアクセスすることができます。ちなみにパッケージ内にパッケージが含まれていても問題ありません。</p>
+<div class="admonition warning">
+<p class="admonition-title">パッケージ名の命名規則</p>
+<p>パッケージ名に <code>-</code> を使用するのは避けましょう。なぜなら <code>xxx-yyy</code> というパッケージを作ったとき</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">xxx</span><span class="o">-</span><span class="n">yyy</span>
+</pre></div>
+
+<p>のように import することになりますが <code>-</code> が引き算だと解釈されてしまいます。一般的にパッケージ名は次のルールを守るべきとされています。</p>
+<ul>
+<li>区切り文字は禁止（<code>-</code> 以外も）</li>
+<li>全て小文字</li>
+</ul>
+</div>
                 
                   
                 
