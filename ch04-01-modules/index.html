@@ -469,9 +469,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.1. モジュール
+      </label>
+    
     <a href="./" title="4.1. モジュール" class="md-nav__link md-nav__link--active">
       4.1. モジュール
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="モジュールの書き方" class="md-nav__link">
+    モジュールの書き方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="モジュール作成の注意点" class="md-nav__link">
+    モジュール作成の注意点
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -690,6 +726,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="モジュールの書き方" class="md-nav__link">
+    モジュールの書き方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="モジュール作成の注意点" class="md-nav__link">
+    モジュール作成の注意点
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -704,6 +763,61 @@
                 
                 
                 <h1 id="_1">モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>モジュールとは関数やクラスなどを別ファイルで再利用可能な状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを意識して実装を行います。</p>
+<h2 id="_2">モジュールの書き方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただし <code>Hello, World!</code> プログラムで見たシバン</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+</pre></div>
+
+<p>はモジュールを実装するときには不要です。たとえ書いても悪さをすることはありませんが、実行するスクリプトとしては使用しないので書く意味はあまりありません。</p>
+<p>フィボナッチ数列 <code>0, 1, 1, 2, 3, 5, 8, ...</code> を出力するような関数 <code>fib(n)</code> をモジュールとして書いてみましょう。</p>
+<p><strong>fib.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+    <span class="k">print</span><span class="p">()</span>
+</pre></div>
+
+<p><code>fib.py</code> を別のファイル <code>main.py</code> に取り込んでこの関数を実行するには次のように書きます。</p>
+<p><strong>main.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="kn">import</span> <span class="nn">fib</span>          <span class="c1"># fib.py を取り込む</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">fib</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># fib.py 内の fib() を呼び出す</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<h2 id="_3">モジュール作成の注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Python のコードは必ずしも関数内に含める必要はなく、ファイル内に直接処理を書くこともできます。</p>
+<p><strong>fib.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">print</span><span class="p">()</span>
+</pre></div>
+
+<p>しかしこの状態で <code>main.py</code> から <code>import fib</code> をすると import した時点でフィボナッチ数列を出力する処理が突然実行されてしまいます。こういった問題が起こらないようにモジュールとして提供する機能は基本的に関数やクラスにまとめておく必要があります。</p>
                 
                   
                 
