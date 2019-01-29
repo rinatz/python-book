@@ -447,6 +447,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#__init__" title="__init__()" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#self" title="self" class="md-nav__link">
     self
   </a>
@@ -463,6 +470,13 @@
         <li class="md-nav__item">
   <a href="#_4" title="継承" class="md-nav__link">
     継承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="インターフェース" class="md-nav__link">
+    インターフェース
   </a>
   
 </li>
@@ -739,6 +753,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#__init__" title="__init__()" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#self" title="self" class="md-nav__link">
     self
   </a>
@@ -755,6 +776,13 @@
         <li class="md-nav__item">
   <a href="#_4" title="継承" class="md-nav__link">
     継承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="インターフェース" class="md-nav__link">
+    インターフェース
   </a>
   
 </li>
@@ -779,24 +807,48 @@
                 
                 
                 <h1 id="_1">クラス<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>クラスとは新しい型を定義するための仕組みであり、タプルのように複数の変数を集約して扱うためのデータ構造を提供することができます。</p>
+<p>クラスとは新しい型を定義するための仕組みです。クラスを使うことで複数の変数と関数を集約した変数を作ることができるようになります。</p>
 <h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>クラスを定義するには <code>class</code> キーワードにクラス名を付けて定義します。さらにそのクラスで管理する変数を定義するために <code>__init__()</code> という関数を定義します。</p>
+<p>クラスを定義するには <code>class</code> キーワードにクラス名を付けて定義します。下記の <code>Rectangle</code> クラスは長方形に関する情報を扱うクラスで、長方形の幅と高さをメンバ変数として持ったクラスになります。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+</span><span class="hll">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of width is {rectangle.width}&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of height is {rectangle.height}&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<h2 id="__init__"><code>__init__()</code><a class="headerlink" href="#__init__" title="Permanent link">&para;</a></h2>
+<p><code>__init__()</code> はインスタンス化するときに必ず呼び出される初期化関数です。引数には初期化に必要な値を渡すことができます。ただし第 1 引数は必ず <code>self</code> という引数にして下さい。<code>self</code> については後述します。</p>
+<p>クラスで扱うメンバ変数を定義したいときは次のようにします。</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+</span></pre></div>
+
+<p>これはクラスのメンバ変数として <code>width, height</code> を用意するという意味になります。これで <code>Rectangle</code> という型が作成され、その型は <code>width, height</code> をメンバ変数として持っていることになります。</p>
+<p><code>width</code> に <code>10</code> 、<code>height</code> に <code>20</code> を渡して <code>Rectangle</code> の変数を作るには次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of width is {rectangle.width}&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of height is {rectangle.height}&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p><code>__init__()</code> にはそのクラスを初期化するために必要な変数を引数として渡します。<code>self.width = width</code> と書くことで、そのクラスには <code>width</code> というメンバ変数が定義されます。<code>self.height = height</code> についても同様です。これで <code>Rectangle</code> という型が作成され、その型は <code>width, height</code> をメンバ変数として持っていることになります。</p>
-<p><code>Rectangle</code> をインスタンス化するには次のように書きます。</p>
-<div class="codehilite"><pre><span></span><span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of width is {rectangle.width}&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of height is {rectangle.height}&#39;</span><span class="p">)</span>
-</pre></div>
-
-<p><code>Rectangle(10, 20)</code> と書くと <code>__init__(self, 10, 20)</code> のように初期化関数が呼び出されます。</p>
 <h2 id="self"><code>self</code><a class="headerlink" href="#self" title="Permanent link">&para;</a></h2>
 <p><code>Rectangle</code> をインスタンス化する際は <code>10, 20</code> という 2 つの値しか渡してないのに <code>__init__()</code> の第 1 引数には <code>self</code> という変数が含まれており、合計 3 つの引数が用意されています。これは一体どういうことでしょうか。この謎はクラスのインスタンス化の仕組みを理解すれば分かってきます。</p>
 <p><code>rectangle = Rectangle(10, 20)</code> という処理をイメージで説明すると、だいたいこんな感じになります。</p>
@@ -806,20 +858,24 @@
 
 <p>すなわち <code>self</code> というのはクラスインスタンスを表す変数です。</p>
 <h2 id="_3">関数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>クラスには関数を定義することもできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+<p>クラスには関数を定義することもできます。クラスのメンバとして定義された関数はメソッドとも呼ばれます。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
 
-    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
-
+<span class="hll">    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-    <span class="n">area</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
-
+<span class="hll">    <span class="n">area</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The area is {area}&#39;</span><span class="p">)</span>
 
 
@@ -830,7 +886,11 @@
 <p>クラスに関数を定義するときは第 1 引数が <code>self</code> である必要があります。これは <code>rectangle.area()</code> という呼び出しは実際には <code>Rectangle.area(rectangle)</code> のように呼び出されるためです。</p>
 <h2 id="_4">継承<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>定義済みのクラスのメンバを持つ新たなクラスを作成することもできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 
@@ -846,19 +906,71 @@
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
-<p><code>Square</code> クラスは <code>Rectangle</code> クラスのメンバを全て引き継いだクラスになっており、これをクラスの継承といいます。<code>Rectangle</code> が長方形を扱うクラスなのに対し、<code>Square</code> は正方形を扱うクラスになっています。さらに <code>Square</code> は <code>Rectangle</code> が持つ全てのメンバ <code>square.width, square.height, square.area()</code> が参照できます。</p>
-<div class="admonition tip">
-<p class="admonition-title">インターフェース</p>
-<p>Python にはインターフェースが存在しません。また多態性を実現するのにクラスに継承関係を作る必要もありません。例えば、継承関係を持たない 2 つのクラス <code>A, B</code> が同名の関数 <code>f()</code> を持っていれば次のコードは正しく実行できます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">()</span>
+<p><code>Square</code> クラスは <code>Rectangle</code> クラスのメンバを全て引き継いだクラスになっており、これをクラスの継承といいます。<code>Rectangle</code> が長方形を扱うクラスなのに対し、<code>Square</code> は正方形を扱うクラスになっており、<code>Rectangle</code> が持つ全てのメンバ <code>square.width, square.height, square.area()</code> が参照できます。</p>
+<h2 id="_5">インターフェース<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Python にはインターフェースが存在しません。また多態性を実現するのにクラスに継承関係を作る必要もありません。それを確認するために継承関係にない 2 つのクラス <code>A, B</code> を作ってみます。またメソッドとして <code>greet()</code> という関数をそれぞれのクラスで定義しておきます。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 
-<span class="n">call</span><span class="p">(</span><span class="n">A</span><span class="p">())</span>
-<span class="n">call</span><span class="p">(</span><span class="n">B</span><span class="p">())</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;This is class A&#39;</span><span class="p">)</span>
+</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;This is class B&#39;</span><span class="p">)</span>
+</span></pre></div>
+
+<p>次に <code>greet()</code> 関数をメンバに持った変数を受け取るような関数 <code>call()</code> を次のように作成します。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>
 </pre></div>
 
-<p>Python は例え継承関係を持っていなくてもコードが実行できるような構造になっていればそれで OK とします。このような構造のことを <strong>ダックタイピング</strong> といいます。</p>
-</div>
+<p>この関数に <code>A, B</code> の変数をそれぞれ渡してみます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">call</span><span class="p">(</span><span class="n">A</span><span class="p">())</span>
+    <span class="n">call</span><span class="p">(</span><span class="n">B</span><span class="p">())</span>
+</pre></div>
+
+<p>ソースコードの全体は次のようになります。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;This is class A&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;This is class B&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">call</span><span class="p">(</span><span class="n">A</span><span class="p">())</span>
+    <span class="n">call</span><span class="p">(</span><span class="n">B</span><span class="p">())</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>このコードは問題なく実行することができます。Python は例え継承関係を持っていなくてもクラスの構造（メンバ変数や関数の名前・引数）が一致していれば同種の型として扱えるようになります。このような多態性の実現方法のことを <strong>ダックタイピング</strong> といいます。</p>
                 
                   
                 

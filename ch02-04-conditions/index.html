@@ -392,15 +392,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#if" title="if を使った条件文" class="md-nav__link">
-    if を使った条件文
+  <a href="#if" title="if" class="md-nav__link">
+    if
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#elif" title="elif を使った複数の条件文" class="md-nav__link">
-    elif を使った複数の条件文
+  <a href="#elif" title="elif" class="md-nav__link">
+    elif
   </a>
   
 </li>
@@ -759,15 +759,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#if" title="if を使った条件文" class="md-nav__link">
-    if を使った条件文
+  <a href="#if" title="if" class="md-nav__link">
+    if
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#elif" title="elif を使った複数の条件文" class="md-nav__link">
-    elif を使った複数の条件文
+  <a href="#elif" title="elif" class="md-nav__link">
+    elif
   </a>
   
 </li>
@@ -834,38 +834,42 @@
                 
                 <h1 id="_1">条件文<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>ある条件を満たしている時だけ行いたい処理がある場合は条件文を使って処理を書きます。</p>
-<h2 id="if"><code>if</code> を使った条件文<a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<h2 id="if"><code>if</code><a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">check</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">check</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;condition was true&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;condition was false&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
-<p><code>number</code> の値が <code>5</code> 未満かどうかで出力されるメッセージが変化します。 <code>if</code> に渡す条件式は <code>bool</code> として評価されるものを渡すべきですが、実際には何でも渡すことができます。例えば次のように他の値と比較せずに単に整数を渡すこともできます。</p>
+<p><code>x</code> の値が <code>5</code> 未満かどうかで出力されるメッセージが変化します。<code>if</code> に渡す値は必ずしも評価式である必要はありません。次のように値そのものを渡すこともできます。</p>
 <div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is not 0&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>この条件は <code>x != 0</code> と同じ、すなわち <code>x</code> が <code>0</code> でないという意味になります。同様に</p>
-<div class="codehilite"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">(),</span> <span class="p">{},</span> <span class="bp">None</span>
-</pre></div>
-
-<p>は全て <code>False</code> と解釈されます。</p>
-<h2 id="elif"><code>elif</code> を使った複数の条件文<a class="headerlink" href="#elif" title="Permanent link">&para;</a></h2>
+<p>この条件は <code>x</code> を <code>bool</code> に変換した値が評価されます。値を <code>bool</code> に変換した場合の結果は次のように評価されます。</p>
+<ul>
+<li><code>0, 0.0, '', b'', [], (), {}, set(), None</code> のとき <code>False</code></li>
+<li>それ以外のとき <code>True</code></li>
+</ul>
+<h2 id="elif"><code>elif</code><a class="headerlink" href="#elif" title="Permanent link">&para;</a></h2>
 <p>複数の条件を見たい場合は <code>if, elif, else</code> を使います。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is divisible by 4&#39;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -874,83 +878,87 @@
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is divisible by 2&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is not divisible by 4, 3, or 2&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">check</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </pre></div>
 
 <p><code>else if</code> ではなく <code>elif</code> であることに注意してください。</p>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">switch 文</p>
-<p>Python には switch 文がありません。これは <code>if, elif, else</code> で代用できて Python の書き方は 1 つというポリシーに従っているためでしょう。</p>
+<p>Python には switch 文がありませんので <code>if, elif, else</code> を使用して下さい。</p>
 </div>
 <h2 id="_2">演算子<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>条件文で使用できる演算子には次のようなものがあります。</p>
 <h3 id="and"><code>and</code><a class="headerlink" href="#and" title="Permanent link">&para;</a></h3>
 <p>複数の条件が成立するかどうかを調べるときに使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is in [0, 10)&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 <p>ただし変数の範囲チェックをする場合は <code>and</code> を使わなくてもシンプルな書き方ができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>     <span class="c1"># x &gt;= 0 and x &lt; 10 と同じ</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is in [0, 10)&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 <h3 id="or"><code>or</code><a class="headerlink" href="#or" title="Permanent link">&para;</a></h3>
 <p>複数の条件のうちどれか 1 つが成立するかどうかを調べるときに使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Either x or y is a positive value&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 <h3 id="in"><code>in</code><a class="headerlink" href="#in" title="Permanent link">&para;</a></h3>
 <p>リスト・タプル・集合内に特定の要素が含まれているかどうかを調べます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{data} contains {x}&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">check</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 <p>辞書に対して使用するとキーの存在を調べることができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{data} contains the value of key {key}&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">check</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
 </pre></div>
 
 <h3 id="is"><code>is</code><a class="headerlink" href="#is" title="Permanent link">&para;</a></h3>
 <p><code>is</code> は 2 つの変数が同じインスタンスを参照しているかどうかを調べるときに使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is y == True&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span>
     <span class="n">check</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is y == True&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>ここでいう <strong>同じ</strong> とは、値が等価という意味ではなく、参照しているインスタンスが同じかどうかを意味しています。言い換えれば、<code>is</code> で比較しようとしている 2 つの変数の代入元を追っていって同じ変数にたどり着く場合に <code>is</code> の結果は <code>True</code> になります。</p>
+<p>ここでいう「同じ」とは保持している値が等価という意味ではありません。参照しているインスタンスが同じかどうかを意味しています。言い換えれば変数 <code>x, y</code> に対して、これらの代入元の変数をたどっていって同じ変数にたどり着くなら <code>x is y</code> は <code>True</code> になります。</p>
 <div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">y</span>

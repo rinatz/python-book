@@ -404,8 +404,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for" title="for を使ったループ文" class="md-nav__link">
-    for を使ったループ文
+  <a href="#for" title="for" class="md-nav__link">
+    for
   </a>
   
     <nav class="md-nav">
@@ -424,8 +424,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#while" title="while を使ったループ文" class="md-nav__link">
-    while を使ったループ文
+  <a href="#while" title="while" class="md-nav__link">
+    while
   </a>
   
 </li>
@@ -731,8 +731,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for" title="for を使ったループ文" class="md-nav__link">
-    for を使ったループ文
+  <a href="#for" title="for" class="md-nav__link">
+    for
   </a>
   
     <nav class="md-nav">
@@ -751,8 +751,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#while" title="while を使ったループ文" class="md-nav__link">
-    while を使ったループ文
+  <a href="#while" title="while" class="md-nav__link">
+    while
   </a>
   
 </li>
@@ -778,7 +778,7 @@
                 
                 <h1 id="_1">ループ文<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>リストの要素に対して繰り返し同様の処理を実行する場合は <code>for</code> や <code>while</code> を使います。</p>
-<h2 id="for"><code>for</code> を使ったループ文<a class="headerlink" href="#for" title="Permanent link">&para;</a></h2>
+<h2 id="for"><code>for</code><a class="headerlink" href="#for" title="Permanent link">&para;</a></h2>
 <p>リストに対して <code>for</code> を使う場合は次のように書きます。</p>
 <div class="codehilite"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
@@ -793,7 +793,7 @@
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The key is {key}&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>キーに対する値のループあるいはキーと値の両方をループで参照したい場合はそれぞれ <code>values(), items()</code> メソッドを使用します。</p>
+<p>値のループあるいはキーと値の両方をループで参照したい場合はそれぞれ <code>values(), items()</code> メソッドを使用します。</p>
 <div class="codehilite"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
@@ -809,7 +809,7 @@
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value is {i}&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p><code>range(10)</code> で 0 以上 10 未満（すなわち 0 ～ 9） の整数をループします。<code>range()</code> は終了値だけでなく、開始値と刻み幅を指定することもできます。<code>range()</code> の引数は次のようになっています。</p>
+<p><code>range(10)</code> で 0 以上 10 未満（すなわち 0 ～ 9） の整数をループします。<code>range()</code> は終了値だけでなく、開始値と刻み幅を指定することもできます。</p>
 <div class="codehilite"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
@@ -821,7 +821,7 @@
 <li><code>range(10, 0, -1)</code>: 10, 9, 8, 7, 6, 5, 4, 3, 2, 1</li>
 </ul>
 </div>
-<h2 id="while"><code>while</code> を使ったループ文<a class="headerlink" href="#while" title="Permanent link">&para;</a></h2>
+<h2 id="while"><code>while</code><a class="headerlink" href="#while" title="Permanent link">&para;</a></h2>
 <p><code>while</code> は特定の条件が <code>True</code> である間ループ処理を続けるというものです。</p>
 <div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>

@@ -765,13 +765,9 @@
                 
                 
                 <h1 id="_1">モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>モジュールとは関数やクラスなどを別ファイルで利用できる状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを意識して実装を行います。</p>
+<p>モジュールとは関数やクラスなどを別ファイルで利用できる状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを念頭に実装を行います。</p>
 <h2 id="_2">モジュールの書き方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただし <code>Hello, World!</code> プログラムで見たシバン</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-</pre></div>
-
-<p>はモジュールを実装するときには不要です。たとえ書いても悪さをすることはありませんが、実行するスクリプトとしては使用しないので書く意味はあまりありません。</p>
+<p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただしシバンはモジュールを実装するときには不要です。たとえ書いても悪さをすることはありませんが、実行するスクリプトとしては使用しないので書く意味はあまりありません。</p>
 <p>フィボナッチ数列 <code>0, 1, 1, 2, 3, 5, 8, ...</code> を出力するような関数 <code>fib(n)</code> をモジュールとして書いてみましょう。</p>
 <p><strong>fib.py</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -849,7 +845,7 @@
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
-<p>ただしこのインポート文は余計な定義をインポートしてしまう恐れがあるため推奨されません。モジュールのインポート方法は次の優先度で検討すべきです。</p>
+<p>ただしこのインポート文は余計な定義をインポートしてしまう恐れがあるため推奨されません。モジュールのインポート方法は次の優先度で検討して下さい。</p>
 <table>
 <thead>
 <tr>

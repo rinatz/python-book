@@ -826,14 +826,14 @@
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
+<span class="k">def</span> <span class="nf">another_function</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Another function&#39;</span><span class="p">)</span>
+
+
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 
     <span class="n">another_function</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Another function&#39;</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -847,25 +847,25 @@
 </div>
 <h2 id="_2">引数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>関数には引数を渡すことができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of y is {y}&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">another_function</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 
 <h2 id="_3">デフォルト引数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>関数には引数を明示的に渡さなかった場合にデフォルト値を暗黙的に渡す機能があります。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">another_functin</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># x: 5, y: 3</span>
-    <span class="n">another_functin</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>      <span class="c1"># x: 7, y: 10</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of y is {y}&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">another_functin</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="c1"># x: 5, y: 3</span>
+    <span class="n">another_functin</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>      <span class="c1"># x: 7, y: 10</span>
 </pre></div>
 
 <p>デフォルト引数は引数内で一番最後に渡す必要があります。</p>
@@ -894,46 +894,46 @@
 <p>デフォルト引数の定義は慣習的に <code>=</code> の両端にはスペースを入れずに書きます。</p>
 </div>
 <h2 id="_4">キーワード引数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>引数名を次のように指定すれば引数を順不同で渡すこともできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<p>関数を呼び出すときに引数名を指定すれば引数を順不同で渡すこともできます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of y is {y}&#39;</span><span class="p">)</span>
-</pre></div>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="hll">    <span class="n">another_function</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></pre></div>
 
 <h2 id="args-kwargs"><code>*args, **kwargs</code><a class="headerlink" href="#args-kwargs" title="Permanent link">&para;</a></h2>
 <p>関数の引数名に <code>*</code> が付いたものがあると、その変数は複数の引数を 1 つのタプルとして受け取るようになます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>         <span class="c1"># x: 0</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of args is {args}&#39;</span><span class="p">)</span>   <span class="c1"># args: (1, 2, 3)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">another_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 <p>また引数名に <code>**</code> を付けると複数のキーワード引数を 1 つの辞書として受け取るようになります。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>             <span class="c1"># x: 0</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of kwargs is {kwargs}&#39;</span><span class="p">)</span>   <span class="c1"># kwargs: {&#39;y&#39;: 10, &#39;z&#39;: 20}</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">another_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
 <p><code>*args, **kwargs</code> は併用することも可能です。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>             <span class="c1"># x: 0</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of args is {args}&#39;</span><span class="p">)</span>       <span class="c1"># args: (1, 2)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of kwargs is {kwargs}&#39;</span><span class="p">)</span>   <span class="c1"># kwargs: {&#39;y&#39;: 10, &#39;z&#39;: 20}</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">another_function</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
 <div class="admonition note">
@@ -942,27 +942,27 @@
 </div>
 <h2 id="_5">引数のアンパック<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>関数に引数を渡すときにタプルに <code>*</code> を付けて渡すとタプルの各要素を個別の引数として渡せるようになります。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>             <span class="c1"># another_function(0, 1, 2)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>     <span class="c1"># x: 0</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of y is {y}&#39;</span><span class="p">)</span>     <span class="c1"># y: 1</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of z is {z}&#39;</span><span class="p">)</span>     <span class="c1"># z: 2</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">another_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>             <span class="c1"># another_function(0, 1, 2)</span>
 </pre></div>
 
 <p>また辞書に <code>**</code> を付けて渡すと辞書の各要素をキーワード引数として渡せるようになります。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-    <span class="n">another_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>          <span class="c1"># another_function(x=0, y=1, z=2)</span>
-
-
-<span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>     <span class="c1"># x: 0</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of y is {y}&#39;</span><span class="p">)</span>     <span class="c1"># y: 1</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of z is {z}&#39;</span><span class="p">)</span>     <span class="c1"># z: 2</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+    <span class="n">another_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>          <span class="c1"># another_function(x=0, y=1, z=2)</span>
 </pre></div>
 
 <h2 id="_6">型ヒント<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -974,14 +974,14 @@
 <p>型ヒントを使用しなければどんな型の変数も渡せます。これはしばしば混乱の元となるので、なるべく型ヒントを使うようにしましょう。</p>
 <h2 id="_7">戻り値<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>関数の呼び出し側に値を返却する場合は <code>return</code> を使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">plus_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">plus_one</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># x: 6</span>
 
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;The value of x is {x}&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">plus_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 
 <p>戻り値として返す型は複数あっても構いません。</p>
