@@ -49,9 +49,10 @@ Vagrant.configure("2") do |config|
 
       PATH="${HOME}/.pyenv/bin:${PATH}"
       PYTHON_VERSION="3.7.2"
+      CONFIGURE_OPTS="--enable-shared"
 
       eval "$(pyenv init -)"
-      CONFIGURE_OPTS="--enable-shared" pyenv install ${PYTHON_VERSION}
+      pyenv install ${PYTHON_VERSION}
       pyenv global ${PYTHON_VERSION}
     fi
   SHELL
