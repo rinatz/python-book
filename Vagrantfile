@@ -54,6 +54,8 @@ Vagrant.configure("2") do |config|
       eval "$(pyenv init -)"
       pyenv install ${PYTHON_VERSION}
       pyenv global ${PYTHON_VERSION}
+
+      pip install -U pip pipenv
     fi
   SHELL
 end
