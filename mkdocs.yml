@@ -43,7 +43,6 @@ markdown_extensions:
 
 nav:
   - ホーム: index.md
-  - はじめに: ch00-00-introduction.md
   - 1. Python を始める:
     - 1.1. インストール: ch01-01-installation.md
     - 1.2. Hello, World!: ch01-02-hello-world.md

@@ -1,37 +1,17 @@
 # インストール
 
-ここでは開発環境の構築手順について説明します。インストールするものは次のとおりです。
+Python 開発に必要な下記のツールをインストールします。
 
 - pyenv
 - Python
 - PyCharm
 
-## pyenv のインストール
+## pyenv
 
-macOS, Linux では最初から Python がインストールされていますが最新版ではありません。また最新版をシステムに入れると古いバージョンと競合を起こすことがあり、好ましくないとされています。そういった問題を解決するためにユーザのホームディレクトリ内に Python をインストールするための pyenv というツールがよく使われます。ここでは pyenv を使った Python のインストール手順を説明します。
+pyenv は特定のバージョンの Python をインストールしたり、使用する Python のバージョンの設定を行ったりするためのツールです。
 
 !!! info "pyenv"
     https://github.com/pyenv/pyenv
-
-プラットフォームごとにインストール手順を説明します。
-
-### Windows
-
-pyenv は Windows には対応していませんので pyenv を使用しません。Windows では複数の Python がインストールされていてもそれらを切り替えて使用する機構が用意されているので pyenv が使用できなくても問題ありません。
-
-### macOS
-
-ターミナル上で下記のコマンドを実行します。
-
-```shell
-$ brew update
-$ brew install pyenv
-```
-
-!!! info "Homebrew について"
-    `brew` は Homebrew というパッケージ管理ツールのコマンドです。Homebrew をインストールしていなければ [公式サイト](https://brew.sh/index_ja) よりインストールをしてください。
-
-### Linux
 
 ターミナル上で下記のコマンドを実行します。
 
@@ -43,56 +23,68 @@ $ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\
 $ exec "$SHELL"
 ```
 
-## Python のインストール
+!!! warning
+    pyenv は Windows では未対応です。インストールしなくても問題ありません。
 
-pyenv で Python をインストールするには、まずインストールする Python のバージョンを確認する必要があります。下記のコマンドを打つとインストールできるバージョンのリストが表示されます。
+## Python
+
+pyenv を使ってインストールできる Python のバージョンリストを表示します。
 
 ```shell
 $ pyenv install -l
+  ...
+  3.7-dev
+  3.7.1
+  3.7.2
+  3.8-dev
+  activepython-2.7.14
+  activepython-3.5.4
+  activepython-3.6.0
+  ...
 ```
 
-表示されたリストの中にある `3.x.x` というバージョンの中で一番最新のものを指定して下記のようにインストールします（下記は `3.7.1` の場合）。
+表示されたリストの中にある `3.x.x` というバージョン（`3.x.x-dev` は除く）の中で一番最新のものを指定して下記のようにインストールします（下記は `3.7.2` の場合）。
 
 ```shell
-$ CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
+$ CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.2
 $ pyenv rehash
+$ pyenv global 3.7.2
 ```
 
 インストールが成功したかどうかを下記コマンドで確認します。バージョンが表示されれば成功です。
 
 ```shell
 $ python -V
+Python 3.7.2
 ```
 
 !!! info "Windows でのインストール"
-    Windows での Python のインストール手順は Python 公式の [環境構築ガイド](https://www.python.jp/install/windows/index.html) を参考にしてください。あわせて [Cコンパイラのインストール](https://www.python.jp/install/windows/install_vstools2017.html) も行っておくといいでしょう。
+    下記のリンクを参考にしてインストールをしてください。
 
-    Windows で Python のバージョンを確認するにはコマンドプロンプト上で下記を実行してください。
+    1. [環境構築ガイド](https://www.python.jp/install/windows/index.html)
+    1. [Cコンパイラのインストール](https://www.python.jp/install/windows/install_vstools2017.html)
+
+    コマンドプロンプト上で下記のコマンドを打ってバージョンが表示されれば成功です。
 
     ```shell
     $ py -V
+    Python 3.7.2
     ```
 
-    Windows に複数バージョンの Python がインストールされている場合は実行する Python のバージョンを `py` コマンドに指定することで Python のバージョンを切り替えながら使用ができます。
-
-    ```shell
-    $ py -3.7.1 -V
-    ```
-
-    今後 `python` コマンドを叩く説明が出てきた際は `py` コマンドに置き換えて読んでください。
+    本サイトに登場する `python` というコマンドは全て `py` と読み替えてください。
 
 ## PyCharm のインストール
 
-PyCharm は Python 用の IDE（統合開発環境）です。補完機能やデバッグ機能など、開発する上で欠かせない機能が豊富に含まれており、開発者の手助けとなってくれるはずです。これも Python と一緒にインストールをしておきます。
+Python 用の IDE（統合開発環境）である PyCharm をインストールします。
 
 !!! Info "PyCharm"
     https://www.jetbrains.com/pycharm/
 
 PyCharm には Professional 版と Community 版の 2 つのエディションが用意されています。
 
-| エディション | ライセンス | 機能                 |
-| ------------ | ---------- | -------------------- |
-| Professional | 有料       | 全機能が使用可能     |
-| Community    | 無料       | 一部の機能は使用不可 |
+| エディション | ライセンス | 機能                 | 本サイトで使用     |
+| ------------ | ---------- | -------------------- |--------------------|
+| Professional | 有料       | 全機能が使用可能     |                    |
+| Community    | 無料       | 一部の機能は使用不可 | :heavy_check_mark: |
 
-本サイトでは Community 版を使用しますので Community 版をインストールしてください。
+Community 版をインストールして下さい。
