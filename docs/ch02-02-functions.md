@@ -7,14 +7,14 @@
 # -*- coding: utf-8 -*-
 
 
+def another_function():
+    print('Another function')
+
+
 def main():
     print('Hello, World!')
 
     another_function()
-
-
-def another_function():
-    print('Another function')
 
 
 if __name__ == '__main__':
@@ -31,13 +31,13 @@ if __name__ == '__main__':
 関数には引数を渡すことができます。
 
 ```python
-def main():
-    another_function(5, 6)
-
-
 def another_function(x, y):
     print(f'The value of x is {x}')
     print(f'The value of y is {y}')
+
+
+def main():
+    another_function(5, 6)
 ```
 
 ## デフォルト引数
@@ -45,14 +45,14 @@ def another_function(x, y):
 関数には引数を明示的に渡さなかった場合にデフォルト値を暗黙的に渡す機能があります。
 
 ```python
-def main():
-    another_functin(5, 3)   # x: 5, y: 3
-    another_functin(7)      # x: 7, y: 10
-
-
 def another_function(x, y=10):
     print(f'The value of x is {x}')
     print(f'The value of y is {y}')
+
+
+def main():
+    another_functin(5, 3)   # x: 5, y: 3
+    another_functin(7)      # x: 7, y: 10
 ```
 
 デフォルト引数は引数内で一番最後に渡す必要があります。
@@ -83,16 +83,16 @@ def f3(y=10, x, z=20):
 
 ## キーワード引数
 
-引数名を次のように指定すれば引数を順不同で渡すこともできます。
+関数を呼び出すときに引数名を指定すれば引数を順不同で渡すこともできます。
 
-```python
-def main():
-    another_function(y=10, x=20)
-
-
+```python hl_lines="7"
 def another_function(x, y):
     print(f'The value of x is {x}')
     print(f'The value of y is {y}')
+
+
+def main():
+    another_function(y=10, x=20)
 ```
 
 ## `*args, **kwargs`
@@ -100,38 +100,38 @@ def another_function(x, y):
 関数の引数名に `*` が付いたものがあると、その変数は複数の引数を 1 つのタプルとして受け取るようになます。
 
 ```python
-def main():
-    another_function(0, 1, 2, 3)
-
-
 def another_function(x, *args):
     print(f'The value of x is {x}')         # x: 0
     print(f'The value of args is {args}')   # args: (1, 2, 3)
+
+
+def main():
+    another_function(0, 1, 2, 3)
 ```
 
 また引数名に `**` を付けると複数のキーワード引数を 1 つの辞書として受け取るようになります。
 
 ```python
-def main():
-    another_function(0, y=10, z=20)
-
-
 def another_function(x, **kwargs):
     print(f'The value of x is {x}')             # x: 0
     print(f'The value of kwargs is {kwargs}')   # kwargs: {'y': 10, 'z': 20}
+
+
+def main():
+    another_function(0, y=10, z=20)
 ```
 
 `*args, **kwargs` は併用することも可能です。
 
 ```python
-def main():
-    another_function(0, 1, 2, y=10, z=20)
-
-
 def another_function(x, *args, **kwargs):
     print(f'The value of x is {x}')             # x: 0
     print(f'The value of args is {args}')       # args: (1, 2)
     print(f'The value of kwargs is {kwargs}')   # kwargs: {'y': 10, 'z': 20}
+
+
+def main():
+    another_function(0, 1, 2, y=10, z=20)
 ```
 
 !!! note
@@ -142,29 +142,29 @@ def another_function(x, *args, **kwargs):
 関数に引数を渡すときにタプルに `*` を付けて渡すとタプルの各要素を個別の引数として渡せるようになります。
 
 ```python
-def main():
-    args = (0, 1, 2)
-    another_function(*args)             # another_function(0, 1, 2)
-
-
 def another_function(x, y, z):
     print(f'The value of x is {x}')     # x: 0
     print(f'The value of y is {y}')     # y: 1
     print(f'The value of z is {z}')     # z: 2
+
+
+def main():
+    args = (0, 1, 2)
+    another_function(*args)             # another_function(0, 1, 2)
 ```
 
 また辞書に `**` を付けて渡すと辞書の各要素をキーワード引数として渡せるようになります。
 
 ```python
-def main():
-    kwargs = {'x': 0, 'y': 1, 'z': 2}
-    another_function(**kwargs)          # another_function(x=0, y=1, z=2)
-
-
 def another_function(x, y, z):
     print(f'The value of x is {x}')     # x: 0
     print(f'The value of y is {y}')     # y: 1
     print(f'The value of z is {z}')     # z: 2
+
+
+def main():
+    kwargs = {'x': 0, 'y': 1, 'z': 2}
+    another_function(**kwargs)          # another_function(x=0, y=1, z=2)
 ```
 
 ## 型ヒント
@@ -183,14 +183,14 @@ def another_function(x: int, y: int):
 関数の呼び出し側に値を返却する場合は `return` を使用します。
 
 ```python
+def plus_one(x):
+    return x + 1
+
+
 def main():
     x = plus_one(5)     # x: 6
 
     print(f'The value of x is {x}')
-
-
-def plus_one(x):
-    return x + 1
 ```
 
 戻り値として返す型は複数あっても構いません。
