@@ -809,16 +809,18 @@
 
 <p><code>パッケージ名.モジュール名.関数名</code> のように <code>.</code> で区切って関数にアクセスすることができます。ちなみにパッケージ内にパッケージが含まれていても問題ありません。</p>
 <div class="admonition warning">
-<p class="admonition-title">パッケージ名の命名規則</p>
-<p>パッケージ名に <code>-</code> を使用するのは避けましょう。なぜなら <code>xxx-yyy</code> というパッケージを作ったとき</p>
+<p class="admonition-title">モジュール・パッケージ名の命名規則</p>
+<p>モジュール名・パッケージ名に <code>-</code> を使用するのは避けましょう。なぜなら <code>xxx-yyy</code> というモジュール・パッケージを作ったとき</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">xxx</span><span class="o">-</span><span class="n">yyy</span>
 </pre></div>
 
-<p>のように import することになりますが <code>-</code> が引き算だと解釈されてしまいます。一般的にパッケージ名は次のルールを守るべきとされています。</p>
+<p>のように import することになりますが <code>-</code> が引き算だと解釈されてしまいます。一般的に命名規則は次のようなるーるになっています。</p>
 <ul>
-<li>区切り文字は禁止（<code>-</code> 以外も）</li>
 <li>全て小文字</li>
+<li>パッケージ名に区切り文字は禁止</li>
+<li>モジュール名の区切り文字は <code>_</code> を使用</li>
 </ul>
+<p>モジュール名であっても区切り文字はできるだけ使用しない方が好まれます。パッケージ名は例え複数語であっても区切り文字は使用しません。</p>
 </div>
                 
                   
