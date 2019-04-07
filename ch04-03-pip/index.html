@@ -513,6 +513,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#freeze" title="freeze" class="md-nav__link">
+    freeze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirementstxt" title="requirements.txt" class="md-nav__link">
+    requirements.txt
+  </a>
+  
+</li>
+      
       
       
       
@@ -731,6 +745,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#freeze" title="freeze" class="md-nav__link">
+    freeze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirementstxt" title="requirements.txt" class="md-nav__link">
+    requirements.txt
+  </a>
+  
+</li>
+      
       
       
       
@@ -787,6 +815,33 @@
 <p class="admonition-title">PyPI</p>
 <p><a href="https://pypi.org/project/requests/">https://pypi.org/project/requests/</a></p>
 </div>
+<h2 id="freeze">freeze<a class="headerlink" href="#freeze" title="Permanent link">&para;</a></h2>
+<p>インストール済みのパッケージ一覧を確認するには <code>freeze</code> というコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ pip freeze
+<span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
+<span class="nv">chardet</span><span class="o">==</span><span class="m">3</span>.0.4
+<span class="nv">idna</span><span class="o">==</span><span class="m">2</span>.8
+<span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
+<span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
+</pre></div>
+
+<p><code>requests</code> とその依存パッケージがバージョン番号とともに表示されます。</p>
+<h2 id="requirementstxt">requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">&para;</a></h2>
+<p>インストールしたいパッケージをあらかじめファイルに列挙しておき、そのファイルを指定することでもインストールすることができます。インストールしたいパッケージを記述したファイルは通常 <code>requirements.txt</code> という名前で保存します。<code>requirements.txt</code> を指定してインストールをするには次のようにします。</p>
+<div class="codehilite"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
+
+<p><code>requirements.txt</code> は自分の環境にパッケージをインストールする目的で使用することはあまりありません。むしろ他の人の環境で自分が使っているパッケージをインストールして欲しいときに使用します。また <code>requirements.txt</code> は手で作成する必要はなく、<code>pip freeze</code> の結果を保存しておくだけで使用できます。<code>pip freeze</code> の結果にあるような <code>==version</code> という形式のものを <code>pip</code> でインストールすると指定されたバージョンをインストールしてくれるため、自分で入れたバージョンと全く同じものを他の人の環境でもインストールしてもらえるようになり、環境差分をなくすことができます。</p>
+<p>まとめるとパッケージ管理は次のような手順で行うことになります。</p>
+<p><strong>自分の環境</strong></p>
+<div class="codehilite"><pre><span></span>$ pip install name1 name2 ...
+$ pip freeze &gt; requirements.txt
+</pre></div>
+
+<p><code>requirements.txt</code> は Git などでバージョン管理をしておきます。</p>
+<p><strong>他の人の環境</strong></p>
+<div class="codehilite"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
                 
                   
                 

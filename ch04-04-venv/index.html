@@ -493,9 +493,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.4. venv
+      </label>
+    
     <a href="./" title="4.4. venv" class="md-nav__link md-nav__link--active">
       4.4. venv
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="仮想環境の作成" class="md-nav__link">
+    仮想環境の作成
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -678,6 +707,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="仮想環境の作成" class="md-nav__link">
+    仮想環境の作成
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -692,6 +737,102 @@
                 
                 
                 <h1 id="venv">venv<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h1>
+<p><code>pip</code> を使ってサードパーティ製のパッケージをインストールすることができましたが、インストールしたいパッケージが稀に競合を起こすことがあります。</p>
+<table>
+<thead>
+<tr>
+<th>プログラム</th>
+<th><code>requests</code> の要求バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>program1</td>
+<td>2.21.0</td>
+</tr>
+<tr>
+<td>program2</td>
+<td>2.20.1</td>
+</tr>
+</tbody>
+</table>
+<p>program1 では <code>requests</code> 2.21.0 を使おうとしているのに対し program2 では 2.20.1 を使いたかったとすると、システムの中に複数バージョンの <code>requests</code> をインストールしておく必要が出てきます。もし使用したいパッケージのバージョンが意図しないものになっているとプログラムが正しく動かない可能性が出てきます。</p>
+<h2 id="_1">仮想環境の作成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>このような競合を解決するために Python には各プログラムで使用したいパッケージを互いに影響がない形で個別に管理するための仕組みが用意されており、仮想環境と呼ばれます。仮想環境を作成するためのツールは <code>venv</code> と呼ばれ、Python に標準で同梱されています。</p>
+<p>試しにこれから 2 つの仮想環境を作成し、それぞれに異なるバージョンの <code>requests</code> をインストールしてみます。まず下記のように 2 つのディレクトリを作成します。</p>
+<div class="codehilite"><pre><span></span>$ mkdir program1 program2
+</pre></div>
+
+<p>次に program1 配下で仮想環境を作成します。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> program1
+$ python -m venv venv
+</pre></div>
+
+<p>program1 配下に venv というディレクトリが作成されます。仮想環境を有効にするために下記のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ . venv/bin/activate
+<span class="o">(</span>venv<span class="o">)</span> $
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Windows の場合</p>
+<p>Windows で仮想環境を有効にする場合は下記を実行してください。</p>
+<div class="codehilite"><pre><span></span>$ venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
+<span class="o">(</span>venv<span class="o">)</span> $
+</pre></div>
+
+</div>
+<p>この状態で <code>requests</code> 2.21.0 をインストールしてみます。パッケージをバージョン指定でインストールしたければ次のように実行します。</p>
+<div class="codehilite"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
+</pre></div>
+
+<p>この <code>requests</code> は venv ディレクトリ配下にインストールされ、仮想環境が有効でない限りは参照することができないようになっています。 <code>pip freeze</code> を使ってインストールされているパッケージ一覧を確認してみます。</p>
+<div class="codehilite"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> $ pip freeze
+<span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
+<span class="nv">chardet</span><span class="o">==</span><span class="m">3</span>.0.4
+<span class="nv">idna</span><span class="o">==</span><span class="m">2</span>.8
+<span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
+<span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
+</pre></div>
+
+<p>仮想環境を無効にする場合は <code>deactivate</code> というコマンドを実行します。このコマンドは仮想環境が有効なときだけ使用することができます。</p>
+<div class="codehilite"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> $ deactivate
+$
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Windows の場合</p>
+<p>Windows で仮想環境を無効にする場合は下記を実行してください。</p>
+<div class="codehilite"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> $ venv<span class="se">\S</span>cripts<span class="se">\d</span>eactivate.bat
+$
+</pre></div>
+
+</div>
+<p>program2 配下でも同様に仮想環境を作成してみます。<code>requests</code> のバージョンは 2.20.1 を使用します。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> program2
+$ python -m venv venv
+$ . venv/bin/activate
+<span class="o">(</span>venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
+<span class="o">(</span>venv<span class="o">)</span> $ pip freeze
+<span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
+<span class="nv">chardet</span><span class="o">==</span><span class="m">3</span>.0.4
+<span class="nv">idna</span><span class="o">==</span><span class="m">2</span>.7
+<span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
+<span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
+</pre></div>
+
+<p>program1, program2 配下いずれかの仮想環境を有効にすることで異なるバージョンの <code>requests</code> が使用できるようになっています。ちなみに仮想環境が有効でない状態でインストールされたパッケージは全プログラムから参照可能なので競合を起こす可能性があり、使用すべきではありません。そのため、前章の <code>pip</code> の章でインストールしたパッケージは下記のように削除しておくことをおすすめします。</p>
+<div class="codehilite"><pre><span></span>$ pip freeze <span class="p">|</span> xargs pip uninstall -y
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Windows の場合</p>
+<p>Windows で全パッケージを削除する場合は下記を実行してください。</p>
+<div class="codehilite"><pre><span></span>$ pip freeze &gt; requirements.txt
+$ pip uninstall -y -r requirements.txt
+$ del requirements.txt
+</pre></div>
+
+</div>
                 
                   
                 
