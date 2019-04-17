@@ -23,7 +23,7 @@
       
         <meta name="lang:clipboard.copied" content="コピーしました">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.572ca0f0.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.8c900955.js"></script>
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -68,6 +68,9 @@
     
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
+    
+    
+      
     
     
   </head>
@@ -126,22 +129,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                ゼロから学ぶ Python
-              </span>
-              <span class="md-header-nav__topic">
-                1.2. Hello, World!
-              </span>
-            
+            <span class="md-header-nav__topic">
+              ゼロから学ぶ Python
+            </span>
+            <span class="md-header-nav__topic">
+              1.2. Hello, World!
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +164,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +174,18 @@
 
   
 
-
-  <a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      rinatz/python-book
+<a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    rinatz/python-book
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +221,18 @@
 
   
 
-
-  <a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      rinatz/python-book
+<a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    rinatz/python-book
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -320,7 +315,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="構文の説明" class="md-nav__link">
+  <a href="#pycharm" title="PyCharm の起動" class="md-nav__link">
+    PyCharm の起動
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="プログラムを作成する" class="md-nav__link">
+    プログラムを作成する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="構文の説明" class="md-nav__link">
     構文の説明
   </a>
   
@@ -328,15 +337,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="シバン" class="md-nav__link">
+  <a href="#_3" title="シバン" class="md-nav__link">
     シバン
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="文字コード指定" class="md-nav__link">
-    文字コード指定
   </a>
   
 </li>
@@ -752,7 +754,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="構文の説明" class="md-nav__link">
+  <a href="#pycharm" title="PyCharm の起動" class="md-nav__link">
+    PyCharm の起動
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="プログラムを作成する" class="md-nav__link">
+    プログラムを作成する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="構文の説明" class="md-nav__link">
     構文の説明
   </a>
   
@@ -760,15 +776,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="シバン" class="md-nav__link">
+  <a href="#_3" title="シバン" class="md-nav__link">
     シバン
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="文字コード指定" class="md-nav__link">
-    文字コード指定
   </a>
   
 </li>
@@ -819,10 +828,49 @@
                 
                 
                 <h1 id="hello-world">Hello, World!<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h1>
-<p>標準出力に <code>Hello, World!</code> と表示するプログラムを書いてみます。</p>
-<p><strong>main.py</strong></p>
+<p>標準出力に <code>Hello, World!</code> と表示するプログラムを書いてみます。まずは PyCharm の設定を行います。</p>
+<h2 id="pycharm">PyCharm の起動<a class="headerlink" href="#pycharm" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../img/pycharm-01.png" />
+そのまま <code>OK</code> を押します。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-02.png" />
+プライバシーポリシーに同意して <code>Continue</code> を押します。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-03.png" />
+匿名データを送信してもいいかどうかを選択します。これはどちらを選択しても構いません。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-04.png" />
+キーマップを選択します。PyCharm 未経験者であれば左を、経験者であれば右を選択します。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-05.png" />
+UI のテーマを選択します。お好みの方を選択してください。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-06.png" />
+コマンドラインから使用できる起動スクリプトを作成するかどうかを選択します。作成する場合はチェックボックスにチェックを入れてください。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-07.png" />
+プラグインを追加します。ここは何もせず <code>Start using PyCharm</code> を押してください。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-08.png" />
+<code>Create New Project</code> を選択します。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-09.png" />
+<code>New environment using</code> というラジオボタンを選択します。<code>Base interpreter</code> のところにはターミナル上で下記のコマンドの出力結果を貼り付けてください。Windows の場合はここはデフォルトのままで大丈夫です。</p>
+<div class="codehilite"><pre><span></span>$ which python
+</pre></div>
+
+<p>macOS の場合は <code>/Users/kenichiro-ida/.pyenv/shims/python</code> のような結果になるはずです。</p>
+<hr />
+<p><img alt="" src="../img/pycharm-10.png" />
+これで PyCharm が起動し、新規プロジェクトが作成できました。</p>
+<hr />
+<h2 id="_1">プログラムを作成する<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>PyCharm の左にあるプロジェクトツリーを右クリックし <code>New</code> &gt; <code>Python file</code> を選択します。</p>
+<p><img alt="" src="../img/pycharm-12.png" />
+<code>Name</code> のところに <code>hello</code> と入力して <code>OK</code> を押します。<code>hello.py</code> というファイルが作成されるので下記のようにプログラムを作成してください。</p>
+<p><strong>hello.py</strong></p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
+
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -832,10 +880,13 @@
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
-<h2 id="_1">構文の説明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="_2">シバン<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>ここまでできたらファイルを保存してプログラムを実行してみます。</p>
+<p><img alt="" src="../img/pycharm-11.png" />
+8 行目にある再生ボタンをクリックし <code>Run 'hello'</code> を選択すると下部に <code>Hello, World!</code> というメッセージが表示されます。</p>
+<h2 id="_2">構文の説明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">シバン<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="hll"><span class="ch">#!/usr/bin/env python</span>
-</span><span class="c1"># -*- coding: utf-8 -*-</span>
+</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -854,26 +905,9 @@
 
 <p>と書いて下さい。</p>
 </div>
-<h3 id="_3">文字コード指定<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="hll"><span class="c1"># -*- coding: utf-8 -*-</span>
-</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-
-<p>2 行目はソースコードの文字コードを <code>utf-8</code> として扱うことを意味しています。<code>utf-8</code> 以外も指定できますが、一般的ではないので使用すべきではありません。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>文字コード指定はソースコードの上部に必ず書きましょう。</p>
-</div>
 <h3 id="main"><code>main()</code><a class="headerlink" href="#main" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
+
 
 <span class="hll"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 </span><span class="hll">    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -892,7 +926,7 @@
 <p>と書くと構文エラーになるからです。関数の実装は必ずインデントしてから記述するルールになっています。</p>
 <h3 id="__name__"><code>__name__</code><a class="headerlink" href="#__name__" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
+
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -906,7 +940,7 @@
 <h3 id="_4">シンプルな書き方<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>Python の処理はソースコードの上の行から逐次実行されます。そのため、処理を関数内に収めなくても正しく実行することができます。</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
+
 
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 </pre></div>
@@ -979,15 +1013,13 @@
           Material for MkDocs</a>
       </div>
       
-        
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.b41f3d20.js"></script>
+      <script src="../assets/javascripts/application.dc02f8ce.js"></script>
       
         
         
@@ -999,7 +1031,7 @@
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           
@@ -1007,9 +1039,6 @@
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
       
     
   </body>
