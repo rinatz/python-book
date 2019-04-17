@@ -1,16 +1,33 @@
-site/
 
-# Created by https://www.gitignore.io/api/vagrant
-# Edit at https://www.gitignore.io/?templates=vagrant
+# Created by https://www.gitignore.io/api/macOS
+# Edit at https://www.gitignore.io/?templates=macOS
 
-### Vagrant ###
+### macOS ###
 # General
-.vagrant/
+.DS_Store
+.AppleDouble
+.LSOverride
 
-# Log files (if you are creating logs in debug mode, uncomment this)
-# *.logs
+# Icon must end with two \r
+Icon
 
-### Vagrant Patch ###
-*.box
+# Thumbnails
+._*
 
-# End of https://www.gitignore.io/api/vagrant
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# End of https://www.gitignore.io/api/macOS
