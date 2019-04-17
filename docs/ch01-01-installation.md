@@ -46,7 +46,7 @@ $ pyenv install -l
 表示されたリストの中にある `3.x.x` というバージョン（`3.x-dev` は除く）の中で一番最新のものを指定して下記のようにインストールします（下記は `3.7.2` の場合）。
 
 ```shell
-$ CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.2
+$ pyenv install 3.7.2
 $ pyenv rehash
 $ pyenv global 3.7.2
 ```
@@ -57,6 +57,15 @@ $ pyenv global 3.7.2
 $ python -V
 Python 3.7.2
 ```
+
+!!! info "macOS でのインストール"
+    Python のインストール時にエラーが出る場合は下記のコマンドを実行した後、再度 Python のインストールを試してください。
+
+    ```shell
+    $ xcode-select --install
+    $ brew install openssl readline sqlite3 xz zlib
+    $ sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+    ```
 
 !!! info "Windows でのインストール"
     下記のリンクを参考にしてインストールをしてください。
