@@ -500,9 +500,73 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.5. pipenv
+      </label>
+    
     <a href="./" title="4.5. pipenv" class="md-nav__link md-nav__link--active">
       4.5. pipenv
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="特徴" class="md-nav__link">
+    特徴
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="インストール" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="使い方" class="md-nav__link">
+    使い方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfile" title="Pipfile" class="md-nav__link">
+    Pipfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfilelock" title="Pipfile.lock" class="md-nav__link">
+    Pipfile.lock
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="公式サイト" class="md-nav__link">
+    公式サイト
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -673,6 +737,57 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="特徴" class="md-nav__link">
+    特徴
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="インストール" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="使い方" class="md-nav__link">
+    使い方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfile" title="Pipfile" class="md-nav__link">
+    Pipfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfilelock" title="Pipfile.lock" class="md-nav__link">
+    Pipfile.lock
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="公式サイト" class="md-nav__link">
+    公式サイト
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,6 +802,152 @@
                 
                 
                 <h1 id="pipenv">pipenv<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h1>
+<p><code>pipenv</code> は <code>pip</code> と <code>venv</code> の両方の機能を兼ね備えたサードパーティ製のパッケージ管理ツールです。<code>pipenv</code> が誕生した経緯は <code>venv</code> で仮想環境を作成してから <code>pip</code> でパッケージをインストールするまでの手順では下記のように異なるコマンドを実行する必要がありますが、これを 1 つのコマンドで実行できるようにしたものが <code>pipenv</code> です。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>コマンド (macOS, Linux)</th>
+<th>コマンド (Windows)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仮想環境の作成</td>
+<td><code>python -m venv venv</code></td>
+<td><code>py -m venv venv</code></td>
+</tr>
+<tr>
+<td>仮想環境を有効にする</td>
+<td><code>. venv/bin/activate</code></td>
+<td><code>venv/Scripts/activate.bat</code></td>
+</tr>
+<tr>
+<td>仮想環境を無効にする</td>
+<td><code>deactivate</code></td>
+<td><code>venv/Scripts/deactivate.bat</code></td>
+</tr>
+<tr>
+<td>パッケージのインストール</td>
+<td><code>pip install [name]</code></td>
+<td><code>py -m pip install [name]</code></td>
+</tr>
+</tbody>
+</table>
+<p>各操作に応じて実行するコマンドも異なれば OS ごとにも異なっており、とても複雑です。しかし <code>pipenv</code> を使うと上記の操作は次のようになります。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仮想環境の作成</td>
+<td><code>pipenv --three</code></td>
+</tr>
+<tr>
+<td>仮想環境を有効にする</td>
+<td><code>pipenv shell</code></td>
+</tr>
+<tr>
+<td>仮想環境を無効にする</td>
+<td><code>exit</code></td>
+</tr>
+<tr>
+<td>パッケージのインストール</td>
+<td><code>pipenv install [name]</code></td>
+</tr>
+</tbody>
+</table>
+<p>このように <code>pipenv</code> というコマンド 1 つで仮想環境の作成とパッケージのインストールの両方が実行できるため、操作がシンプルになります。また実行するコマンドは OS によらず同じです。</p>
+<h2 id="_1">特徴<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><code>pipenv</code> はパッケージのインストールを必ず仮想環境内で実行するように作られています。そのため仮想環境を有効にしていない状態で</p>
+<div class="codehilite"><pre><span></span>$ pipenv install <span class="o">[</span>name<span class="o">]</span>
+</pre></div>
+
+<p>というコマンドを打っても自動的に仮想環境を作成して、それを有効にした上でパッケージのインストールを実行します。</p>
+<h2 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>pipenv</code> のインストールは下記のようにします。</p>
+<div class="codehilite"><pre><span></span>$ pip install pipenv
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>pipenv</code> のインストールは仮想環境内で行う必要はありません。なぜなら <code>pipenv</code> 自体が仮想環境を作成するツールだからです。</p>
+</div>
+<h2 id="_3">使い方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>まず作業用ディレクトリを用意します。</p>
+<div class="codehilite"><pre><span></span>$ mkdir sandbox
+</pre></div>
+
+<p><code>pipenv</code> を使ってサードパーティライブラリの <code>requests</code> をインストールするには次のようにします。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> sandbox
+$ pipenv install requests
+</pre></div>
+
+<p>自動的に仮想環境が作成され、その仮想環境内に <code>requests</code> がインストールされます。次に <code>requests</code> を使用した次のようなソースコードを用意します。</p>
+<p><strong>main.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>ソースコードを作成したら仮想環境を有効にして実行してみます。</p>
+<div class="codehilite"><pre><span></span>$ pipenv shell
+<span class="o">(</span>sandbox<span class="o">)</span> $ python main.py
+</pre></div>
+
+<p>上記の 2 行のコマンドは次のように 1 行で実行することもできます。</p>
+<div class="codehilite"><pre><span></span>$ pipenv run python main.py
+</pre></div>
+
+<p><code>pipenv run [command]</code> は仮想環境を有効にした上で <code>[command]</code> を実行してくれる機能です。</p>
+<h2 id="pipfile">Pipfile<a class="headerlink" href="#pipfile" title="Permanent link">&para;</a></h2>
+<p><code>pip</code> にはインストールしたいパッケージをテキストファイルに記述しておく <code>requirements.txt</code> という仕組みがありましたが、<code>pipenv</code> はこれの代替として <code>Pipfile</code> というテキストファイルが使用できます。先程の <code>requests</code> をインストールするとディレクトリ内に <code>Pipfile</code> が作成されていると思います。</p>
+<div class="codehilite"><pre><span></span>$ cat Pipfile
+<span class="o">[[</span>source<span class="o">]]</span>
+<span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;pypi&quot;</span>
+<span class="nv">url</span> <span class="o">=</span> <span class="s2">&quot;https://pypi.org/simple&quot;</span>
+<span class="nv">verify_ssl</span> <span class="o">=</span> <span class="nb">true</span>
+
+<span class="o">[</span>dev-packages<span class="o">]</span>
+
+<span class="o">[</span>packages<span class="o">]</span>
+<span class="nv">requests</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+
+<span class="o">[</span>requires<span class="o">]</span>
+<span class="nv">python_version</span> <span class="o">=</span> <span class="s2">&quot;3.7&quot;</span>
+</pre></div>
+
+<p><code>pipenv</code> はパッケージをインストールすると <code>Pipfile</code> にインストールしたパッケージを記録するようになっています。もしディレクトリ内に <code>Pipfile</code> がある場合、下記のコマンドを実行すると <code>Pipfile</code> 内に記述されたパッケージをインストールしてくれます。</p>
+<div class="codehilite"><pre><span></span>$ pipenv install
+</pre></div>
+
+<p>つまり <code>Pipfile</code> をバージョン管理しておくことで他の人の環境でも自分がインストールしたパッケージと同じものをインストールできるようになります。</p>
+<h2 id="pipfilelock">Pipfile.lock<a class="headerlink" href="#pipfilelock" title="Permanent link">&para;</a></h2>
+<p><code>Pipfile</code> と合わせて <code>Pipfile.lock</code> というファイルも作成されていると思います。このファイルはインストールしたパッケージのバージョンを保存しているファイルです。<code>pipenv install</code> でパッケージをインストールすると、インストールされるパッケージのバージョンはその時点での最新版が取得されるようになっているため、自分がインストールしたパッケージのバージョンとは厳密には異なるバージョンのパッケージが他の人の環境にインストールされる可能性があります。もしバージョンも含めて完全に一致するものをインストールしたい場合は <code>Pipfile</code> の代わりに <code>Pipfile.lock</code> を使ってインストールすることで実現できます。</p>
+<p><code>Pipfile.lock</code> を使ってインストールするには次のようにします。</p>
+<div class="codehilite"><pre><span></span>$ pipenv sync
+</pre></div>
+
+<h2 id="_4">公式サイト<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>pipenv</code> はここで説明した機能以外にも便利な機能がたくさんあります。詳細は公式サイトに説明がありますので参考にしてみてください。</p>
+<div class="admonition note">
+<p class="admonition-title">Pipenv 公式サイト</p>
+<p><a href="https://pipenv.readthedocs.io/en/latest/">https://pipenv.readthedocs.io/en/latest/</a></p>
+</div>
                 
                   
                 
