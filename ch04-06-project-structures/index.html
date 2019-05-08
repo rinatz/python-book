@@ -512,9 +512,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.6. プロジェクト構成
+      </label>
+    
     <a href="./" title="4.6. プロジェクト構成" class="md-nav__link md-nav__link--active">
       4.6. プロジェクト構成
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-hitchhikers-guide-to-python" title="The Hitchhiker's Guide to Python" class="md-nav__link">
+    The Hitchhiker's Guide to Python
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -673,6 +702,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-hitchhikers-guide-to-python" title="The Hitchhiker's Guide to Python" class="md-nav__link">
+    The Hitchhiker's Guide to Python
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,6 +732,116 @@
                 
                 
                 <h1 id="_1">プロジェクト構成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Python のソースコードを管理する際にディレクトリの構成をちゃんと考えておくことはとても重要なことです。なぜなら Python は適切な構成になっていないとプログラムを正しく動かすことができなくなるからです。そこで Python 開発ではどのような構成で管理すれば問題が起こりにくいのかについて説明します。</p>
+<h2 id="the-hitchhikers-guide-to-python">The Hitchhiker's Guide to Python<a class="headerlink" href="#the-hitchhikers-guide-to-python" title="Permanent link">&para;</a></h2>
+<p>Python の理想のプロジェクト構成は Kenneth Reitz 氏によって推奨されている構成に従うのがよいでしょう。どのような構成なのかは <a href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python</a> というサイトの <a href="https://docs.python-guide.org/writing/structure/">Structuring Your Project</a> の章で詳しく書かれていますのでそちらを参考にしてもらうことにして、ここでは特に注意すべきことについてまとめておきます。</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p><a href="https://docs.python-guide.org/writing/structure/">Structuring Your Project</a> の章で説明されているプロジェクト構成は Pipenv が登場する前の推奨構成になっているのでやや古い内容になっています。<code>requirements.txt</code> の説明は <code>Pipfile, Pipfile.lock</code> と適宜読み替えて読んでください。</p>
+</div>
+<p>ディレクトリの基本構成は次のとおりです。</p>
+<div class="codehilite"><pre><span></span>(project)
+├── (project)  ............ プログラムのソースコードディレクトリ
+│  ├── __init__.py
+│  └── *.py
+└── tests  ................ 単体テストのソースコードディレクトリ
+   └── *.py
+</pre></div>
+
+<p><code>(project)</code> の部分は開発する Python プログラムの名前を付けます。<code>sample</code> というプログラムを開発するなら</p>
+<div class="codehilite"><pre><span></span>sample
+├── sample
+│  ├── __init__.py
+│  └── *.py
+└── tests
+   └── *.py
+</pre></div>
+
+<p>のようになります。大事なのはプログラムのソースコードは必ず <code>(project)</code> 配下の 1 つのディレクトリ内に集約させるということです（単体テストのソースコードは除く）。なぜならディレクトリは Python のパッケージを構成するものなので、複数のディレクトリでソースコードを管理すると複数の Python パッケージを開発していることになります。しかし通常 1 つのプロジェクト内に複数のパッケージを含めて開発することはありません。</p>
+<p>下記は良くない構成の一例です。</p>
+<div class="codehilite"><pre><span></span>sample
+├── sample
+│  ├── __init__.py
+│  └── *.py
+├── libs
+│  ├── __init__.py
+│  └── *.py
+└── tests
+   └── *.py
+</pre></div>
+
+<p>下記は <code>sample/__init__.py</code> が用意されていないため問題のある構成です。ディレクトリ内に Python ファイルを入れる場合は必ず <code>__init__.py</code> を用意してください。</p>
+<div class="codehilite"><pre><span></span>sample
+├── sample
+│  └── *.py
+└── tests
+   └── *.py
+</pre></div>
+
+<p>下記のような構成もやってしまいがちですが適切ではありません。</p>
+<div class="codehilite"><pre><span></span>sample
+├── sample
+│  ├── __init__.py
+│  └── *.py
+├── main.py
+└── tests
+   └── *.py
+</pre></div>
+
+<p><strong>main.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="kn">import</span> <span class="nn">sample</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># sample パッケージを使った処理</span>
+    <span class="o">...</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>この構成の問題点はライブラリとアプリケーションの区別ができていない構成になっているという点です。</p>
+<table>
+<thead>
+<tr>
+<th>構成</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ライブラリ</td>
+<td>他のプログラムから <code>import</code> して使うプログラム</td>
+</tr>
+<tr>
+<td>アプリケーション</td>
+<td>直接実行するプログラム</td>
+</tr>
+</tbody>
+</table>
+<p>この例だと <code>sample</code> はライブラリで <code>main.py</code> はアプリケーションという位置づけになります。もしライブラリとアプリケーションの両方の側面を持つプログラムを書きたいという場合は <code>main.py</code> を <code>sample/__main__.py</code> という名前で保存してください。</p>
+<div class="codehilite"><pre><span></span>sample
+├── sample
+│  ├── __init__.py
+│  ├── __main__.py
+│  └── *.py
+└── tests
+   └── *.py
+</pre></div>
+
+<p>そして <code>main()</code> を実行したい場合はターミナル上で次のようにします。</p>
+<div class="codehilite"><pre><span></span>$ python -m sample
+</pre></div>
+
+<p>こうすると <code>sample/__main__.py</code> が実行されるようになります。決して</p>
+<div class="codehilite"><pre><span></span>$ python sample/__main__.py
+</pre></div>
+
+<p>のように実行してはいけません。たとえ動いたとしてもいつもうまくいくと期待しないほうがいいでしょう。</p>
                 
                   
                 
