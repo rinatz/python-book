@@ -686,11 +686,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
-      5. コレクション
+      5. ファイル操作とコンテキスト
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        5. コレクション
+        5. ファイル操作とコンテキスト
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -701,8 +701,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch05-01-lists/" title="5.1. リスト" class="md-nav__link">
-      5.1. リスト
+    <a href="../ch05-01-files/" title="5.1. ファイル操作" class="md-nav__link">
+      5.1. ファイル操作
     </a>
   </li>
 
@@ -713,8 +713,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch05-02-dists/" title="5.2. 辞書" class="md-nav__link">
-      5.2. 辞書
+    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+      5.2. コンテキスト
     </a>
   </li>
 
@@ -1102,6 +1102,14 @@
 <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># 10</span>
 <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># 3.14</span>
 <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># &#39;Hello, World!&#39;</span>
+</pre></div>
+
+<p>添字には負の数も指定できます。負の数を指定した場合は末尾の要素から参照されます。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
+
+<span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># &#39;Hello, World!&#39;</span>
+<span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># 3.14</span>
+<span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>    <span class="c1"># 10</span>
 </pre></div>
 
 <p>要素が空のリストを作る場合は <code>x = []</code> とします。</p>

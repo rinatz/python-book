@@ -523,11 +523,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
-      5. コレクション
+      5. ファイル操作とコンテキスト
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        5. コレクション
+        5. ファイル操作とコンテキスト
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -538,8 +538,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch05-01-lists/" title="5.1. リスト" class="md-nav__link">
-      5.1. リスト
+    <a href="../ch05-01-files/" title="5.1. ファイル操作" class="md-nav__link">
+      5.1. ファイル操作
     </a>
   </li>
 
@@ -550,8 +550,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch05-02-dists/" title="5.2. 辞書" class="md-nav__link">
-      5.2. 辞書
+    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+      5.2. コンテキスト
     </a>
   </li>
 
@@ -596,9 +596,59 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        6.1. 例外
+      </label>
+    
     <a href="./" title="6.1. 例外" class="md-nav__link md-nav__link--active">
       6.1. 例外
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="不正な構文を実行" class="md-nav__link">
+    不正な構文を実行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="配列のインデックスが不正" class="md-nav__link">
+    配列のインデックスが不正
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="存在しないファイルをオープン" class="md-nav__link">
+    存在しないファイルをオープン
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="例外を捕捉する" class="md-nav__link">
+    例外を捕捉する
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -673,6 +723,43 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="不正な構文を実行" class="md-nav__link">
+    不正な構文を実行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="配列のインデックスが不正" class="md-nav__link">
+    配列のインデックスが不正
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="存在しないファイルをオープン" class="md-nav__link">
+    存在しないファイルをオープン
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="例外を捕捉する" class="md-nav__link">
+    例外を捕捉する
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,6 +774,121 @@
                 
                 
                 <h1 id="_1">例外<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Python のプログラムで不正な処理を行ったときは例外と呼ばれる割り込み処理が通常の処理に変わって実行されます。例外が発生するタイミングにはいろいろなものがありますが、代表的なものには次のようなものがあります。</p>
+<h2 id="_2">不正な構文を実行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ python main.py
+  File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">8</span>
+    <span class="k">if</span> <span class="nv">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span>:
+                             ^
+SyntaxError: invalid syntax
+</pre></div>
+
+<p><code>SyntexError</code> という種類の例外が発生しています。</p>
+<h2 id="_3">配列のインデックスが不正<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ python main.py
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">10</span>, in &lt;module&gt;
+    main<span class="o">()</span>
+  File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">6</span>, in main
+    print<span class="o">(</span>x<span class="o">[</span><span class="m">3</span><span class="o">])</span>
+IndexError: list index out of range
+</pre></div>
+
+<p><code>IndexError</code> という種類の例外が発生しています。</p>
+<h2 id="_4">存在しないファイルをオープン<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ python main.py
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">10</span>, in &lt;module&gt;
+    main<span class="o">()</span>
+  File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">5</span>, in main
+    with open<span class="o">(</span><span class="s1">&#39;file.txt&#39;</span><span class="o">)</span> as f:
+FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span class="o">]</span> No such file or directory: <span class="s1">&#39;file.txt&#39;</span>
+</pre></div>
+
+<p><code>FileNotFoundError</code> という種類の例外が発生しています。このように不正な処理が検知された時点で例外が割り込み、プログラムは停止します。</p>
+<h2 id="_5">例外を捕捉する<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>例外が発生したときにプログラムを停止させる代わりに、例外が発生したときに実行する処理を書くこともできます。<code>try-except</code> 文を使ってそれが実現できます。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># 例外を監視する処理</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+        <span class="c1"># 例外発生時の処理</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ファイルが存在しません。&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ python main.py
+ファイルが存在しません。
+</pre></div>
+
+<p><code>try</code> ブロックで例外が発生しうる処理を記述し、<code>except</code> ブロックで例外が発生したときに実行する処理を記述します。 <code>except</code> ブロックは複数書くこともでき、そうすることで複数の例外を捕捉することができます。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>   <span class="c1"># file.txt が存在しなければ FileNotFoundError</span>
+            <span class="n">contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">contents</span><span class="p">[</span><span class="mi">1000</span><span class="p">])</span>     <span class="c1"># ファイル内の文章が 1000 字以上なければ IndexError</span>
+    <span class="k">except</span> <span class="n">FileNotFoundError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ファイルが存在しません。&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;文章は 1000 字以上必要です。&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>例外を捕捉するメリットには次のようなものがあります。</p>
+<ul>
+<li><code>try-except</code> を <code>if-else</code> のような条件分岐の代わりとして使える</li>
+<li>どのようなエラーが発生しうるかがコード上で明らかになる</li>
+<li>エラー発生時の原因や解決策を <code>print()</code> などを使って伝えられる</li>
+</ul>
                 
                   
                 
@@ -707,7 +909,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch05-02-dists/" title="5.2. 辞書" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -716,7 +918,7 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                5.2. 辞書
+                5.2. コンテキスト
               </span>
             </div>
           </a>

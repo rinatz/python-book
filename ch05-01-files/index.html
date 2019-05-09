@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch05-02-dists/">
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch05-01-files/">
       
       
         <meta name="author" content="井田 献一朗">
@@ -42,7 +42,7 @@
     
     
       
-        <title>5.2. 辞書 - ゼロから学ぶ Python</title>
+        <title>5.1. ファイル操作 - ゼロから学ぶ Python</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ Python
             </span>
             <span class="md-header-nav__topic">
-              5.2. 辞書
+              5.1. ファイル操作
             </span>
           
         </div>
@@ -525,26 +525,14 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
-      5. コレクション
+      5. ファイル操作とコンテキスト
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        5. コレクション
+        5. ファイル操作とコンテキスト
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ch05-01-lists/" title="5.1. リスト" class="md-nav__link">
-      5.1. リスト
-    </a>
-  </li>
-
         
           
           
@@ -560,10 +548,58 @@
       
     
     
-    <a href="./" title="5.2. 辞書" class="md-nav__link md-nav__link--active">
-      5.2. 辞書
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        5.1. ファイル操作
+      </label>
+    
+    <a href="./" title="5.1. ファイル操作" class="md-nav__link md-nav__link--active">
+      5.1. ファイル操作
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="読み込み" class="md-nav__link">
+    読み込み
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="書き込み" class="md-nav__link">
+    書き込み
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+      5.2. コンテキスト
+    </a>
   </li>
 
         
@@ -673,6 +709,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="読み込み" class="md-nav__link">
+    読み込み
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="書き込み" class="md-nav__link">
+    書き込み
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -683,10 +742,111 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch05-02-dists.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch05-01-files.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">辞書<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">ファイル操作<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>ファイルの読み書きをする方法について説明します。</p>
+<h2 id="_2">読み込み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>file.txt</code> というファイルを読み込み、1 行ずつプリントするプログラムは次のように書きます。</p>
+<p><strong>main.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p><code>for</code> を使わずに 1 行読み込む場合は <code>readline()</code> メソッドを使います。</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</pre></div>
+
+<p>注意が必要なのは読み込んだ各行の文字列は末尾の改行も含んでいるということです。例えば <code>file.txt</code> が次のような内容だった場合</p>
+<p><strong>file.txt</strong></p>
+<div class="codehilite"><pre><span></span>aaa
+bbb
+ccc
+</pre></div>
+
+<p><code>for</code> や <code>readline()</code> で読み込んだ各行の文字列は次のようになります。</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;aaa</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="s1">&#39;bbb</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="s1">&#39;ccc</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+
+<p><code>print()</code> は文字列をプリントした後に自動で改行を 1 つ書き出すため、これらの文字列をプリントすると改行が 2 つ入った状態で出力されてしまいます。</p>
+<div class="codehilite"><pre><span></span>$ python main.py
+aaa
+
+bbb
+
+ccc
+</pre></div>
+
+<p>これを解決するには読み込んだ文字列に対して <code>strip()</code> というメソッドを呼び出します。 <code>strip()</code> は文字列の両端にある空白や改行を削除するメソッドです。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>その他次のようなメソッドでも文字列を読み込むことができます。</p>
+<table>
+<thead>
+<tr>
+<th>メソッド</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>readlines()</code></td>
+<td>各行をリストで読み込む</td>
+<td><code>['aaa\n', 'bbb\n', 'ccc\n']</code></td>
+</tr>
+<tr>
+<td><code>read()</code></td>
+<td>全行を 1 つの文字列として読み込む</td>
+<td><code>'aaa\nbbb\nccc\n'</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">書き込み<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ファイルを書き込む処理は次のように書きます。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello, World!</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p><code>open()</code> の第 2 引数に <code>'w'</code> を付けることで書き込みモードでファイルをオープンします。そして <code>write()</code> メソッドに書き出したい文字列を渡すことでファイルに書き出すことができます。 <code>write()</code> には文字列しか渡すことができませんので、数値などを書き出したいときは f-string を使って文字列に変換する必要があります。また <code>write()</code> は <code>print()</code> とは違って改行を自動で付与しないので、改行したいときは明示的に <code>'\n'</code> を渡す必要があります。</p>
                 
                   
                 
@@ -707,7 +867,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch05-01-lists/" title="5.1. リスト" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch04-06-project-structures/" title="4.6. プロジェクト構成" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -716,19 +876,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                5.1. リスト
+                4.6. プロジェクト構成
               </span>
             </div>
           </a>
         
         
-          <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                6.1. 例外
+                5.2. コンテキスト
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
