@@ -52,6 +52,7 @@ nav:
     - 2.3. コメント: ch02-03-comments.md
     - 2.4. 条件文: ch02-04-conditions.md
     - 2.5. ループ文: ch02-05-loops.md
+    - 2.6. リスト内包表記: ch02-06-list-comprehensions.md
   - 3. クラス:
     - 3.1. クラス: ch03-01-classes.md
   - 4. モジュールとパッケージ:
