@@ -376,6 +376,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-06-list-comprehensions/" title="2.6. リスト内包表記" class="md-nav__link">
+      2.6. リスト内包表記
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -632,9 +644,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.1. doctest
+      </label>
+    
     <a href="./" title="7.1. doctest" class="md-nav__link md-nav__link--active">
       7.1. doctest
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#doctest_1" title="なぜ doctest を使うのか" class="md-nav__link">
+    なぜ doctest を使うのか
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -673,6 +714,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#doctest_1" title="なぜ doctest を使うのか" class="md-nav__link">
+    なぜ doctest を使うのか
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -687,6 +744,144 @@
                 
                 
                 <h1 id="doctest">doctest<a class="headerlink" href="#doctest" title="Permanent link">&para;</a></h1>
+<p>Python にはソースコードのドキュメンテーションをサポートするための docstring という文字列を使ってドキュメントを作成することができます。さらに docstring には関数の使用例を記述するための構文が用意されています。またその使用例を示すコードは関数が実際に記述したとおりに振る舞うかどうかをテストする機能も備わっており doctest と呼ばれます。</p>
+<p><strong>main.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">サンプルモジュールです。</span>
+
+<span class="sd">このモジュールは factorial() という関数を提供しており、次のように使用します。</span>
+
+<span class="sd">&gt;&gt;&gt; factorial(5)</span>
+<span class="sd">120</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;n &gt;=0 であるような整数に対する階乗を計算します。</span>
+
+<span class="sd">    &gt;&gt;&gt; [factorial(n) for n in range(6)]</span>
+<span class="sd">    [1, 1, 2, 6, 24, 120]</span>
+
+<span class="sd">    &gt;&gt;&gt; factorial(30)</span>
+<span class="sd">    265252859812191058636308480000000</span>
+<span class="sd">    &gt;&gt;&gt; factorial(-1)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">    ValueError: n &gt;= 0 である必要があります</span>
+
+<span class="sd">    浮動小数点型も渡せますが、その値は整数値である必要があります。</span>
+<span class="sd">    &gt;&gt;&gt; factorial(30.1)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">    ValueError: n は整数でなければいけません</span>
+<span class="sd">    &gt;&gt;&gt; factorial(30.0)</span>
+<span class="sd">    265252859812191058636308480000000</span>
+
+<span class="sd">    極端に大きな整数値を渡しても階乗の計算はできません。</span>
+<span class="sd">    &gt;&gt;&gt; factorial(1e100)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">    OverflowError: n の値が大きすぎます</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n &gt;= 0 である必要があります&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n は整数でなければいけません&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">OverflowError</span><span class="p">(</span><span class="s1">&#39;n の値が大きすぎます&#39;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">while</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="n">factor</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+<p><code>"""..."""</code> のようにトリプルクオテーションで囲まれた文字列が docstring です。通常はソースコード・関数・クラスの先頭部分で記述します。<code>&gt;&gt;&gt;</code> から始まる行</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">120</span>
+</pre></div>
+
+<p>は Python のコードを記述するための行で、その処理を実行したらどのように振る舞うのかを <code>&gt;&gt;&gt;</code> の下部に記述します。実行時に例外を送出する場合はその旨を記述することもできます。</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">factorial</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="o">...</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="err">である必要があります</span>
+</pre></div>
+
+<p>docstring 内のコードが記述したとおりに動くかどうかを確認するためには doctest モジュールを使用します。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">doctest</span>
+<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+<p>このように記述しておき</p>
+<div class="codehilite"><pre><span></span>$ python main.py
+</pre></div>
+
+<p>と実行すると doctest が走ります。<code>factorial()</code> の実装が期待通りになっている場合は何も表示されませんが、もしバグが混入していた場合はエラーメッセージが出力されます。下記は <code>result = 1</code> の部分を <code>result = 10</code> と書いてしまっていた場合の doctest の実行結果になります。</p>
+<div class="codehilite"><pre><span></span>$ python main.py
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">9</span>, in __main__
+Failed example:
+    factorial<span class="o">(</span><span class="m">5</span><span class="o">)</span>
+Expected:
+    <span class="m">120</span>
+Got:
+    <span class="m">1200</span>
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">20</span>, in __main__.factorial
+Failed example:
+    <span class="o">[</span>factorial<span class="o">(</span>n<span class="o">)</span> <span class="k">for</span> n in range<span class="o">(</span><span class="m">6</span><span class="o">)]</span>
+Expected:
+    <span class="o">[</span><span class="m">1</span>, <span class="m">1</span>, <span class="m">2</span>, <span class="m">6</span>, <span class="m">24</span>, <span class="m">120</span><span class="o">]</span>
+Got:
+    <span class="o">[</span><span class="m">10</span>, <span class="m">10</span>, <span class="m">20</span>, <span class="m">60</span>, <span class="m">240</span>, <span class="m">1200</span><span class="o">]</span>
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">23</span>, in __main__.factorial
+Failed example:
+    factorial<span class="o">(</span><span class="m">30</span><span class="o">)</span>
+Expected:
+    <span class="m">265252859812191058636308480000000</span>
+Got:
+    <span class="m">2652528598121910586363084800000000</span>
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">35</span>, in __main__.factorial
+Failed example:
+    factorial<span class="o">(</span><span class="m">30</span>.0<span class="o">)</span>
+Expected:
+    <span class="m">265252859812191058636308480000000</span>
+Got:
+    <span class="m">2652528598121910586363084800000000</span>
+**********************************************************************
+<span class="m">2</span> items had failures:
+   <span class="m">1</span> of   <span class="m">1</span> in __main__
+   <span class="m">3</span> of   <span class="m">6</span> in __main__.factorial
+***Test Failed*** <span class="m">4</span> failures.
+</pre></div>
+
+<h2 id="doctest_1">なぜ doctest を使うのか<a class="headerlink" href="#doctest_1" title="Permanent link">&para;</a></h2>
+<p>doctest を使うことで次のような機能を提供することができます。</p>
+<ul>
+<li>プログラムの使用例をドキュメントに記述できる</li>
+<li>その使用例が単体テストとして使用できる</li>
+<li>プログラムの実装と使用例が同期しているかどうか用意に確認できる</li>
+</ul>
+<p>プログラムの使い方を記述しておくことはとても重要なことですが、ドキュメントというのは時間が経つと形骸化しやすいものです。しかし doctest を使ってドキュメントを管理しておくとプログラムの内容と同期が取れているかどうかを簡単に確認できるため、形骸化することがなくなります。</p>
                 
                   
                 

@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch02-04-conditions/">
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch02-06-list-comprehensions/">
       
       
         <meta name="author" content="井田 献一朗">
@@ -42,7 +42,7 @@
     
     
       
-        <title>2.4. 条件文 - ゼロから学ぶ Python</title>
+        <title>2.6. リスト内包表記 - ゼロから学ぶ Python</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ Python
             </span>
             <span class="md-header-nav__topic">
-              2.4. 条件文
+              2.6. リスト内包表記
             </span>
           
         </div>
@@ -358,97 +358,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.4. 条件文
-      </label>
-    
-    <a href="./" title="2.4. 条件文" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-04-conditions/" title="2.4. 条件文" class="md-nav__link">
       2.4. 条件文
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#if" title="if" class="md-nav__link">
-    if
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#elif" title="elif" class="md-nav__link">
-    elif
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="演算子" class="md-nav__link">
-    演算子
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#and" title="and" class="md-nav__link">
-    and
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#or" title="or" class="md-nav__link">
-    or
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#in" title="in" class="md-nav__link">
-    in
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is" title="is" class="md-nav__link">
-    is
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -468,11 +382,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch02-06-list-comprehensions/" title="2.6. リスト内包表記" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="2.6. リスト内包表記" class="md-nav__link md-nav__link--active">
       2.6. リスト内包表記
     </a>
+    
   </li>
 
         
@@ -762,70 +685,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#if" title="if" class="md-nav__link">
-    if
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#elif" title="elif" class="md-nav__link">
-    elif
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="演算子" class="md-nav__link">
-    演算子
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#and" title="and" class="md-nav__link">
-    and
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#or" title="or" class="md-nav__link">
-    or
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#in" title="in" class="md-nav__link">
-    in
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is" title="is" class="md-nav__link">
-    is
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -836,154 +695,27 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch02-04-conditions.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch02-06-list-comprehensions.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">条件文<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>ある条件を満たしている時だけ行いたい処理がある場合は条件文を使って処理を書きます。</p>
-<h2 id="if"><code>if</code><a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
+                <h1 id="_1">リスト内包表記<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>リスト内包表記とはリストを簡単に作成するための構文のことです。今 <code>[0, 2, 4, 6, ..., 98]</code> というリストを作ろうとした場合、</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
 
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;condition was true&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;condition was false&#39;</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
-<p><code>x</code> の値が <code>5</code> 未満かどうかで出力されるメッセージが変化します。<code>if</code> に渡す値は必ずしも評価式である必要はありません。次のように値そのものを渡すこともできます。</p>
-<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="k">if</span> <span class="n">x</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is not 0&#39;</span><span class="p">)</span>
+<p>のようにループ処理をして要素を詰めて作ることができますが、リスト内包表記を使うと下記のようにもっとシンプルに書くことができます。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span>
 </pre></div>
 
-<p>この条件は <code>x</code> を <code>bool</code> に変換した値が評価されます。値を <code>bool</code> に変換した場合の結果は次のように評価されます。</p>
-<ul>
-<li><code>0, 0.0, '', b'', [], (), {}, set(), None</code> のとき <code>False</code></li>
-<li>それ以外のとき <code>True</code></li>
-</ul>
-<h2 id="elif"><code>elif</code><a class="headerlink" href="#elif" title="Permanent link">&para;</a></h2>
-<p>複数の条件を見たい場合は <code>if, elif, else</code> を使います。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is divisible by 4&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is divisible by 3&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is divisible by 2&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;number is not divisible by 4, 3, or 2&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<p>リスト内包表記は別のコレクション型から変換を行う際によく使われます。例えば下記は辞書からタプルを要素とするリストを作成する例です。</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>  <span class="c1"># [(&#39;a&#39;, 10), (&#39;b&#39;, 20), (&#39;c&#39;, 30)]</span>
 </pre></div>
 
-<p><code>else if</code> ではなく <code>elif</code> であることに注意してください。</p>
-<div class="admonition note">
-<p class="admonition-title">switch 文</p>
-<p>Python には switch 文がありませんので <code>if, elif, else</code> を使用して下さい。</p>
-</div>
-<h2 id="_2">演算子<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>条件文で使用できる演算子には次のようなものがあります。</p>
-<h3 id="and"><code>and</code><a class="headerlink" href="#and" title="Permanent link">&para;</a></h3>
-<p>複数の条件が成立するかどうかを調べるときに使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is in [0, 10)&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-<p>ただし変数の範囲チェックをする場合は <code>and</code> を使わなくてもシンプルな書き方ができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>     <span class="c1"># x &gt;= 0 and x &lt; 10 と同じ</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is in [0, 10)&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-<h3 id="or"><code>or</code><a class="headerlink" href="#or" title="Permanent link">&para;</a></h3>
-<p>複数の条件のうちどれか 1 つが成立するかどうかを調べるときに使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Either x or y is a positive value&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-<h3 id="in"><code>in</code><a class="headerlink" href="#in" title="Permanent link">&para;</a></h3>
-<p>リスト・タプル・集合内に特定の要素が含まれているかどうかを調べます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{data} contains {x}&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-<p>辞書に対して使用するとキーの存在を調べることができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{data} contains the value of key {key}&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">check</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
-</pre></div>
-
-<h3 id="is"><code>is</code><a class="headerlink" href="#is" title="Permanent link">&para;</a></h3>
-<p><code>is</code> は 2 つの変数が同じインスタンスを参照しているかどうかを調べるときに使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x is y == True&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span>
-    <span class="n">check</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-</pre></div>
-
-<p>ここでいう「同じ」とは保持している値が等価という意味ではありません。参照しているインスタンスが同じかどうかを意味しています。言い換えれば変数 <code>x, y</code> に対して、これらの代入元の変数をたどっていって同じ変数にたどり着くなら <code>x is y</code> は <code>True</code> になります。</p>
-<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">y</span>
-
-<span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>  <span class="c1"># True</span>
-<span class="n">y</span> <span class="ow">is</span> <span class="n">z</span>  <span class="c1"># True</span>
-<span class="n">z</span> <span class="ow">is</span> <span class="n">x</span>  <span class="c1"># True</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-
-<span class="n">x</span> <span class="ow">is</span> <span class="n">a</span>  <span class="c1"># False</span>
-<span class="n">x</span> <span class="ow">is</span> <span class="n">b</span>  <span class="c1"># False</span>
-</pre></div>
-
-<p>変数に <code>None</code> が代入されているかどうかを調べるときは <code>==</code> ではなく <code>is</code> を使用します。</p>
-<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span>
-</pre></div>
+<p>ループ処理を短く書くことができますので活用するとコードがシンプルになります。</p>
                 
                   
                 
@@ -1004,7 +736,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch02-03-comments/" title="2.3. コメント" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1013,19 +745,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                2.3. コメント
+                2.5. ループ文
               </span>
             </div>
           </a>
         
         
-          <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch03-01-classes/" title="3.1. クラス" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.5. ループ文
+                3.1. クラス
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
