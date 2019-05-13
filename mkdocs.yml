@@ -69,4 +69,4 @@ nav:
     - 6.1. 例外: ch06-01-exceptions.md
   - 7. テスト:
     - 7.1. doctest: ch07-01-doctest.md
-    - 7.2. 単体テスト: ch07-02-unittests.md
+    - 7.2. pytest: ch07-02-pytest.md
