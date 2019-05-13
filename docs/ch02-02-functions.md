@@ -224,3 +224,13 @@ def f(x):
     print(f'The value of x is {x}')
     return None
 ```
+
+## 空実装
+
+関数の実装を空にしたい場合は `pass` と書いておきます。
+
+```python
+# 何もしない関数
+def empty_function():
+    pass
+```
