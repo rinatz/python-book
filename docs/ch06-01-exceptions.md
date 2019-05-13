@@ -80,6 +80,12 @@ FileNotFoundError: [Errno 2] No such file or directory: 'file.txt'
 
 `FileNotFoundError` という種類の例外が発生しています。このように不正な処理が検知された時点で例外が割り込み、プログラムは停止します。
 
+- `SyntexError`
+- `IndexError`
+- `FileNotFoundError`
+
+はすべて例外クラスを呼ばれるものです。
+
 ## 例外を捕捉する
 
 例外が発生したときにプログラムを停止させる代わりに、例外が発生したときに実行する処理を書くこともできます。`try-except` 文を使ってそれが実現できます。
@@ -133,3 +139,28 @@ if __name__ == '__main__':
 - `try-except` を `if-else` のような条件分岐の代わりとして使える
 - どのようなエラーが発生しうるかがコード上で明らかになる
 - エラー発生時の原因や解決策を `print()` などを使って伝えられる
+
+## 例外を送出する
+
+自分で例外を送出することもできます。例外を送出するには `raise` を使います。
+
+```python
+def factorial(n):
+    if not n >= 0:
+        raise ValueError('n >= 0 である必要があります')
+
+    ...
+```
+
+自分で例外を送出する場合は独自の例外クラスを用意しておいたほうがエラーの起こった箇所が区別しやすくなります。例外クラスを作成するには `Exception` クラスを継承して作成する必要があります。組み込みの例外クラスは `Exception` の継承クラスなので、これらを継承しても問題ありません。
+
+```python
+class MyException(Exception):
+    pass
+```
+
+例外クラスの実装は空で問題ありません。
+
+!!! tips "組み込み例外の一覧"
+    下記ページに例外クラスの一覧が載っていますので参考にして下さい。
+    https://docs.python.org/ja/3/library/exceptions.html
