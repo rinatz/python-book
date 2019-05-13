@@ -1,0 +1,1692 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="ゼロから学ぶ Python">
+      
+      
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch07-02-pytest/">
+      
+      
+        <meta name="author" content="井田 献一朗">
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>7.2. pytest - ゼロから学ぶ Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#fb8c00">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700|Inconsolata">
+        <style>body,input{font-family:"Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Inconsolata","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="orange" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#pytest" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-header-nav__button md-logo">
+          
+            <img src="../img/python.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              ゼロから学ぶ Python
+            </span>
+            <span class="md-header-nav__topic">
+              7.2. pytest
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    rinatz/python-book
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-nav__button md-logo">
+      
+        <img src="../img/python.svg" width="48" height="48">
+      
+    </a>
+    ゼロから学ぶ Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/rinatz/python-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    rinatz/python-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="ホーム" class="md-nav__link">
+      ホーム
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      1. Python を始める
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        1. Python を始める
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch01-01-installation/" title="1.1. インストール" class="md-nav__link">
+      1.1. インストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
+      1.2. Hello, World!
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      2. 基本仕様
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        2. 基本仕様
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
+      2.1. 変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-02-functions/" title="2.2. 関数" class="md-nav__link">
+      2.2. 関数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-03-comments/" title="2.3. コメント" class="md-nav__link">
+      2.3. コメント
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-04-conditions/" title="2.4. 条件文" class="md-nav__link">
+      2.4. 条件文
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-nav__link">
+      2.5. ループ文
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-06-list-comprehensions/" title="2.6. リスト内包表記" class="md-nav__link">
+      2.6. リスト内包表記
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      3. クラス
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        3. クラス
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-01-classes/" title="3.1. クラス" class="md-nav__link">
+      3.1. クラス
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      4. モジュールとパッケージ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        4. モジュールとパッケージ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-nav__link">
+      4.1. モジュール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-02-packages/" title="4.2. パッケージ" class="md-nav__link">
+      4.2. パッケージ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-03-pip/" title="4.3. pip" class="md-nav__link">
+      4.3. pip
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-04-venv/" title="4.4. venv" class="md-nav__link">
+      4.4. venv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-05-pipenv/" title="4.5. pipenv" class="md-nav__link">
+      4.5. pipenv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-06-project-structures/" title="4.6. プロジェクト構成" class="md-nav__link">
+      4.6. プロジェクト構成
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      5. ファイル操作とコンテキスト
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        5. ファイル操作とコンテキスト
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-01-files/" title="5.1. ファイル操作" class="md-nav__link">
+      5.1. ファイル操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+      5.2. コンテキスト
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      6. 例外
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        6. 例外
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-nav__link">
+      6.1. 例外
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      7. テスト
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        7. テスト
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-01-doctest/" title="7.1. doctest" class="md-nav__link">
+      7.1. doctest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.2. pytest
+      </label>
+    
+    <a href="./" title="7.2. pytest" class="md-nav__link md-nav__link--active">
+      7.2. pytest
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="準備" class="md-nav__link">
+    準備
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="インストール" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="テストの書き方" class="md-nav__link">
+    テストの書き方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="テスト実行" class="md-nav__link">
+    テスト実行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="パラメータ化したテスト" class="md-nav__link">
+    パラメータ化したテスト
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="注意点" class="md-nav__link">
+    注意点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="フィクスチャ" class="md-nav__link">
+    フィクスチャ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="ファイルを扱うテスト" class="md-nav__link">
+    ファイルを扱うテスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="前処理の書き方" class="md-nav__link">
+    前処理の書き方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="後処理の書き方" class="md-nav__link">
+    後処理の書き方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="フィクスチャの連携" class="md-nav__link">
+    フィクスチャの連携
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="テンポラリの作成" class="md-nav__link">
+    テンポラリの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="フィクスチャのスコープ" class="md-nav__link">
+    フィクスチャのスコープ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conftestpy" title="conftest.py" class="md-nav__link">
+    conftest.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="標準出力のキャプチャ" class="md-nav__link">
+    標準出力のキャプチャ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="モック" class="md-nav__link">
+    モック
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="モックの使い方" class="md-nav__link">
+    モックの使い方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="呼び出し履歴の確認" class="md-nav__link">
+    呼び出し履歴の確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="戻り値の定義" class="md-nav__link">
+    戻り値の定義
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" title="スパイ" class="md-nav__link">
+    スパイ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="準備" class="md-nav__link">
+    準備
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="インストール" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="テストの書き方" class="md-nav__link">
+    テストの書き方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="テスト実行" class="md-nav__link">
+    テスト実行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="パラメータ化したテスト" class="md-nav__link">
+    パラメータ化したテスト
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="注意点" class="md-nav__link">
+    注意点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="フィクスチャ" class="md-nav__link">
+    フィクスチャ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="ファイルを扱うテスト" class="md-nav__link">
+    ファイルを扱うテスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="前処理の書き方" class="md-nav__link">
+    前処理の書き方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="後処理の書き方" class="md-nav__link">
+    後処理の書き方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="フィクスチャの連携" class="md-nav__link">
+    フィクスチャの連携
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="テンポラリの作成" class="md-nav__link">
+    テンポラリの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="フィクスチャのスコープ" class="md-nav__link">
+    フィクスチャのスコープ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conftestpy" title="conftest.py" class="md-nav__link">
+    conftest.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="標準出力のキャプチャ" class="md-nav__link">
+    標準出力のキャプチャ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="モック" class="md-nav__link">
+    モック
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="モックの使い方" class="md-nav__link">
+    モックの使い方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="呼び出し履歴の確認" class="md-nav__link">
+    呼び出し履歴の確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="戻り値の定義" class="md-nav__link">
+    戻り値の定義
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" title="スパイ" class="md-nav__link">
+    スパイ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch07-02-pytest.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="pytest">pytest<a class="headerlink" href="#pytest" title="Permanent link">&para;</a></h1>
+<p>Python には単体テストを書くためのフレームワークがいくつかあります。</p>
+<table>
+<thead>
+<tr>
+<th>フレームワーク</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unittest</td>
+<td>標準ライブラリ</td>
+</tr>
+<tr>
+<td>nose</td>
+<td>かつては主流だった</td>
+</tr>
+<tr>
+<td>pytest</td>
+<td>現在主流のもの</td>
+</tr>
+</tbody>
+</table>
+<p>上記の通り Python は標準ライブラリを使って単体テストを書くことができますが、サードパーティ製の pytest の使い勝手が良いため、pytest を使って書かれることが多いです。そこでここでは pytest の簡単な使い方について説明します。</p>
+<h2 id="_1">準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="../ch04-06-project-structures/">プロジェクト構成</a> を参考に、単体テストのソースコードは <code>tests</code> 配下に作成するようにします。ソースコードが 1 つで十分な場合はディレクトリを作らなくても構いません。</p>
+<p>下記のような構成でファイルを作成し、素数判定のコードをテストしてみましょう。</p>
+<div class="codehilite"><pre><span></span>prime
+├── prime.py
+└── test_prime.py
+</pre></div>
+
+<h2 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>pipenv を使ってインストールします。</p>
+<div class="codehilite"><pre><span></span>$ mkdir fibonacci
+$ <span class="nb">cd</span> fibonacci
+$ pipenv install -d pytest
+</pre></div>
+
+<p><code>-d</code> というのは開発時にだけ必要となるパッケージをインストールするときに指定するフラグです。単体テストは通常開発時にしか必要ないため大抵のケースで pytest は <code>-d</code> を指定してインストールするのが良いでしょう。</p>
+<h2 id="_3">テストの書き方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>まず素数判定を行う関数を書きます。</p>
+<p><strong>prime.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="k">while</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+
+<p>今回はこのプログラムを直接実行するわけではないため、シバンや <code>main()</code> は不要です。次にこの関数に対するテストを下記のように記述します。</p>
+<p><strong>test_prime.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">prime</span> <span class="kn">import</span> <span class="n">is_prime</span>
+
+
+<span class="k">def</span> <span class="nf">test_is_prime</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+<p>pytest は <code>test_</code> で始まるファイル・関数を単体テストのコードとみなします。テストしたい関数を <code>import</code> 文で取り込み、<code>assert</code> という文の後ろにテストしたい式を記述します。</p>
+<h2 id="_4">テスト実行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>テストを実行するには <code>pytest</code> というコマンドを使います。</p>
+<div class="codehilite"><pre><span></span>$ pipenv shell
+<span class="o">(</span>prime<span class="o">)</span> $ pytest test_prime.py
+<span class="o">==============================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==============================================</span>
+platform darwin -- Python <span class="m">3</span>.7.3, pytest-4.5.0, py-1.8.0, pluggy-0.11.0
+rootdir: /Users/kenichiro-ida/Documents/github.com/rinatz/prime
+collected <span class="m">1</span> item                                                                                                
+
+test_prime.py .                                                                                           <span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
+
+<span class="o">===========================================</span> <span class="m">1</span> passed in <span class="m">0</span>.02 <span class="nv">seconds</span> <span class="o">============================================</span>
+</pre></div>
+
+<p>素数判定が正しく実装されていなかった場合の挙動を確認するため、<code>is_prime()</code> から次の行を無効にして再度テストを実行してみます。</p>
+<p><strong>prime.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+<span class="hll">    <span class="c1"># if n % 2 == 0:</span>
+</span><span class="hll">    <span class="c1">#     return False</span>
+</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="k">while</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">(</span>prime<span class="o">)</span> $ pytest test_prime.py
+<span class="o">==============================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==============================================</span>
+platform darwin -- Python <span class="m">3</span>.7.3, pytest-4.5.0, py-1.8.0, pluggy-0.11.0
+rootdir: /Users/kenichiro-ida/Documents/github.com/rinatz/prime
+collected <span class="m">1</span> item                                                                                                
+
+test_prime.py F                                                                                           <span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
+
+<span class="o">===================================================</span> <span class="nv">FAILURES</span> <span class="o">====================================================</span>
+_________________________________________________ test_is_prime _________________________________________________
+
+    def test_is_prime<span class="o">()</span>:
+        assert not is_prime<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+        assert not is_prime<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+        assert is_prime<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+        assert is_prime<span class="o">(</span><span class="m">3</span><span class="o">)</span>
+&gt;       assert not is_prime<span class="o">(</span><span class="m">4</span><span class="o">)</span>
+E       assert not True
+E        +  where <span class="nv">True</span> <span class="o">=</span> is_prime<span class="o">(</span><span class="m">4</span><span class="o">)</span>
+
+test_prime.py:9: <span class="nv">AssertionError</span>
+<span class="o">===========================================</span> <span class="m">1</span> failed in <span class="m">0</span>.09 <span class="nv">seconds</span> <span class="o">============================================</span>
+</pre></div>
+
+<p><code>is_prime(4)</code> が <code>True</code> になっているというエラーメッセージが出力されています。</p>
+<h2 id="_5">パラメータ化したテスト<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>上記の例では <code>is_prime(4)</code> のテストに失敗すると、その時点でテストが終わってしまうため、<code>is_prime(5)</code> 以降のテストがどうなるかは分かりませんでした。このようなケースでは <strong>パラメータ化したテスト</strong> を作ることで <code>1～10</code> までのすべての値をテストできるようになります。</p>
+<p>パラメータ化したテストはテスト内で使用するパラメータを関数の引数として渡せるように書き直したテストのことです。パラメータ化したテストでテストを記述した場合は、すべてのパラメータのテストを実行するまでテストが続行されます。チュートリアルの <code>test_is_prime()</code> をパラメータ化したテストで書き直すと次のようになります。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="kn">from</span> <span class="nn">prime</span> <span class="kn">import</span> <span class="n">is_prime</span>
+
+
+<span class="nd">@pytest.mark.parametrize</span><span class="p">((</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">),</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_is_prime</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</pre></div>
+
+<p><code>@pytest.mark.parametrize()</code> はデコレータと呼ばれるもので、これにテストで使用するパラメータを記述します。デコレータの最初の引数 <code>('number', 'expected')</code> はテスト関数に渡すパラメータの引数名になります。第 2 引数は実際に渡すパラメータの値をタプルのリストとして記述します。</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.mark.parametrize</span><span class="p">((</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">),</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+<span class="p">])</span>
+</pre></div>
+
+<p>のように記述すると <code>test_is_prime(1, False)</code> が実行されます。複数記述すればその分だけ <code>number, expected</code> に値が渡され <code>test_is_prime()</code> が実行されます。</p>
+<h3 id="_6">注意点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>デコレータの書き方には注意して下さい。次のいずれも正しい書き方ではありません。</p>
+<p><strong>スペルミス</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">誤</p>
+<p><code>@pytest.mark.parameterized</code></p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">正</p>
+<p><code>@pytest.mark.parametrized</code></p>
+</div>
+<p><strong>文字列をタプルにしていない</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">誤</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.mark.parametrized</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="o">...</span>
+<span class="p">])</span>
+</pre></div>
+
+</div>
+<div class="admonition check">
+<p class="admonition-title">正</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.mark.parametrized</span><span class="p">((</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">),</span> <span class="p">[</span>
+    <span class="o">...</span>
+<span class="p">])</span>
+</pre></div>
+
+</div>
+<p><strong>タプルをリストの要素としない</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">誤</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.mark.parametrized</span><span class="p">((</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+<div class="admonition check">
+<p class="admonition-title">正</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.mark.parametrized</span><span class="p">((</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">),</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+    <span class="o">...</span>
+<span class="p">])</span>
+</pre></div>
+
+</div>
+<h2 id="_7">フィクスチャ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>フィクスチャはテストの実行前後で行いたい前処理・後処理を記述するために使用する関数のことです。各テストで同じ前処理・後処理を行う必要がある場合に暗黙的にそれが実行できるようになります。</p>
+<h3 id="_8">ファイルを扱うテスト<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>ファイルを扱う関数はフィクスチャが有効です。今ファイルから整数を受け取り、それを昇順に読み込む関数を考えます。</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="c1"># List[int] で要素が int のリスト型を表す型ヒントになる</span>
+<span class="k">def</span> <span class="nf">load_numbers_sorted</span><span class="p">(</span><span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="n">f</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">numbers</span>
+</pre></div>
+
+<p>この関数は入力値としてファイルのパスを受け取ります。そのため、事前にファイルを用意しなければいけません。このファイルを用意するためにフィクスチャが利用できます。</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>関数がファイルを必要とするからと言ってテスト用のファイルをあらかじめリポジトリにコミットするようなことは避けるべきです。そのようなことをするとテストパターンが増えるたびにファイルも増えてしまい、管理が複雑になります。</p>
+</div>
+<h3 id="_9">前処理の書き方<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>下記のような整数を保存したファイルを用意して <code>load_numbers_sorted()</code> のためのテスト <code>test_load_numbers_sorted()</code> を作成してみます。</p>
+<p><strong>numbers.txt</strong></p>
+<div class="codehilite"><pre><span></span>2
+5
+4
+3
+1
+</pre></div>
+
+<p><code>test_load_numbers_sorted()</code> が実行される前にファイルを用意する必要があるため次のようにフィクスチャを使ってファイルを作成します。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest.fixture</span>
+<span class="k">def</span> <span class="nf">txt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="k">yield</span> <span class="s1">&#39;numbers.txt&#39;</span>
+</pre></div>
+
+<p><code>numbers.txt</code> というファイルを作り、そのファイル名を返却しています。このフィクスチャを使って <code>test_load_numbers_sorted()</code> を実行するには次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_load_numbers_sorted</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">load_numbers_sorted</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+<p>テスト関数にフィクスチャと同じ名前の引数 <code>txt</code> を渡します。すると <code>txt</code> にはフィクスチャ <code>txt()</code> の戻り値 <code>numbers.txt</code> が入ってきます。このコードを実行すると</p>
+<ol>
+<li><code>txt()</code> が呼ばれる</li>
+<li><code>numbers.txt</code> が作成される</li>
+<li><code>test_load_numbers_sorted('numbers.txt')</code> が呼ばれる</li>
+</ol>
+<p>という振る舞いをします。</p>
+<h3 id="_10">後処理の書き方<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><code>numbers.txt</code> はテストが終われば不要なため、後処理としてファイルを削除してあげましょう。ファイルを削除するにはフィクスチャ <code>txt()</code> に次の行を追加します。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="nd">@pytest.fixture</span>
+<span class="k">def</span> <span class="nf">txt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="o">...</span>
+
+    <span class="k">yield</span> <span class="s1">&#39;numbers.txt&#39;</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>こうするとテストが終わると <code>os.remove('numbers.txt')</code> が呼び出され、ファイルが削除されます。つまりフィクスチャは</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.fixture</span>
+<span class="k">def</span> <span class="nf">txt</span><span class="p">():</span>
+    <span class="c1"># 前処理</span>
+
+    <span class="k">yield</span> <span class="o">...</span>   <span class="c1"># テスト関数に何らかの値を渡す</span>
+
+    <span class="c1"># 後処理</span>
+</pre></div>
+
+<p>という構造をしています。<code>test_load_numbers_sorted(txt)</code> の引数 <code>txt</code> はフィクスチャ <code>txt()</code> で
+何を返したかで型が決まります。</p>
+<h3 id="_11">フィクスチャの連携<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>フィクスチャから別のフィクスチャを呼び出すこともできます。</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.fixture</span>
+<span class="k">def</span> <span class="nf">txt_and_list</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">yield</span> <span class="n">txt</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">test_load_numbers_sorted</span><span class="p">(</span><span class="n">txt_and_list</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">load_numbers_sorted</span><span class="p">(</span><span class="n">txt_and_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">txt_and_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+<p>この場合 <code>txt() -&gt; txt_and_list()</code> の順にフィクスチャが実行され、その結果が <code>test_load_numbers_sorted()</code> に渡されます。</p>
+<h3 id="_12">テンポラリの作成<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>pytest には安全にテンポラリを作成するための <code>tmpdir</code> というフィクスチャがあらかじめ用意されています。先に見た例ではファイルがローカルに作られるため、大量のファイルが作られるとディレクトリが汚れてしまいますが <code>tmpdir</code> を使うと <code>/tmp</code> 配下にファイルを作成するため、ファイル管理がスマートになります。</p>
+<p><code>tmpdir</code> の使い方は次のとおりです。</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.fixture</span>
+<span class="k">def</span> <span class="nf">txt</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">tmpfile</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">tmpfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="k">yield</span> <span class="nb">str</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">)</span>
+
+    <span class="n">tmpfile</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</pre></div>
+
+<h3 id="_13">フィクスチャのスコープ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>通常フィクスチャはテスト単位で呼び出されます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_sample1</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span> <span class="nf">test_sample2</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+
+<p>この場合、フィクスチャ <code>txt()</code> は各テスト関数を実行するたびに毎回呼び出されます。場合によってはこれが非効率で冗長になることもあります。このような場合はフィクスチャが呼び出されるタイミングを次のようにして変更することができます。</p>
+<div class="codehilite"><pre><span></span><span class="nd">@pytest.fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s1">&#39;module&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">txt</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+
+<p><code>scope</code> に指定できる値は次のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>scope</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>function</td>
+<td>テスト関数ごとにフィクスチャを実行（デフォルト）</td>
+</tr>
+<tr>
+<td>module</td>
+<td>同一モジュール（ソースコード）内で1回だけフィクスチャを実行</td>
+</tr>
+<tr>
+<td>class</td>
+<td>同一クラス内で1回だけフィクスチャを実行</td>
+</tr>
+<tr>
+<td>session</td>
+<td>テスト実行時に1回だけフィクスチャを実行</td>
+</tr>
+</tbody>
+</table>
+<p>ただフィクスチャのスコープはむやみに広げないほうが良いです。フィクスチャの設定をテスト間で共有すると依存関係が生まれてしまい、不意にテストが成功してしまうケースがあるからです。テスト関数ごとにフィクスチャを実行しても問題ない場合はそのようにすべきです。</p>
+<h3 id="conftestpy">conftest.py<a class="headerlink" href="#conftestpy" title="Permanent link">&para;</a></h3>
+<p>複数のファイルをまたいで共通のフィクスチャを使用したいこともあると思います。そのような時はフィクスチャを <code>conftest.py</code> というファイルに定義しましょう。<code>conftest.py</code> 内のフィクスチャは pytest によって自動的にインポートされ、<code>conftest.py</code> があるディレクトリ配下で暗黙的に参照できるようになります。</p>
+<div class="codehilite"><pre><span></span>.
+└─tests
+    ├─conftest.py .............. 全テストで参照可能
+    ├─test_sample1
+    │  ├─conftest.py .......... test_sample2.py, test_sample3.py で参照可能
+    │  ├─test_sample2.py
+    │  └─test_sample3.py
+    └─test_sample4
+        ├─conftest.py .......... test_sample5.py, test_sample6.py で参照可能
+        ├─test_sample5.py
+        └─test_sample6.py
+</pre></div>
+
+<h2 id="_14">標準出力のキャプチャ<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>標準出力にメッセージを出力する関数をテストしたい時には標準出力をキャプチャして出力されたメッセージを確認することができます。例えば次のようなフィボナッチ数列を出力する関数を考えます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+
+<p>この関数を <code>fibonacci(5)</code> として呼び出すと標準出力には</p>
+<div class="codehilite"><pre><span></span>1
+1
+2
+3
+5
+</pre></div>
+
+<p>と出力されます。本当にこのように出力されるかどうかをテストしたい時には次のように書きます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_fibonacci</span><span class="p">(</span><span class="n">capsys</span><span class="p">):</span>
+    <span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+
+    <span class="k">assert</span> <span class="n">out</span> <span class="o">==</span> <span class="p">(</span>
+        <span class="s1">&#39;1</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="s1">&#39;1</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="s1">&#39;2</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="s1">&#39;3</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="s1">&#39;5</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+</pre></div>
+
+<p><code>capsys</code> は標準出力と標準エラー出力をキャプチャするためのフィクスチャです。</p>
+<div class="codehilite"><pre><span></span><span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+</pre></div>
+
+<p>はキャプチャした標準出力と標準エラー出力の文字列をタプルとして返します。</p>
+<h2 id="_15">モック<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>モックとは関数やクラスが相互に依存して動作する時に、依存する関数やクラスが正しく使われているかどうかをテストする時に使われるオブジェクトのことです。例えば次のコードを見てみましょう。</p>
+<p><strong>interaction.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">receive</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;received: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+</pre></div>
+
+<p>いま関数 <code>send()</code> は引数で受け取った文字列を <code>receive()</code> にそのまま渡さなければならないという仕様があったとします。このとき、 <code>send()</code> が仕様どおりに実装されているかどうかをテストするためには</p>
+<ul>
+<li><code>send()</code> は <code>receive()</code> を1回だけ呼び出しているか？</li>
+<li><code>send()</code> が受け取った文字列は <code>receive()</code> にそのまま渡されているか？</li>
+</ul>
+<p>を確認する必要があります。もしこの振る舞いをテストで確認することができれば</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[1]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+    <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[2]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+</pre></div>
+
+<p>のように仕様に沿っていない実装を間違った実装として検出できるようになります。モックを使うとこのような確認がテストできるようになります。</p>
+<h3 id="_16">モックの使い方<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>モックを使うには <a href="https://github.com/pytest-dev/pytest-mock">pytest-mock</a> という pytest のプラグインを使用します。インストールは pipenv で次のようにできます。</p>
+<div class="codehilite"><pre><span></span>$ pipenv install -d pytest-mock
+</pre></div>
+
+<p><code>send()</code> が正しい形式で <code>receive()</code> を呼び出しているかどうかを確認するためには <code>receive()</code> が受け取った引数と呼び出し回数を記憶する仕組みが必要になります。それを実現するために <code>receive()</code> を偽の実装にすり替えて、引数や呼び出し回数を保存できるオブジェクト（すなわちモック）にするというアプローチを取ります（これをモンキーパッチといいます）。<code>pytest-mock</code> をインストールすると <code>mocker</code> というフィクスチャが使用できるようになります。この <code>mocker</code> を使って次のように <code>receive()</code> をモックにすることができます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><code>mocker.patch()</code> は引数で受け取った文字列の関数をモック化して返す関数です。<code>mocker.patch()</code> を呼び出した後では <code>send()</code> が呼び出す <code>receive()</code> は <code>interaction.py</code> で定義された <code>receive()</code> の代わりにモック化された偽の <code>receive()</code> が呼び出されるようになります。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
+
+    <span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>ここで呼び出した <code>send()</code> は内部で <code>receive()</code> を呼んでいますがその <code>receive()</code> は <code>mocker.patch()</code> が作成したモック化された <code>receive</code> になります。そしてこの <code>receive</code> は引数で受け取った値や呼び出し回数を記録したオブジェクトになっています。</p>
+<p>さらに次のような行をテストコードに追加してみましょう。</p>
+<div class="codehilite"><pre><span></span><span class="n">receive</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>これは <code>receive()</code> が <code>'Hello World!'</code> という文字列を受け取って 1 回だけ呼び出されたかどうかを確認するテストになります。テストコード全体は次のとおりになります。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
+
+    <span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+
+    <span class="n">receive</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>試しに <code>send()</code> の実装をわざと間違えた実装にしてみましょう。<code>receive.assert_called_once_with()</code> のところでテストが失敗するはずです。</p>
+<h3 id="_17">呼び出し履歴の確認<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>モック <code>receive</code> は自分がどのような引数で何回呼ばれたのかを履歴として残しています。その呼び出し履歴を参照するには <code>receive.call_args_list</code> を参照します。</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">receive</span><span class="o">.</span><span class="n">call_args_list</span>
+<span class="p">[</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)]</span>
+</pre></div>
+
+<p>これは <code>receive()</code> が <code>'Hello World!'</code> を引数として1回だけ呼ばれたことを意味します。このリストの内容を確認しても <code>send()</code> が <code>receive()</code> を正しく呼んだかどうかをテストすることができます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
+
+    <span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">receive</span><span class="o">.</span><span class="n">call_args_list</span> <span class="o">==</span> <span class="p">[</span>
+        <span class="n">mocker</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+</pre></div>
+
+<p>例えば <code>send()</code> が次のように実装されていたとすると</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[1]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+    <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[2]: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+</pre></div>
+
+<p>呼び出し履歴のテストは</p>
+<div class="codehilite"><pre><span></span><span class="k">assert</span> <span class="n">receive</span><span class="o">.</span><span class="n">call_args_list</span> <span class="o">==</span> <span class="p">[</span>
+    <span class="n">mocker</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;[1]: Hello World!&#39;</span><span class="p">),</span>
+    <span class="n">mocker</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;[2]: Hello World!&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>と書くことができます。</p>
+<h3 id="_18">戻り値の定義<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><code>send()</code> の振る舞いが <code>receive()</code> の戻り値に依存して変わるケースを考えます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">ok</span> <span class="o">=</span> <span class="n">receive</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ok</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;failure&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;received: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+
+<p>この場合 <code>receive()</code> の戻り値に応じて <code>send()</code> が出力するメッセージが変わることをテストで確認する必要が出てきます。サンプルの <code>receive()</code> は常に <code>True</code> しか返さないので、 <code>False</code> を返した時の
+<code>send()</code> の振る舞いが確認できません。このような場合でもモックを使って <code>receive()</code> の戻り値を上手く制御することができます。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+
+    <span class="n">receive</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+
+    <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+
+    <span class="k">assert</span> <span class="n">out</span> <span class="o">==</span> <span class="s1">&#39;failure</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+
+<p><code>mocker.patch()</code> の引数に <code>return_value=False</code> を渡すと <code>send()</code> 内で呼び出している <code>receive()</code> は <code>False</code> を返すように偽装されます。</p>
+<h3 id="_19">スパイ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>モックを使うと <code>receive()</code> の実装は完全に別物に置き換わりますが場合によっては本物の <code>receive()</code> を呼びつつ、呼び出し回数を確認したいこともあると思います。そのような場合はスパイを作成することで実現できます。例えば <code>receive()</code> が <code>studies/interaction.py</code> に定義されている場合</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">studies.interaction</span>
+
+<span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">studies</span><span class="o">.</span><span class="n">interaction</span><span class="p">,</span> <span class="s1">&#39;receive&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>とすることでスパイを作成することができます。<code>mocker.spy()</code> が返却する関数は本物の <code>receive()</code> に <code>assert_called_once_with()</code> などのメソッドが追加されたインスタンスになります。使い方はモンキーパッチの場合と同様です。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ch07-01-doctest/" title="7.1. doctest" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                7.1. doctest
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy 2019 Kenichiro IDA
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

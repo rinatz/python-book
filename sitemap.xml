@@ -101,7 +101,7 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/python-book/ch07-02-unittests/</loc>
+     <loc>http://rinatz.github.io/python-book/ch07-02-pytest/</loc>
      <lastmod>2019-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
