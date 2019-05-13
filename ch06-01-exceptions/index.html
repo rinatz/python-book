@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -654,6 +654,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" title="例外を送出する" class="md-nav__link">
+    例外を送出する
+  </a>
+  
+</li>
+      
       
       
       
@@ -766,6 +773,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" title="例外を送出する" class="md-nav__link">
+    例外を送出する
+  </a>
+  
+</li>
+      
       
       
       
@@ -853,6 +867,12 @@ FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span c
 </pre></div>
 
 <p><code>FileNotFoundError</code> という種類の例外が発生しています。このように不正な処理が検知された時点で例外が割り込み、プログラムは停止します。</p>
+<ul>
+<li><code>SyntexError</code></li>
+<li><code>IndexError</code></li>
+<li><code>FileNotFoundError</code></li>
+</ul>
+<p>はすべて例外クラスを呼ばれるものです。</p>
 <h2 id="_5">例外を捕捉する<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>例外が発生したときにプログラムを停止させる代わりに、例外が発生したときに実行する処理を書くこともできます。<code>try-except</code> 文を使ってそれが実現できます。</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -901,6 +921,26 @@ FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span c
 <li>どのようなエラーが発生しうるかがコード上で明らかになる</li>
 <li>エラー発生時の原因や解決策を <code>print()</code> などを使って伝えられる</li>
 </ul>
+<h2 id="_6">例外を送出する<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>自分で例外を送出することもできます。例外を送出するには <code>raise</code> を使います。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n &gt;= 0 である必要があります&#39;</span><span class="p">)</span>
+
+    <span class="o">...</span>
+</pre></div>
+
+<p>自分で例外を送出する場合は独自の例外クラスを用意しておいたほうがエラーの起こった箇所が区別しやすくなります。例外クラスを作成するには <code>Exception</code> クラスを継承して作成する必要があります。組み込みの例外クラスは <code>Exception</code> の継承クラスなので、これらを継承しても問題ありません。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p>例外クラスの実装は空で問題ありません。</p>
+<div class="admonition tips">
+<p class="admonition-title">組み込み例外の一覧</p>
+<p>下記ページに例外クラスの一覧が載っていますので参考にして下さい。
+<a href="https://docs.python.org/ja/3/library/exceptions.html">https://docs.python.org/ja/3/library/exceptions.html</a></p>
+</div>
                 
                   
                 
@@ -974,7 +1014,7 @@ FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span c
       
     </div>
     
-      <script src="../assets/javascripts/application.dc02f8ce.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         

@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -770,12 +770,18 @@
 </pre></div>
 
 <p>のようになります。大事なのはプログラムのソースコードは必ず <code>(project)</code> 配下の 1 つのディレクトリ内に集約させるということです（単体テストのソースコードは除く）。なぜならディレクトリは Python のパッケージを構成するものなので、複数のディレクトリでソースコードを管理すると複数の Python パッケージを開発していることになります。しかし通常 1 つのプロジェクト内に複数のパッケージを含めて開発することはありません。</p>
+<p>ソースコードが 1 つで十分な場合はディレクトリを用意しなくても大丈夫です。</p>
+<div class="codehilite"><pre><span></span>(project)
+├── (project).py  ........... プログラムのソースコードディレクトリ
+└── test_(project).py  ...... 単体テストのソースコードディレクトリ
+</pre></div>
+
 <p>下記は良くない構成の一例です。</p>
 <div class="codehilite"><pre><span></span>sample
 ├── sample
 │  ├── __init__.py
 │  └── *.py
-├── libs
+├── libs  ................. よくないディレクトリ
 │  ├── __init__.py
 │  └── *.py
 └── tests
@@ -927,7 +933,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.dc02f8ce.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
