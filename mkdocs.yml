@@ -68,6 +68,8 @@ nav:
     - 5.2. コンテキスト: ch05-02-contexts.md
   - 6. 例外:
     - 6.1. 例外: ch06-01-exceptions.md
-  - 7. テスト:
-    - 7.1. doctest: ch07-01-doctest.md
-    - 7.2. pytest: ch07-02-pytest.md
+  - 7. ジェネレータ:
+    - 7.1. ジェネレータ: ch07-01-generators.md
+  - 8. テスト:
+    - 8.1. doctest: ch08-01-doctest.md
+    - 8.2. pytest: ch08-02-pytest.md
