@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch07-02-pytest/">
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch08-02-pytest/">
       
       
         <meta name="author" content="井田 献一朗">
@@ -42,7 +42,7 @@
     
     
       
-        <title>7.2. pytest - ゼロから学ぶ Python</title>
+        <title>8.2. pytest - ゼロから学ぶ Python</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ Python
             </span>
             <span class="md-header-nav__topic">
-              7.2. pytest
+              8.2. pytest
             </span>
           
         </div>
@@ -625,19 +625,17 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
-      7. テスト
+      7. ジェネレータ
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
-        7. テスト
+        7. ジェネレータ
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -648,8 +646,46 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-doctest/" title="7.1. doctest" class="md-nav__link">
-      7.1. doctest
+    <a href="../ch07-01-generators/" title="7.1. ジェネレータ" class="md-nav__link">
+      7.1. ジェネレータ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+    
+    <label class="md-nav__link" for="nav-9">
+      8. テスト
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        8. テスト
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-nav__link">
+      8.1. doctest
     </a>
   </li>
 
@@ -669,11 +705,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        7.2. pytest
+        8.2. pytest
       </label>
     
-    <a href="./" title="7.2. pytest" class="md-nav__link md-nav__link--active">
-      7.2. pytest
+    <a href="./" title="8.2. pytest" class="md-nav__link md-nav__link--active">
+      8.2. pytest
     </a>
     
       
@@ -1054,7 +1090,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch07-02-pytest.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch08-02-pytest.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="pytest">pytest<a class="headerlink" href="#pytest" title="Permanent link">&para;</a></h1>
@@ -1090,6 +1126,10 @@
 └── test_prime.py
 </pre></div>
 
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>テストを複数ファイルに分割して書く場合は <code>tests</code> ディレクトリを作成し、その中に <code>__init__.py</code> を含めるようにしてください。<code>__init__.py</code> がないとテストが正しく実行できなくなります。詳しくは <a href="../ch04-06-project-structures/">ディレクトリ構成</a> を参考にしてください。</p>
+</div>
 <h2 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>pipenv を使ってインストールします。</p>
 <div class="codehilite"><pre><span></span>$ mkdir fibonacci
@@ -1639,7 +1679,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch07-01-doctest/" title="7.1. doctest" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1648,7 +1688,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                7.1. doctest
+                8.1. doctest
               </span>
             </div>
           </a>

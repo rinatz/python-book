@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch04-01-modules/">
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch08-01-doctest/">
       
       
         <meta name="author" content="井田 献一朗">
@@ -42,7 +42,7 @@
     
     
       
-        <title>4.1. モジュール - ゼロから学ぶ Python</title>
+        <title>8.1. doctest - ゼロから学ぶ Python</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#doctest" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ Python
             </span>
             <span class="md-header-nav__topic">
-              4.1. モジュール
+              8.1. doctest
             </span>
           
         </div>
@@ -445,12 +445,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       4. モジュールとパッケージ
@@ -466,63 +464,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        4.1. モジュール
-      </label>
-    
-    <a href="./" title="4.1. モジュール" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-nav__link">
       4.1. モジュール
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="モジュールの書き方" class="md-nav__link">
-    モジュールの書き方
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="モジュール作成の注意点" class="md-nav__link">
-    モジュール作成の注意点
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#from-import" title="from-import" class="md-nav__link">
-    from-import
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -715,10 +661,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
     
     <label class="md-nav__link" for="nav-9">
       8. テスト
@@ -734,11 +682,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        8.1. doctest
+      </label>
+    
+    <a href="./" title="8.1. doctest" class="md-nav__link md-nav__link--active">
       8.1. doctest
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#doctest_1" title="なぜ doctest を使うのか" class="md-nav__link">
+    なぜ doctest を使うのか
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -780,22 +766,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="モジュールの書き方" class="md-nav__link">
-    モジュールの書き方
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="モジュール作成の注意点" class="md-nav__link">
-    モジュール作成の注意点
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#from-import" title="from-import" class="md-nav__link">
-    from-import
+  <a href="#doctest_1" title="なぜ doctest を使うのか" class="md-nav__link">
+    なぜ doctest を使うのか
   </a>
   
 </li>
@@ -816,113 +788,148 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch04-01-modules.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch08-01-doctest.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>モジュールとは関数やクラスなどを別ファイルで利用できる状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを念頭に実装を行います。</p>
-<h2 id="_2">モジュールの書き方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただしシバンはモジュールを実装するときには不要です。たとえ書いても悪さをすることはありませんが、実行するスクリプトとしては使用しないので書く意味はあまりありません。</p>
-<p>フィボナッチ数列 <code>0, 1, 1, 2, 3, 5, 8, ...</code> を出力するような関数 <code>fib(n)</code> をモジュールとして書いてみましょう。</p>
-<p><strong>fib.py</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-
-
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-
-    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-    <span class="k">print</span><span class="p">()</span>
-</pre></div>
-
-<p><code>fib.py</code> を別のファイル <code>main.py</code> に取り込んでこの関数を実行するには次のように書きます。</p>
+                <h1 id="doctest">doctest<a class="headerlink" href="#doctest" title="Permanent link">&para;</a></h1>
+<p>Python にはソースコードのドキュメンテーションをサポートするための docstring という文字列を使ってドキュメントを作成することができます。さらに docstring には関数の使用例を記述するための構文が用意されています。またその使用例を示すコードは関数が実際に記述したとおりに振る舞うかどうかをテストする機能も備わっており doctest と呼ばれます。</p>
 <p><strong>main.py</strong></p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
-<span class="kn">import</span> <span class="nn">fib</span>          <span class="c1"># fib.py を取り込む</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">サンプルモジュールです。</span>
+
+<span class="sd">このモジュールは factorial() という関数を提供しており、次のように使用します。</span>
+
+<span class="sd">&gt;&gt;&gt; factorial(5)</span>
+<span class="sd">120</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">fib</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># fib.py 内の fib() を呼び出す</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;n &gt;=0 であるような整数に対する階乗を計算します。</span>
+
+<span class="sd">    &gt;&gt;&gt; [factorial(n) for n in range(6)]</span>
+<span class="sd">    [1, 1, 2, 6, 24, 120]</span>
+
+<span class="sd">    &gt;&gt;&gt; factorial(30)</span>
+<span class="sd">    265252859812191058636308480000000</span>
+<span class="sd">    &gt;&gt;&gt; factorial(-1)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">    ValueError: n &gt;= 0 である必要があります</span>
+
+<span class="sd">    浮動小数点型も渡せますが、その値は整数値である必要があります。</span>
+<span class="sd">    &gt;&gt;&gt; factorial(30.1)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">    ValueError: n は整数でなければいけません</span>
+<span class="sd">    &gt;&gt;&gt; factorial(30.0)</span>
+<span class="sd">    265252859812191058636308480000000</span>
+
+<span class="sd">    極端に大きな整数値を渡しても階乗の計算はできません。</span>
+<span class="sd">    &gt;&gt;&gt; factorial(1e100)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">    OverflowError: n の値が大きすぎます</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n &gt;= 0 である必要があります&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n は整数でなければいけません&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">OverflowError</span><span class="p">(</span><span class="s1">&#39;n の値が大きすぎます&#39;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">while</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="n">factor</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">result</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 
-<h2 id="_3">モジュール作成の注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Python のコードは必ずしも関数内に含める必要はなく、ファイル内に直接処理を書くこともできます。</p>
-<p><strong>fib.py</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-
-
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-
-<span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="k">print</span><span class="p">()</span>
+<p><code>"""..."""</code> のようにトリプルクオテーションで囲まれた文字列が docstring です。通常はソースコード・関数・クラスの先頭部分で記述します。<code>&gt;&gt;&gt;</code> から始まる行</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">120</span>
 </pre></div>
 
-<p>しかしこの状態で <code>main.py</code> から <code>import fib</code> をすると import した時点でフィボナッチ数列を出力する処理が突然実行されてしまいます。こういった問題が起こらないようにモジュールとして提供する機能は基本的に関数やクラスにまとめておく必要があります。</p>
-<h2 id="from-import"><code>from-import</code><a class="headerlink" href="#from-import" title="Permanent link">&para;</a></h2>
-<p>モジュール内の関数やクラスにアクセスするときは <code>モジュール名.関数名</code> のように <code>.</code> を使ってアクセスしますが、モジュール名や関数名が長くなってくると少し書き方が面倒になります。こういうときは <code>from</code> 文を使って参照名を短くすることができます。</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="p">(</span><span class="err">関数名</span><span class="p">)</span>
+<p>は Python のコードを記述するための行で、その処理を実行したらどのように振る舞うのかを <code>&gt;&gt;&gt;</code> の下部に記述します。実行時に例外を送出する場合はその旨を記述することもできます。</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">factorial</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="o">...</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="err">である必要があります</span>
 </pre></div>
 
-<p>このようにすると <code>モジュール名.関数名</code> としていたところが <code>関数名</code> だけで参照できるようになります。</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-
-<span class="kn">from</span> <span class="nn">fib</span> <span class="kn">import</span> <span class="n">fib</span>     <span class="c1"># fib.py 内の fib() をインポート</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>             <span class="c1"># fib() を呼び出す</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<p>docstring 内のコードが記述したとおりに動くかどうかを確認するためには doctest モジュールを使用します。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">doctest</span>
+<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 
-<p>ただし <code>import fib</code> とインポートしたときは <code>fib.py</code> 内のすべての関数やクラスが参照できるのに対し、 <code>from fib import fib</code> は <code>fib()</code> のみが参照できます。複数の定義をインポートしたいときは次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="p">(</span><span class="err">関数名</span><span class="p">),</span> <span class="p">(</span><span class="err">関数名</span><span class="p">),</span> <span class="o">...</span>
+<p>このように記述しておき</p>
+<div class="codehilite"><pre><span></span>$ python main.py
 </pre></div>
 
-<p>モジュール内の全定義をまとめて <code>from</code> でインポートしたければ次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="p">(</span><span class="err">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="o">*</span>
+<p>と実行すると doctest が走ります。<code>factorial()</code> の実装が期待通りになっている場合は何も表示されませんが、もしバグが混入していた場合はエラーメッセージが出力されます。下記は <code>result = 1</code> の部分を <code>result = 10</code> と書いてしまっていた場合の doctest の実行結果になります。</p>
+<div class="codehilite"><pre><span></span>$ python main.py
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">9</span>, in __main__
+Failed example:
+    factorial<span class="o">(</span><span class="m">5</span><span class="o">)</span>
+Expected:
+    <span class="m">120</span>
+Got:
+    <span class="m">1200</span>
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">20</span>, in __main__.factorial
+Failed example:
+    <span class="o">[</span>factorial<span class="o">(</span>n<span class="o">)</span> <span class="k">for</span> n in range<span class="o">(</span><span class="m">6</span><span class="o">)]</span>
+Expected:
+    <span class="o">[</span><span class="m">1</span>, <span class="m">1</span>, <span class="m">2</span>, <span class="m">6</span>, <span class="m">24</span>, <span class="m">120</span><span class="o">]</span>
+Got:
+    <span class="o">[</span><span class="m">10</span>, <span class="m">10</span>, <span class="m">20</span>, <span class="m">60</span>, <span class="m">240</span>, <span class="m">1200</span><span class="o">]</span>
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">23</span>, in __main__.factorial
+Failed example:
+    factorial<span class="o">(</span><span class="m">30</span><span class="o">)</span>
+Expected:
+    <span class="m">265252859812191058636308480000000</span>
+Got:
+    <span class="m">2652528598121910586363084800000000</span>
+**********************************************************************
+File <span class="s2">&quot;main.py&quot;</span>, line <span class="m">35</span>, in __main__.factorial
+Failed example:
+    factorial<span class="o">(</span><span class="m">30</span>.0<span class="o">)</span>
+Expected:
+    <span class="m">265252859812191058636308480000000</span>
+Got:
+    <span class="m">2652528598121910586363084800000000</span>
+**********************************************************************
+<span class="m">2</span> items had failures:
+   <span class="m">1</span> of   <span class="m">1</span> in __main__
+   <span class="m">3</span> of   <span class="m">6</span> in __main__.factorial
+***Test Failed*** <span class="m">4</span> failures.
 </pre></div>
 
-<p>ただしこのインポート文は余計な定義をインポートしてしまう恐れがあるため推奨されません。モジュールのインポート方法は次の優先度で検討して下さい。</p>
-<table>
-<thead>
-<tr>
-<th>おすすめ</th>
-<th>インポート文</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img alt="😍" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f60d.svg" title=":heart_eyes:" /></td>
-<td><code>import (モジュール名)</code></td>
-</tr>
-<tr>
-<td><img alt="😃" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f603.svg" title=":smiley:" /></td>
-<td><code>from (モジュール名) import (関数名)</code></td>
-</tr>
-<tr>
-<td><img alt="😖" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f616.svg" title=":confounded:" /></td>
-<td><code>from (モジュール名) import *</code></td>
-</tr>
-</tbody>
-</table>
+<h2 id="doctest_1">なぜ doctest を使うのか<a class="headerlink" href="#doctest_1" title="Permanent link">&para;</a></h2>
+<p>doctest を使うことで次のような機能を提供することができます。</p>
+<ul>
+<li>プログラムの使用例をドキュメントに記述できる</li>
+<li>その使用例が単体テストとして使用できる</li>
+<li>プログラムの実装と使用例が同期しているかどうか用意に確認できる</li>
+</ul>
+<p>プログラムの使い方を記述しておくことはとても重要なことですが、ドキュメントというのは時間が経つと形骸化しやすいものです。しかし doctest を使ってドキュメントを管理しておくとプログラムの内容と同期が取れているかどうかを簡単に確認できるため、形骸化することがなくなります。</p>
                 
                   
                 
@@ -943,7 +950,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch03-01-classes/" title="3.1. クラス" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch07-01-generators/" title="7.1. ジェネレータ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -952,19 +959,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                3.1. クラス
+                7.1. ジェネレータ
               </span>
             </div>
           </a>
         
         
-          <a href="../ch04-02-packages/" title="4.2. パッケージ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch08-02-pytest/" title="8.2. pytest" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                4.2. パッケージ
+                8.2. pytest
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
