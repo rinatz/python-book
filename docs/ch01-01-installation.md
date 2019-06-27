@@ -8,7 +8,7 @@ Python 開発に必要な下記のツールをインストールします。
 
 ## pyenv
 
-pyenv は特定のバージョンの Python をインストールしたり、使用する Python のバージョンを指定するためのツールです。
+pyenv は使用する Python のバージョンをプログラムごとに切り替えることができるツールです。Mac や Linux は Python が標準でインストールされていますが、最新版を使いたいなどの理由で標準で入っている Python のバージョンとは異なるバージョンの Python を使用したいときには pyenv を使うと効果的です。
 
 !!! info "pyenv"
     https://github.com/pyenv/pyenv
