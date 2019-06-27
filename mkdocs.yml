@@ -1,10 +1,10 @@
 site_name: ゼロから学ぶ Python
 site_description: ゼロから学ぶ Python
-site_author: 井田 献一朗
+site_author: Ida Kenichiro
 site_url: http://rinatz.github.io/python-book
 repo_name: rinatz/python-book
 repo_url: https://github.com/rinatz/python-book
-copyright: Copyright &copy 2019 Kenichiro IDA
+copyright: Copyright &copy 2019 Ida Kenichiro
 
 theme:
   name: material
