@@ -56,7 +56,7 @@ def check(number):
 
 
 def main():
-    check(number)
+    check(10)
 ```
 
 `else if` ではなく `elif` であることに注意してください。
