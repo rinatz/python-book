@@ -515,6 +515,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#__name__" title="__name__" class="md-nav__link">
+    __name__
+  </a>
+  
+</li>
+      
       
       
       
@@ -812,6 +819,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#__name__" title="__name__" class="md-nav__link">
+    __name__
+  </a>
+  
+</li>
+      
       
       
       
@@ -935,6 +949,32 @@
 </tr>
 </tbody>
 </table>
+<h2 id="__name__"><code>__name__</code><a class="headerlink" href="#__name__" title="Permanent link">&para;</a></h2>
+<p><code>__name__</code> は Python で使用できる隠し変数の 1 つで、モジュール名を表す文字列が入っています。例えば <code>foo.py</code> というモジュールであれば <code>__name__</code> は <code>'foo'</code> になります。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">foo</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>     <span class="c1"># &#39;foo&#39;</span>
+</pre></div>
+
+<p>しかしこの変数がモジュール名になるのは別のモジュールからインポートされたときだけです。<code>foo.py</code> を直接実行した場合は <code>__name__</code> には <code>'__main__'</code> が入ります。</p>
+<p><strong>foo.py</strong></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>$ python foo.py
+__main__
+</pre></div>
+
+<p>つまり <code>__name__</code> の値がモジュール名になるのか <code>'__main__'</code> になるのかを見ることでインポートされようとしているのかどうかを判断することができるようになります。</p>
+<p><a href="../ch01-02-hello-world/">Hello, World!</a> のソースコードで出てきた</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>という構文は自分がインポートされてないときだけ <code>main()</code> を呼び出すという意味になります。 <code>__name__</code> の値を見ることで 1 つのファイルで実行スクリプトとモジュールの両方を実装することができるようになります。</p>
                 
                   
                 
