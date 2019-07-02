@@ -110,3 +110,40 @@ from (モジュール名) import *
 | :heart_eyes: | `import (モジュール名)`               |
 | :smiley:     | `from (モジュール名) import (関数名)` |
 | :confounded: | `from (モジュール名) import *`        |
+
+## `__name__`
+
+`__name__` は Python で使用できる隠し変数の 1 つで、モジュール名を表す文字列が入っています。例えば `foo.py` というモジュールであれば `__name__` は `'foo'` になります。
+
+```python
+import foo
+
+print(foo.__name__)     # 'foo'
+```
+
+しかしこの変数がモジュール名になるのは別のモジュールからインポートされたときだけです。`foo.py` を直接実行した場合は `__name__` には `'__main__'` が入ります。
+
+**foo.py**
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+print(__name__)
+```
+
+```shell
+$ python foo.py
+__main__
+```
+
+つまり `__name__` の値がモジュール名になるのか `'__main__'` になるのかを見ることでインポートされようとしているのかどうかを判断することができるようになります。
+
+[Hello, World!](./ch01-02-hello-world.md) のソースコードで出てきた
+
+```python
+if __name__ == '__main__':
+    main()
+```
+
+という構文は自分がインポートされてないときだけ `main()` を呼び出すという意味になります。 `__name__` の値を見ることで 1 つのファイルで実行スクリプトとモジュールの両方を実装することができるようになります。
