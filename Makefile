@@ -1,6 +1,7 @@
 .PHONY: init
 init:
-	pipenv install
+	pip install -U pipenv
+	pipenv sync -d
 
 .PHONY: serve
 serve:
