@@ -520,6 +520,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#__init__py" title="__init__.py" class="md-nav__link">
+    __init__.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="モジュール検索パス" class="md-nav__link">
+    モジュール検索パス
+  </a>
+  
+</li>
+      
       
       
       
@@ -798,6 +812,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#__init__py" title="__init__.py" class="md-nav__link">
+    __init__.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="モジュール検索パス" class="md-nav__link">
+    モジュール検索パス
+  </a>
+  
+</li>
+      
       
       
       
@@ -863,7 +891,7 @@
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
-<span class="kn">import</span> <span class="nn">example</span>
+<span class="kn">import</span> <span class="nn">example.a</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -889,6 +917,46 @@
 </ul>
 <p>モジュール名であっても区切り文字はできるだけ使用しない方が好まれます。パッケージ名は例え複数語であっても区切り文字は使用しません。</p>
 </div>
+<h2 id="__init__py"><code>__init__.py</code><a class="headerlink" href="#__init__py" title="Permanent link">&para;</a></h2>
+<p><code>__init__.py</code> というファイルがどのような働きをするのか見ていきたいと思います。上記のサンプルにある</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">example.a</span>
+</pre></div>
+
+<p>というインポートを下記のように変更すると <code>example.a.fib()</code> の参照が正しくできなくなります。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">example</span>
+</pre></div>
+
+<p>両者の違いはインポートにモジュール名 <code>example.a</code> を指定しているか、パッケージ名 <code>example</code> を指定しているかにあります。インポートでパッケージ名を指定したときは <code>example</code> 配下にある <code>__init__.py</code> を探してインポートを実行するという振る舞いをします。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">example</span>  <span class="c1"># example/__init__.py を参照する</span>
+</pre></div>
+
+<p>もし <code>__init__.py</code> 内に何も記述がなければ <code>import example</code> では何も取り込まれないことになります。そのため <code>example.a.fib()</code> の参照はエラーになってしまいます。たとえ <code>example</code> ディレクトリ配下に <code>a.py</code> があったとしても Python からは <code>__init__.py</code> の定義に従ってパッケージの階層を参照しているということです。</p>
+<p>これに対して <code>import example.a</code> の場合だとうまくいくのは、モジュール <code>example/a.py</code> を直接インポートしており <code>__init__.py</code> の参照が起こらないからです。</p>
+<p><code>import example</code> として <code>example.a.fib()</code> を参照できるようにするためには <code>__init__.py</code> 内でモジュール <code>a</code> が参照できるようにしてあげる必要があります。これは下記のようにすることで実現できます。</p>
+<p><strong><code>example/__init__.py</code></strong></p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">a</span>
+</pre></div>
+
+<p>これは <code>__init__.py</code> と同一のディレクトリ階層から <code>a</code> をインポートするという構文で <strong>相対インポート</strong> といいます。こうすることで <code>__init__.py</code> 内でモジュール <code>a</code> が参照できるようになるため <code>import example</code> としても <code>example.a.fib()</code> が参照できるようになります。</p>
+<h2 id="_4">モジュール検索パス<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>__init__.py</code> 内の記述を</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">a</span>
+</pre></div>
+
+<p>と書いてもうまくいきません。 <code>import example</code> としてもモジュール <code>a</code> が見つからないというエラーが起こってしまいます。これは Python がモジュールを探しに行くときに、決まったルールで検索をしているからです。Python はモジュールを探しに行くときに次の順序でモジュールを検索します。</p>
+<ol>
+<li>ビルトインモジュール（Python に最初から組み込まれたモジュール）</li>
+<li><code>python</code> コマンドに渡したファイルのあるディレクトリ直下</li>
+</ol>
+<p>例えばファイル構成が下記のようになっていた場合 <code>python main.py</code> と実行して Python がモジュールを探しに行くディレクトリは <code>root</code> 直下になります。</p>
+<div class="codehilite"><pre><span></span>root    # ここ
+├── example     # ここは探しに行かない
+│  ├── __init__.py
+│  └── a.py
+└── main.py
+</pre></div>
+
+<p>ソースコードのどの場所で <code>import a</code> を書いても <code>root</code> 直下から <code>a.py</code> を探そうとします。相対インポートはこのルールに従わずにモジュールを検索してくれるため、うまくいくということです。</p>
                 
                   
                 
