@@ -511,6 +511,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#__getitem__" title="__getitem__" class="md-nav__link">
+    __getitem__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#__setattr__" title="__setattr__" class="md-nav__link">
     __setattr__
   </a>
@@ -520,6 +527,13 @@
         <li class="md-nav__item">
   <a href="#__eq__" title="__eq__" class="md-nav__link">
     __eq__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__str__" title="__str__" class="md-nav__link">
+    __str__
   </a>
   
 </li>
@@ -877,6 +891,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#__getitem__" title="__getitem__" class="md-nav__link">
+    __getitem__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#__setattr__" title="__setattr__" class="md-nav__link">
     __setattr__
   </a>
@@ -886,6 +907,13 @@
         <li class="md-nav__item">
   <a href="#__eq__" title="__eq__" class="md-nav__link">
     __eq__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__str__" title="__str__" class="md-nav__link">
+    __str__
   </a>
   
 </li>
@@ -910,7 +938,7 @@
                 
                 
                 <h1 id="_1">特殊属性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>新たなクラスを定義したときには自動で定義されるメンバやメソッドが存在しており、それらを特殊属性といいます。代表的な特殊属性をいくつか紹介します。</p>
+<p>クラスには特殊属性と呼ばれるメソッドが存在しており、クラスを使う際に使用される構文はどれも特殊属性の呼び出しに変換されて実行されます。代表的な特殊属性をいくつか紹介します。</p>
 <p>下記のようなクラスを定義したときの特殊属性には次のようなものがあります。</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
@@ -948,7 +976,35 @@
 
 <h2 id="__getattr__"><code>__getattr__</code><a class="headerlink" href="#__getattr__" title="Permanent link">&para;</a></h2>
 <p><code>__getattribute__()</code> でのメンバ参照に失敗した場合は <code>__getattr__()</code> が呼び出されます。このような事が起こるのはクラスのメンバとして定義されていないものにアクセスしようとしたときに起こります。</p>
-<div class="codehilite"><pre><span></span><span class="n">point</span><span class="o">.</span><span class="n">foo</span>   <span class="c1"># point.__getattr__(&#39;foo&#39;)</span>
+<div class="codehilite"><pre><span></span><span class="n">point</span><span class="o">.</span><span class="n">x2</span>   <span class="c1"># point.__getattr__(&#39;x2&#39;)</span>
+</pre></div>
+
+<p><code>__getattr__()</code> は明示的には定義されません。使用するには自分で定義する必要があります。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;x2&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;y2&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+
+<h2 id="__getitem__"><code>__getitem__</code><a class="headerlink" href="#__getitem__" title="Permanent link">&para;</a></h2>
+<p>クラスインスタンスに対して <code>[]</code> を使用した際には <code>__getitem__()</code> が呼び出されます。</p>
+<div class="codehilite"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">point</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>      <span class="c1"># point.__getitem__(&#39;x&#39;)</span>
+</pre></div>
+
+<p><code>__getitem__()</code> を使用するには自分で定義する必要があります。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
 </pre></div>
 
 <h2 id="__setattr__"><code>__setattr__</code><a class="headerlink" href="#__setattr__" title="Permanent link">&para;</a></h2>
@@ -995,6 +1051,19 @@
 </tr>
 </tbody>
 </table>
+<h2 id="__str__"><code>__str__</code><a class="headerlink" href="#__str__" title="Permanent link">&para;</a></h2>
+<p>クラスインスタンスに対して文字列型へのキャストを行うと <code>__str__()</code> が呼び出されます。明示的なキャストでなくても文字列への変換が必要とされるケースでも同様の振る舞いをします。</p>
+<div class="codehilite"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>    <span class="c1"># print(point.__str__())</span>
+</pre></div>
+
+<p><code>__str__()</code> はデフォルトで定義されていますが、大抵の場合は有益な文字列にはなっていないので自分で定義したほうが良いです。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s1">&#39;&lt;Point(x={self.x}, y={self.y})&gt;&#39;</span>
+</pre></div>
                 
                   
                 
