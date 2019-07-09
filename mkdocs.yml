@@ -56,6 +56,9 @@ nav:
     - 2.7. ラムダ式: ch02-07-lambdas.md
   - 3. クラス:
     - 3.1. クラス: ch03-01-classes.md
+    - 3.2. スコープ: ch03-02-scopes.md
+    - 3.3. 特殊属性: ch03-03-special-attributes.md
+    - 3.4. プロパティ: ch03-04-properties.md
   - 4. モジュールとパッケージ:
     - 4.1. モジュール: ch04-01-modules.md
     - 4.2. パッケージ: ch04-02-packages.md
