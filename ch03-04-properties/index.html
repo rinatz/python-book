@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch07-01-generators/">
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch03-04-properties/">
       
       
         <meta name="author" content="Ida Kenichiro">
@@ -42,7 +42,7 @@
     
     
       
-        <title>7.1. ジェネレータ - ゼロから学ぶ Python</title>
+        <title>3.4. プロパティ - ゼロから学ぶ Python</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ Python
             </span>
             <span class="md-header-nav__topic">
-              7.1. ジェネレータ
+              3.4. プロパティ
             </span>
           
         </div>
@@ -409,10 +409,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       3. クラス
@@ -464,11 +466,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch03-04-properties/" title="3.4. プロパティ" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="3.4. プロパティ" class="md-nav__link md-nav__link--active">
       3.4. プロパティ
     </a>
+    
   </li>
 
         
@@ -673,12 +684,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. ジェネレータ
@@ -694,63 +703,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        7.1. ジェネレータ
-      </label>
-    
-    <a href="./" title="7.1. ジェネレータ" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch07-01-generators/" title="7.1. ジェネレータ" class="md-nav__link">
       7.1. ジェネレータ
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="ジェネレータの例" class="md-nav__link">
-    ジェネレータの例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="ジェネレータを使ったループ" class="md-nav__link">
-    ジェネレータを使ったループ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="ループ処理のカスタマイズ" class="md-nav__link">
-    ループ処理のカスタマイズ
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -824,36 +781,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="ジェネレータの例" class="md-nav__link">
-    ジェネレータの例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="ジェネレータを使ったループ" class="md-nav__link">
-    ジェネレータを使ったループ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="ループ処理のカスタマイズ" class="md-nav__link">
-    ループ処理のカスタマイズ
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -864,129 +791,72 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch07-01-generators.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/python-book/edit/master/docs/ch03-04-properties.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">ジェネレータ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>ジェネレータとは処理を一時停止できる機能を持った関数のことです。処理を一時停止できるということがどういうことなのか、具体的なソースコードで説明していきます。</p>
-<h2 id="_2">ジェネレータの例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>まず下記のような処理の挙動について確認しておきす。</p>
-<p><strong>main.py</strong></p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+                <h1 id="_1">プロパティ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>クラスのメンバで変数のように参照することのできる関数のことをプロパティといいます。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;開始&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 
-    <span class="k">return</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;終了&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">()</span>
-    <span class="n">f</span><span class="p">()</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>$ python main.py
-開始
-開始
+<p><code>@property</code> のように <code>@</code> ではじまるキーワードは <strong>デコレータ</strong> といって関数やクラスに特殊な振る舞いを注入することのできる機能になっています。<code>distance()</code> は関数として定義されていますが <code>@property</code> デコレータがついていると変数のように参照することができるようになります。</p>
+<div class="codehilite"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">point</span><span class="o">.</span><span class="n">distance</span>  <span class="c1"># 22.360679775</span>
 </pre></div>
 
-<p>関数 <code>f()</code> は通常の関数ですが <code>return</code> の後ろに <code>print()</code> の呼び出しが入っています。<code>return</code> があると関数の処理はそこで終わってしまうので <code>f()</code> を実行しても <code>終了</code> という文字列はプリントされません。</p>
-<p>次に <code>return</code> の箇所を <code>yield</code> というキーワードに変更して同様のプログラムを実行するとどうなるでしょうか。</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<p>プロパティは <code>point.distance()</code> のように呼ぶことはできません。</p>
+<p>メンバ変数 <code>x, y</code> を隠蔽して、代わりにプロパティを提供すると代入ができなくなるので安全です。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;開始&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># _ をつけて隠蔽していることを示す</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
 
-<span class="hll">    <span class="k">yield</span>
-</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;終了&#39;</span><span class="p">)</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">f</span><span class="p">()</span>
-    <span class="n">f</span><span class="p">()</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>$ python main.py
-開始
-終了
+<div class="codehilite"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">point</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>     <span class="c1"># _x, _y の参照は可能</span>
+<span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>                <span class="c1"># _x, _y への代入はできない</span>
 </pre></div>
 
-<p>2 回目の <code>f()</code> の呼び出しで <code>終了</code> という文字列がプリントされるはずです。<code>yield</code> は <code>return</code> とよく似た挙動をしますが <code>return</code> が関数の処理を終了するのに対し <code>yield</code> はそこで一時停止をして関数を抜けます。再度 <code>f()</code> が呼ばれると <code>yield</code> の箇所から関数の処理が再開されます。このように <code>yield</code> を使った関数のことをジェネレータといいます。</p>
-<h2 id="_3">ジェネレータを使ったループ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>ジェネレータは <code>return</code> と同様 <code>yield</code> で任意の値を返すことができます。</p>
-<p><strong>main.py</strong></p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<p>プロパティに対して代入を行いたい場合は <code>setter</code> プロパティを定義します。</p>
+<div class="codehilite"><pre><span></span><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>      <span class="c1"># getter</span>
 
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="k">yield</span> <span class="mi">0</span>
-    <span class="k">yield</span> <span class="mi">1</span>
-    <span class="k">yield</span> <span class="mi">2</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<span class="nd">@x.setter</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>     <span class="c1"># setter</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>$ python main.py
-<span class="m">0</span>
-<span class="m">1</span>
-<span class="m">2</span>
+<div class="codehilite"><pre><span></span><span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>    <span class="c1"># OK</span>
 </pre></div>
 
-<p>さらに <code>for</code> にジェネレータを渡して値を取り出すこともできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># 0, 1, 2</span>
-</pre></div>
-
-<p>ジェネレータを <code>for</code> に渡すとジェネレータに書かれた <code>yield</code> の個数分だけループが回ります。つまりジェネレータはリストのようなデータ構造とよく似た振る舞いをします。</p>
-<h2 id="_4">ループ処理のカスタマイズ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>複雑なループ処理はジェネレータを使うことでシンプルに書くことができるようになります。例えば下記のような 2 つのリストの要素の総当たりの組み合わせを得るような処理を考えます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">ys</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-
-<p>このような処理は 2 つのリストを受け取って総当たりの組み合わせを返すジェネレータで書き換えることができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">ys</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-
-<p><code>product()</code> を使うと二重ループが単一ループで書き直せました。実は <code>product()</code> は標準ライブラリの <a href="https://docs.python.org/ja/3/library/itertools.html#itertools.product">itertools</a> ですでに用意されているため、わざわざ自分で作らなくても使うことができます。</p>
+<p>プロパティの利点は <code>get_x()</code> のような関数を定義しなくても、まるで変数を直接参照しているようなコードが書ける点にあります。これはクラスを利用する人からするとシンプルなコードが書けるので便利です。ただしプロパティは変数と同じくらいに気軽に参照するメンバになるので、パフォーマンスが遅い関数をむやみにプロパティとして定義するのは避けたほうが良いです。</p>
                 
                   
                 
@@ -1007,7 +877,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch03-03-special-attributes/" title="3.3. 特殊属性" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1016,19 +886,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                6.1. 例外
+                3.3. 特殊属性
               </span>
             </div>
           </a>
         
         
-          <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                8.1. doctest
+                4.1. モジュール
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
