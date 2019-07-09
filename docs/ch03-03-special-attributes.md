@@ -1,6 +1,6 @@
 # 特殊属性
 
-新たなクラスを定義したときには自動で定義されるメンバやメソッドが存在しており、それらを特殊属性といいます。代表的な特殊属性をいくつか紹介します。
+クラスには特殊属性と呼ばれるメソッドが存在しており、クラスを使う際に使用される構文はどれも特殊属性の呼び出しに変換されて実行されます。代表的な特殊属性をいくつか紹介します。
 
 下記のようなクラスを定義したときの特殊属性には次のようなものがあります。
 
@@ -54,7 +54,42 @@ point.distance()    # point.__getattribute__('distance')()
 `__getattribute__()` でのメンバ参照に失敗した場合は `__getattr__()` が呼び出されます。このような事が起こるのはクラスのメンバとして定義されていないものにアクセスしようとしたときに起こります。
 
 ```python
-point.foo   # point.__getattr__('foo')
+point.x2   # point.__getattr__('x2')
+```
+
+`__getattr__()` は明示的には定義されません。使用するには自分で定義する必要があります。
+
+```python
+class Point:
+    ...
+
+    def __getattr__(self, item):
+        if item == 'x2':
+            return self.x * self.x
+        elif item == 'y2':
+            return self.y * self.y
+```
+
+## `__getitem__`
+
+クラスインスタンスに対して `[]` を使用した際には `__getitem__()` が呼び出されます。
+
+```python
+point = Point(10, 20)
+point['x']      # point.__getitem__('x')
+```
+
+`__getitem__()` を使用するには自分で定義する必要があります。
+
+```python
+class Point:
+    ...
+
+    def __getitem__(self, item):
+        if item == 'x':
+            return self.x
+        elif item == 'y':
+            return self.y
 ```
 
 ## `__setattr__`
@@ -85,3 +120,22 @@ point1 == point2    # point1.__eq__(point2)
 | `__lt__` | `point1 < point2`  |
 | `__ge__` | `point1 >= point2` |
 | `__gt__` | `point1 > point2`  |
+
+## `__str__`
+
+クラスインスタンスに対して文字列型へのキャストを行うと `__str__()` が呼び出されます。明示的なキャストでなくても文字列への変換が必要とされるケースでも同様の振る舞いをします。
+
+```python
+point = Point(10, 20)
+print(point)    # print(point.__str__())
+```
+
+`__str__()` はデフォルトで定義されていますが、大抵の場合は有益な文字列にはなっていないので自分で定義したほうが良いです。
+
+```python
+class Point:
+    ...
+
+    def __str__(self):
+        return f'<Point(x={self.x}, y={self.y})>'
+```
