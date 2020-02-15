@@ -10,6 +10,6 @@ serve:
 build:
 	poetry run mkdocs build
 
-.PHONY: gh-deploy
-gh-deploy:
+.PHONY: deploy
+deploy:
 	poetry run mkdocs gh-deploy
