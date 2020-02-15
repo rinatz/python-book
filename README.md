@@ -7,8 +7,8 @@
 ソースコードから HTML ページを生成するには下記のものが必要です。
 
 - Python
-- pipenv
-- make
+- Poetry
+- Make
 
 ## ビルド
 
