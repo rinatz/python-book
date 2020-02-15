@@ -4,7 +4,7 @@ site_author: Ida Kenichiro
 site_url: http://rinatz.github.io/python-book
 repo_name: rinatz/python-book
 repo_url: https://github.com/rinatz/python-book
-copyright: Copyright &copy 2019 Ida Kenichiro
+copyright: Copyright &copy 2020 Ida Kenichiro
 
 theme:
   name: material
