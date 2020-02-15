@@ -1,16 +1,15 @@
 .PHONY: init
 init:
-	pip install -U pipenv
-	pipenv sync -d
+	poetry install
 
 .PHONY: serve
 serve:
-	pipenv run serve
+	poetry run mkdocs serve
 
 .PHONY: build
 build:
-	pipenv run build
+	poetry run mkdocs build
 
 .PHONY: gh-deploy
 gh-deploy:
-	pipenv run gh-deploy
+	poetry run mkdocs gh-deploy

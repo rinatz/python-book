@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "python-book"
+version = "1.0.0"
+description = "Learning Python from scratch"
+authors = ["Ida Kenichiro <ida.kenichiro@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+mkdocs = "^1.0.4"
+mkdocs-material = "^4.6.3"
+mkdocs-extensions = "^0.1.2"
+pyyaml = "^5.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
