@@ -2,15 +2,12 @@
 name = "python-book"
 version = "1.0.0"
 description = "Learning Python from scratch"
-authors = ["Ida Kenichiro <ida.kenichiro@gmail.com>"]
+authors = ["Ida Kenichiro"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-mkdocs = "^1.0.4"
-mkdocs-material = "^4.6.3"
-mkdocs-extensions = "^0.1.2"
-pyyaml = "^5.3"
+mkdocs-material = "^5.0.2"
 
 [tool.poetry.dev-dependencies]
 
