@@ -15,7 +15,7 @@ import csv
 
 def main():
     with open('example.csv', newline='') as f:
-        reader = csv.reader()
+        reader = csv.reader(f)
 
         for row in reader:
             print(row)  # row は CSV の各行になる
