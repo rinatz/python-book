@@ -1,19 +1,20 @@
 site_name: ゼロから学ぶ Python
 site_description: ゼロから学ぶ Python
-site_author: Ida Kenichiro
+site_author: IDA Kenichiro
 site_url: http://rinatz.github.io/python-book
 repo_name: rinatz/python-book
 repo_url: https://github.com/rinatz/python-book
-copyright: Copyright &copy 2020 Ida Kenichiro
+copyright: Copyright &copy 2020 IDA Kenichiro
 
 theme:
   name: material
   language: ja
   logo: img/python.svg
   palette:
+    scheme: preference
     primary: orange
-    accent: teal
-  font:
+    accent: blue
+    font:
     text: Noto Sans
     code: Inconsolata
 
