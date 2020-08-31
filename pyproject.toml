@@ -6,7 +6,7 @@ authors = ["Ida Kenichiro"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 mkdocs-material = "^5.0.2"
 
 [tool.poetry.dev-dependencies]
