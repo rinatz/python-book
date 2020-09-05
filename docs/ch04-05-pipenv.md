@@ -95,8 +95,9 @@ $ pipenv run python main.py
 
 `pip` にはインストールしたいパッケージをテキストファイルに記述しておく `requirements.txt` という仕組みがありましたが、`pipenv` はこれの代替として `Pipfile` というテキストファイルが使用できます。先程の `requests` をインストールするとディレクトリ内に `Pipfile` が作成されていると思います。
 
+**Pipfile**
+
 ```shell
-$ cat Pipfile
 [[source]]
 name = "pypi"
 url = "https://pypi.org/simple"
@@ -133,5 +134,5 @@ $ pipenv sync
 
 `pipenv` はここで説明した機能以外にも便利な機能がたくさんあります。詳細は公式サイトに説明がありますので参考にしてみてください。
 
-!!! note "Pipenv 公式サイト"
+!!! note "pipenv 公式サイト"
     https://pipenv.readthedocs.io/en/latest/

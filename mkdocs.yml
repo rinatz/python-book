@@ -66,7 +66,8 @@ nav:
     - 4.3. pip: ch04-03-pip.md
     - 4.4. venv: ch04-04-venv.md
     - 4.5. pipenv: ch04-05-pipenv.md
-    - 4.6. プロジェクト構成: ch04-06-project-structures.md
+    - 4.6. poetry: ch04-06-poetry.md
+    - 4.7. プロジェクト構成: ch04-07-project-structures.md
   - 5. ファイル操作:
     - 5.1. ファイル操作: ch05-01-files.md
     - 5.2. コンテキスト: ch05-02-contexts.md
