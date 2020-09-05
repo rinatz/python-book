@@ -1148,7 +1148,7 @@
 </table>
 <p>上記の通り Python は標準ライブラリを使って単体テストを書くことができますが、サードパーティ製の pytest の使い勝手が良いため、pytest を使って書かれることが多いです。そこでここでは pytest の簡単な使い方について説明します。</p>
 <h2 id="_1">準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><a href="./ch04-06-project-structures.md">プロジェクト構成</a> を参考に、単体テストのソースコードは <code>tests</code> 配下に作成するようにします。ソースコードが 1 つで十分な場合はディレクトリを作らなくても構いません。</p>
+<p><a href="../ch04-07-project-structures/">プロジェクト構成</a> を参考に、単体テストのソースコードは <code>tests</code> 配下に作成するようにします。ソースコードが 1 つで十分な場合はディレクトリを作らなくても構いません。</p>
 <p>下記のような構成でファイルを作成し、素数判定のコードをテストしてみましょう。</p>
 <div class="highlight"><pre><span></span><code>prime
 ├── prime.py
@@ -1217,7 +1217,7 @@ $ pipenv install -d pytest
 <span class="o">==============================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==============================================</span>
 platform darwin -- Python <span class="m">3</span>.7.3, pytest-4.5.0, py-1.8.0, pluggy-0.11.0
 rootdir: /Users/kenichiro-ida/Documents/github.com/rinatz/prime
-collected <span class="m">1</span> item                                                                                                
+collected <span class="m">1</span> item
 
 test_prime.py .                                                                                           <span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
 
@@ -1251,7 +1251,7 @@ test_prime.py .                                                                 
 <span class="o">==============================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==============================================</span>
 platform darwin -- Python <span class="m">3</span>.7.3, pytest-4.5.0, py-1.8.0, pluggy-0.11.0
 rootdir: /Users/kenichiro-ida/Documents/github.com/rinatz/prime
-collected <span class="m">1</span> item                                                                                                
+collected <span class="m">1</span> item
 
 test_prime.py F                                                                                           <span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
 
