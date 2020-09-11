@@ -10,6 +10,9 @@ theme:
   name: material
   language: ja
   logo: img/python.svg
+  favicon: img/python.svg
+  icon:
+    repo: fontawesome/brands/github
   palette:
     scheme: preference
     primary: orange
