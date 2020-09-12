@@ -1007,12 +1007,12 @@ FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span c
     <span class="o">...</span>
 </code></pre></div>
 
-<p>自分で例外を送出する場合は独自の例外クラスを用意しておいたほうがエラーの起こった箇所が区別しやすくなります。例外クラスを作成するには <code>Exception</code> クラスを継承して作成する必要があります。組み込みの例外クラスは <code>Exception</code> の継承クラスなので、これらを継承しても問題ありません。</p>
+<p>自分で例外を送出する場合は独自の例外クラスを用意しておいたほうがエラーの起こった箇所が区別しやすくなります。例外クラスを作成するには <code>Exception</code> クラスを継承して作成する必要があります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
 
-<p>例外クラスの実装は空で問題ありません。</p>
+<p>例外クラスの実装は空で問題ありません。 <code>Exception</code> を継承している組み込みの例外クラスを継承しても良いです。</p>
 <div class="admonition tips">
 <p class="admonition-title">組み込み例外の一覧</p>
 <p>下記ページに例外クラスの一覧が載っていますので参考にして下さい。

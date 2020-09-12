@@ -1,115 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>http://rinatz.github.io/python-book/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch01-01-installation/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch01-02-hello-world/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-01-variables/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-02-functions/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-03-comments/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-04-conditions/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-05-loops/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-06-list-comprehensions/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch02-07-lambdas/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch03-01-classes/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch03-02-scopes/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch03-03-special-attributes/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch03-04-properties/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-01-modules/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-02-packages/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-03-pip/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-04-venv/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-05-pipenv/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-06-poetry/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch04-07-project-structures/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch05-01-files/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch05-02-contexts/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch05-03-csv/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch06-01-exceptions/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch07-01-generators/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch08-01-doctest/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/python-book/ch08-02-pytest/</loc>
-     <lastmod>2020-09-11</lastmod>
+     <lastmod>2020-09-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
