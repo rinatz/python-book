@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="ja" class="no-js">
   <head>
@@ -11,13 +9,14 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch02-01-variables/">
-      
       
         <meta name="author" content="IDA Kenichiro">
       
+      
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch02-01-variables/">
+      
       <link rel="shortcut icon" href="../img/python.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -25,20 +24,22 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
         
-        <meta name="theme-color" content="#ffa724">
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -55,10 +56,13 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="orange" data-md-color-accent="blue">
-  
     
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="orange" data-md-color-accent="blue">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
+  
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -75,7 +79,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-header-nav__button md-logo" aria-label="ゼロから学ぶ Python">
       
@@ -86,18 +92,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             ゼロから学ぶ Python
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               2.1. 変数
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -108,7 +116,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -149,8 +157,6 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
       
@@ -158,10 +164,16 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-nav__button md-logo" aria-label="ゼロから学ぶ Python">
       
@@ -191,8 +203,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href=".." title="ホーム" class="md-nav__link">
+    <a href=".." class="md-nav__link">
       ホーム
     </a>
   </li>
@@ -203,9 +216,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       1. Python を始める
@@ -224,8 +240,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch01-01-installation/" title="1.1. インストール" class="md-nav__link">
+    <a href="../ch01-01-installation/" class="md-nav__link">
       1.1. インストール
     </a>
   </li>
@@ -236,8 +253,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
+    <a href="../ch01-02-hello-world/" class="md-nav__link">
       1.2. Hello, World!
     </a>
   </li>
@@ -252,10 +270,13 @@
       
       
 
+
   
 
 
+  
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
     
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
@@ -275,6 +296,7 @@
           
           
 
+
   
 
 
@@ -290,7 +312,7 @@
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="2.1. 変数" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       2.1. 変数
     </a>
     
@@ -449,8 +471,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-02-functions/" title="2.2. 関数" class="md-nav__link">
+    <a href="../ch02-02-functions/" class="md-nav__link">
       2.2. 関数
     </a>
   </li>
@@ -461,8 +484,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-03-comments/" title="2.3. コメント" class="md-nav__link">
+    <a href="../ch02-03-comments/" class="md-nav__link">
       2.3. コメント
     </a>
   </li>
@@ -473,8 +497,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-04-conditions/" title="2.4. 条件文" class="md-nav__link">
+    <a href="../ch02-04-conditions/" class="md-nav__link">
       2.4. 条件文
     </a>
   </li>
@@ -485,8 +510,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-nav__link">
+    <a href="../ch02-05-loops/" class="md-nav__link">
       2.5. ループ文
     </a>
   </li>
@@ -497,8 +523,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-06-list-comprehensions/" title="2.6. リスト内包表記" class="md-nav__link">
+    <a href="../ch02-06-list-comprehensions/" class="md-nav__link">
       2.6. リスト内包表記
     </a>
   </li>
@@ -509,8 +536,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-07-lambdas/" title="2.7. ラムダ式" class="md-nav__link">
+    <a href="../ch02-07-lambdas/" class="md-nav__link">
       2.7. ラムダ式
     </a>
   </li>
@@ -526,9 +554,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
     
     <label class="md-nav__link" for="nav-4">
       3. クラス
@@ -547,8 +578,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-01-classes/" title="3.1. クラス" class="md-nav__link">
+    <a href="../ch03-01-classes/" class="md-nav__link">
       3.1. クラス
     </a>
   </li>
@@ -559,8 +591,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-02-scopes/" title="3.2. スコープ" class="md-nav__link">
+    <a href="../ch03-02-scopes/" class="md-nav__link">
       3.2. スコープ
     </a>
   </li>
@@ -571,8 +604,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-03-special-attributes/" title="3.3. 特殊属性" class="md-nav__link">
+    <a href="../ch03-03-special-attributes/" class="md-nav__link">
       3.3. 特殊属性
     </a>
   </li>
@@ -583,8 +617,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-04-properties/" title="3.4. プロパティ" class="md-nav__link">
+    <a href="../ch03-04-properties/" class="md-nav__link">
       3.4. プロパティ
     </a>
   </li>
@@ -600,9 +635,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
     
     <label class="md-nav__link" for="nav-5">
       4. モジュールとパッケージ
@@ -621,8 +659,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-nav__link">
+    <a href="../ch04-01-modules/" class="md-nav__link">
       4.1. モジュール
     </a>
   </li>
@@ -633,8 +672,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-02-packages/" title="4.2. パッケージ" class="md-nav__link">
+    <a href="../ch04-02-packages/" class="md-nav__link">
       4.2. パッケージ
     </a>
   </li>
@@ -645,8 +685,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-03-pip/" title="4.3. pip" class="md-nav__link">
+    <a href="../ch04-03-pip/" class="md-nav__link">
       4.3. pip
     </a>
   </li>
@@ -657,8 +698,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-04-venv/" title="4.4. venv" class="md-nav__link">
+    <a href="../ch04-04-venv/" class="md-nav__link">
       4.4. venv
     </a>
   </li>
@@ -669,8 +711,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-05-pipenv/" title="4.5. pipenv" class="md-nav__link">
+    <a href="../ch04-05-pipenv/" class="md-nav__link">
       4.5. pipenv
     </a>
   </li>
@@ -681,8 +724,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-06-poetry/" title="4.6. poetry" class="md-nav__link">
+    <a href="../ch04-06-poetry/" class="md-nav__link">
       4.6. poetry
     </a>
   </li>
@@ -693,8 +737,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-07-project-structures/" title="4.7. プロジェクト構成" class="md-nav__link">
+    <a href="../ch04-07-project-structures/" class="md-nav__link">
       4.7. プロジェクト構成
     </a>
   </li>
@@ -710,9 +755,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
     
     <label class="md-nav__link" for="nav-6">
       5. ファイル操作
@@ -731,8 +779,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-01-files/" title="5.1. ファイル操作" class="md-nav__link">
+    <a href="../ch05-01-files/" class="md-nav__link">
       5.1. ファイル操作
     </a>
   </li>
@@ -743,8 +792,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+    <a href="../ch05-02-contexts/" class="md-nav__link">
       5.2. コンテキスト
     </a>
   </li>
@@ -755,9 +805,23 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-03-csv/" title="5.3. CSV" class="md-nav__link">
+    <a href="../ch05-03-csv/" class="md-nav__link">
       5.3. CSV
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-04-json/" class="md-nav__link">
+      5.4. JSON
     </a>
   </li>
 
@@ -772,9 +836,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
     
     <label class="md-nav__link" for="nav-7">
       6. 例外
@@ -793,8 +860,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-nav__link">
+    <a href="../ch06-01-exceptions/" class="md-nav__link">
       6.1. 例外
     </a>
   </li>
@@ -810,9 +878,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       7. ジェネレータ
@@ -831,8 +902,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch07-01-generators/" title="7.1. ジェネレータ" class="md-nav__link">
+    <a href="../ch07-01-generators/" class="md-nav__link">
       7.1. ジェネレータ
     </a>
   </li>
@@ -848,9 +920,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
     
     <label class="md-nav__link" for="nav-9">
       8. テスト
@@ -869,8 +944,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-nav__link">
+    <a href="../ch08-01-doctest/" class="md-nav__link">
       8.1. doctest
     </a>
   </li>
@@ -881,8 +957,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch08-02-pytest/" title="8.2. pytest" class="md-nav__link">
+    <a href="../ch08-02-pytest/" class="md-nav__link">
       8.2. pytest
     </a>
   </li>
@@ -900,7 +977,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1063,9 +1141,6 @@
                   </a>
                 
                 
-                  
-                
-                
                 <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>次のようなコードを書いて色々な変数を出力してみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -1080,16 +1155,13 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-
 <h2 id="_2">数値型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="int">整数 <code>int</code><a class="headerlink" href="#int" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div>
-
 <h3 id="float">浮動小数点 <code>float</code><a class="headerlink" href="#float" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>
 </code></pre></div>
-
 <h3 id="_3">数値演算<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>数値に対しては四則演算ができます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 加算</span>
@@ -1110,7 +1182,6 @@
 <span class="c1"># 剰余</span>
 <span class="n">remainder</span> <span class="o">=</span> <span class="mi">43</span> <span class="o">%</span> <span class="mi">5</span>
 </code></pre></div>
-
 <div class="admonition warning">
 <p class="admonition-title">整数 / 整数 の結果</p>
 <p>整数に対する <code>/</code> は Python 2 系と 3 系では意味が変わります。</p>
@@ -1141,30 +1212,25 @@
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">y</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
-
 <h2 id="str">文字列 <code>str</code><a class="headerlink" href="#str" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;日本語&#39;</span>
 </code></pre></div>
-
 <h3 id="f-string">f-string<a class="headerlink" href="#f-string" title="Permanent link">&para;</a></h3>
 <p>文字列の先頭に <code>f</code> を付けると文字列内に変数や式の埋め込みができるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span>           <span class="c1"># &#39;The value of x is 10&#39;</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;The value of x * x is </span><span class="si">{</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span>   <span class="c1"># &#39;The value of x * x is 100&#39;</span>
 </code></pre></div>
-
 <p>f-string を使わなくても次のようにも書けます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;The value of x is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;The value of x * x is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </code></pre></div>
-
 <p>f-string は <code>'...'.format()</code> のシンプルな書き方を提供する機能です。</p>
 <h2 id="byte">バイト <code>byte</code><a class="headerlink" href="#byte" title="Permanent link">&para;</a></h2>
 <p>バイト列を扱う型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;0xDEADBEEF&#39;</span>
 </code></pre></div>
-
 <h2 id="_4">コレクション型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>コレクション型は複数の値をまとめて扱える型の総称です。</p>
 <h3 id="list">リスト <code>list</code><a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
@@ -1172,7 +1238,6 @@
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
 </code></pre></div>
-
 <p>要素の末尾に <code>,</code> が入っていても構文として正しいです。</p>
 <div class="highlight"><pre><span></span><code> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">10</span><span class="p">,</span>
@@ -1180,11 +1245,9 @@
     <span class="s1">&#39;Hello, World!&#39;</span><span class="p">,</span>    <span class="c1"># OK</span>
 <span class="p">]</span>
 </code></pre></div>
-
 <p>要素の追加は次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </code></pre></div>
-
 <p>また要素参照は次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
 
@@ -1192,7 +1255,6 @@
 <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># 3.14</span>
 <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># &#39;Hello, World!&#39;</span>
 </code></pre></div>
-
 <p>添字には負の数も指定できます。負の数を指定した場合は末尾の要素から参照されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
 
@@ -1200,23 +1262,19 @@
 <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># 3.14</span>
 <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>    <span class="c1"># 10</span>
 </code></pre></div>
-
 <p>要素が空のリストを作る場合は <code>x = []</code> とします。</p>
 <h3 id="tuple">タプル <code>tuple</code><a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h3>
 <p>リストとよく似た扱いができる型ですが、タプルは要素の変更も追加もできません。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>要素参照はリストと同じようにしてできます。<code>()</code> はただの飾りであり、必須ではありません。タプルになるかどうかは <code>,</code> が含まれているかどうかで決まります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span>   <span class="c1"># 3 要素のタプル</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>                         <span class="c1"># 1 要素のタプル</span>
 </code></pre></div>
-
 <p>ただし空のタプルを作りたいときは <code>()</code> を使います。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">()</span>
 </code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>要素の変更が必要ない場合はリストよりタプルを使う方が安全です。</p>
@@ -1226,17 +1284,14 @@
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># a: 10, b: 3.14, c: &#39;Hello, World!&#39;</span>
 </code></pre></div>
-
 <p>代入元と代入先の要素数は一致している必要があります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># エラー</span>
 </code></pre></div>
-
 <p>しかし代入先の変数に <code>*</code> を付けておくと、その変数はリスト型になるため、要素数が一致しなくてもアンパック代入ができるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># a: 0, b: 1, c: [2, 3, 4]</span>
 </code></pre></div>
-
 <h3 id="dict">辞書 <code>dict</code><a class="headerlink" href="#dict" title="Permanent link">&para;</a></h3>
 <p>キーに対する値を管理するための型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
@@ -1244,24 +1299,20 @@
 <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>   <span class="c1"># &#39;John Doe&#39;</span>
 <span class="n">x</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>    <span class="c1"># 30</span>
 </code></pre></div>
-
 <p>要素が空の辞書を作る場合は <code>x = {}</code> とします。</p>
 <h3 id="set">集合 <code>set</code><a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
 <p>重複を取り除いて複数の要素を扱うための型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1"># {0, 1, 2, 3, 4}</span>
 </code></pre></div>
-
 <p><code>set()</code> を使うとリストやタプルから集合を作ることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>                 <span class="c1"># {1, 2, 3, 4}</span>
 <span class="n">y</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>   <span class="c1"># {&#39;x&#39;, 3.14, [1, 2]}</span>
 </code></pre></div>
-
 <p>空の集合を作る場合は <code>x = set()</code> とします。<code>x = {}</code> としても空の辞書となるので注意してください。</p>
 <h2 id="none"><code>None</code><a class="headerlink" href="#none" title="Permanent link">&para;</a></h2>
 <p>変数に <code>None</code> というキーワードを代入すると、その変数はどの型にも属さない変数になります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
-
 <p>変数は用意したいけど、どのような値を入れるかは後で決めたいといったケースでは <code>None</code> が使用されます。</p>
 <h2 id="_6">定数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>Python には定数の概念がありません。しかし、書き換えを想定しない変数は大文字で書いて定数であることを示すというルールがあります。</p>
@@ -1285,7 +1336,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch01-02-hello-world/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1300,7 +1351,7 @@
           </a>
         
         
-          <a href="../ch02-02-functions/" title="2.2. 関数" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch02-02-functions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
@@ -1337,15 +1388,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
-      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

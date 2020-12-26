@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="ja" class="no-js">
   <head>
@@ -11,13 +9,14 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch08-02-pytest/">
-      
       
         <meta name="author" content="IDA Kenichiro">
       
+      
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch08-02-pytest/">
+      
       <link rel="shortcut icon" href="../img/python.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -25,20 +24,22 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
         
-        <meta name="theme-color" content="#ffa724">
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -55,10 +56,13 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="orange" data-md-color-accent="blue">
-  
     
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="orange" data-md-color-accent="blue">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
+  
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -75,7 +79,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-header-nav__button md-logo" aria-label="ゼロから学ぶ Python">
       
@@ -86,18 +92,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             ゼロから学ぶ Python
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               8.2. pytest
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -108,7 +116,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -149,8 +157,6 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
       
@@ -158,10 +164,16 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-nav__button md-logo" aria-label="ゼロから学ぶ Python">
       
@@ -191,8 +203,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href=".." title="ホーム" class="md-nav__link">
+    <a href=".." class="md-nav__link">
       ホーム
     </a>
   </li>
@@ -203,9 +216,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       1. Python を始める
@@ -224,8 +240,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch01-01-installation/" title="1.1. インストール" class="md-nav__link">
+    <a href="../ch01-01-installation/" class="md-nav__link">
       1.1. インストール
     </a>
   </li>
@@ -236,8 +253,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
+    <a href="../ch01-02-hello-world/" class="md-nav__link">
       1.2. Hello, World!
     </a>
   </li>
@@ -253,9 +271,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
     
     <label class="md-nav__link" for="nav-3">
       2. 基本仕様
@@ -274,8 +295,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
+    <a href="../ch02-01-variables/" class="md-nav__link">
       2.1. 変数
     </a>
   </li>
@@ -286,8 +308,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-02-functions/" title="2.2. 関数" class="md-nav__link">
+    <a href="../ch02-02-functions/" class="md-nav__link">
       2.2. 関数
     </a>
   </li>
@@ -298,8 +321,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-03-comments/" title="2.3. コメント" class="md-nav__link">
+    <a href="../ch02-03-comments/" class="md-nav__link">
       2.3. コメント
     </a>
   </li>
@@ -310,8 +334,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-04-conditions/" title="2.4. 条件文" class="md-nav__link">
+    <a href="../ch02-04-conditions/" class="md-nav__link">
       2.4. 条件文
     </a>
   </li>
@@ -322,8 +347,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-nav__link">
+    <a href="../ch02-05-loops/" class="md-nav__link">
       2.5. ループ文
     </a>
   </li>
@@ -334,8 +360,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-06-list-comprehensions/" title="2.6. リスト内包表記" class="md-nav__link">
+    <a href="../ch02-06-list-comprehensions/" class="md-nav__link">
       2.6. リスト内包表記
     </a>
   </li>
@@ -346,8 +373,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-07-lambdas/" title="2.7. ラムダ式" class="md-nav__link">
+    <a href="../ch02-07-lambdas/" class="md-nav__link">
       2.7. ラムダ式
     </a>
   </li>
@@ -363,9 +391,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
     
     <label class="md-nav__link" for="nav-4">
       3. クラス
@@ -384,8 +415,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-01-classes/" title="3.1. クラス" class="md-nav__link">
+    <a href="../ch03-01-classes/" class="md-nav__link">
       3.1. クラス
     </a>
   </li>
@@ -396,8 +428,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-02-scopes/" title="3.2. スコープ" class="md-nav__link">
+    <a href="../ch03-02-scopes/" class="md-nav__link">
       3.2. スコープ
     </a>
   </li>
@@ -408,8 +441,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-03-special-attributes/" title="3.3. 特殊属性" class="md-nav__link">
+    <a href="../ch03-03-special-attributes/" class="md-nav__link">
       3.3. 特殊属性
     </a>
   </li>
@@ -420,8 +454,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-04-properties/" title="3.4. プロパティ" class="md-nav__link">
+    <a href="../ch03-04-properties/" class="md-nav__link">
       3.4. プロパティ
     </a>
   </li>
@@ -437,9 +472,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
     
     <label class="md-nav__link" for="nav-5">
       4. モジュールとパッケージ
@@ -458,8 +496,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-nav__link">
+    <a href="../ch04-01-modules/" class="md-nav__link">
       4.1. モジュール
     </a>
   </li>
@@ -470,8 +509,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-02-packages/" title="4.2. パッケージ" class="md-nav__link">
+    <a href="../ch04-02-packages/" class="md-nav__link">
       4.2. パッケージ
     </a>
   </li>
@@ -482,8 +522,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-03-pip/" title="4.3. pip" class="md-nav__link">
+    <a href="../ch04-03-pip/" class="md-nav__link">
       4.3. pip
     </a>
   </li>
@@ -494,8 +535,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-04-venv/" title="4.4. venv" class="md-nav__link">
+    <a href="../ch04-04-venv/" class="md-nav__link">
       4.4. venv
     </a>
   </li>
@@ -506,8 +548,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-05-pipenv/" title="4.5. pipenv" class="md-nav__link">
+    <a href="../ch04-05-pipenv/" class="md-nav__link">
       4.5. pipenv
     </a>
   </li>
@@ -518,8 +561,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-06-poetry/" title="4.6. poetry" class="md-nav__link">
+    <a href="../ch04-06-poetry/" class="md-nav__link">
       4.6. poetry
     </a>
   </li>
@@ -530,8 +574,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-07-project-structures/" title="4.7. プロジェクト構成" class="md-nav__link">
+    <a href="../ch04-07-project-structures/" class="md-nav__link">
       4.7. プロジェクト構成
     </a>
   </li>
@@ -547,9 +592,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
     
     <label class="md-nav__link" for="nav-6">
       5. ファイル操作
@@ -568,8 +616,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-01-files/" title="5.1. ファイル操作" class="md-nav__link">
+    <a href="../ch05-01-files/" class="md-nav__link">
       5.1. ファイル操作
     </a>
   </li>
@@ -580,8 +629,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+    <a href="../ch05-02-contexts/" class="md-nav__link">
       5.2. コンテキスト
     </a>
   </li>
@@ -592,9 +642,23 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-03-csv/" title="5.3. CSV" class="md-nav__link">
+    <a href="../ch05-03-csv/" class="md-nav__link">
       5.3. CSV
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-04-json/" class="md-nav__link">
+      5.4. JSON
     </a>
   </li>
 
@@ -609,9 +673,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
     
     <label class="md-nav__link" for="nav-7">
       6. 例外
@@ -630,8 +697,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-nav__link">
+    <a href="../ch06-01-exceptions/" class="md-nav__link">
       6.1. 例外
     </a>
   </li>
@@ -647,9 +715,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       7. ジェネレータ
@@ -668,8 +739,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch07-01-generators/" title="7.1. ジェネレータ" class="md-nav__link">
+    <a href="../ch07-01-generators/" class="md-nav__link">
       7.1. ジェネレータ
     </a>
   </li>
@@ -684,10 +756,13 @@
       
       
 
+
   
 
 
+  
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
     
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
     
@@ -708,8 +783,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-nav__link">
+    <a href="../ch08-01-doctest/" class="md-nav__link">
       8.1. doctest
     </a>
   </li>
@@ -718,6 +794,7 @@
           
           
           
+
 
   
 
@@ -734,7 +811,7 @@
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="8.2. pytest" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       8.2. pytest
     </a>
     
@@ -928,7 +1005,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1119,9 +1197,6 @@
                   </a>
                 
                 
-                  
-                
-                
                 <h1 id="pytest">pytest<a class="headerlink" href="#pytest" title="Permanent link">&para;</a></h1>
 <p>Python には単体テストを書くためのフレームワークがいくつかあります。</p>
 <table>
@@ -1154,7 +1229,6 @@
 ├── prime.py
 └── test_prime.py
 </code></pre></div>
-
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
 <p>テストを複数ファイルに分割して書く場合は <code>tests</code> ディレクトリを作成し、その中に <code>__init__.py</code> を含めるようにしてください。<code>__init__.py</code> がないとテストが正しく実行できなくなります。詳しくは <a href="../ch04-07-project-structures/">ディレクトリ構成</a> を参考にしてください。</p>
@@ -1165,7 +1239,6 @@
 $ <span class="nb">cd</span> fibonacci
 $ pipenv install -d pytest
 </code></pre></div>
-
 <p><code>-d</code> というのは開発時にだけ必要となるパッケージをインストールするときに指定するフラグです。単体テストは通常開発時にしか必要ないため大抵のケースで pytest は <code>-d</code> を指定してインストールするのが良いでしょう。</p>
 <h2 id="_3">テストの書き方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>まず素数判定を行う関数を書きます。</p>
@@ -1190,7 +1263,6 @@ $ pipenv install -d pytest
 
     <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
-
 <p>今回はこのプログラムを直接実行するわけではないため、シバンや <code>main()</code> は不要です。次にこの関数に対するテストを下記のように記述します。</p>
 <p><strong>test_prime.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prime</span> <span class="kn">import</span> <span class="n">is_prime</span>
@@ -1208,7 +1280,6 @@ $ pipenv install -d pytest
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-
 <p>pytest は <code>test_</code> で始まるファイル・関数を単体テストのコードとみなします。テストしたい関数を <code>import</code> 文で取り込み、<code>assert</code> という文の後ろにテストしたい式を記述します。</p>
 <h2 id="_4">テスト実行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>テストを実行するには <code>pytest</code> というコマンドを使います。</p>
@@ -1223,7 +1294,6 @@ test_prime.py .                                                                 
 
 <span class="o">===========================================</span> <span class="m">1</span> passed in <span class="m">0</span>.02 <span class="nv">seconds</span> <span class="o">============================================</span>
 </code></pre></div>
-
 <p>素数判定が正しく実装されていなかった場合の挙動を確認するため、<code>is_prime()</code> から次の行を無効にして再度テストを実行してみます。</p>
 <p><strong>prime.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -1246,7 +1316,6 @@ test_prime.py .                                                                 
 
     <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="o">(</span>prime<span class="o">)</span> $ pytest test_prime.py
 <span class="o">==============================================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">==============================================</span>
 platform darwin -- Python <span class="m">3</span>.7.3, pytest-4.5.0, py-1.8.0, pluggy-0.11.0
@@ -1270,7 +1339,6 @@ E        +  where <span class="nv">True</span> <span class="o">=</span> is_prime
 test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="o">===========================================</span> <span class="m">1</span> failed in <span class="m">0</span>.09 <span class="nv">seconds</span> <span class="o">============================================</span>
 </code></pre></div>
-
 <p><code>is_prime(4)</code> が <code>True</code> になっているというエラーメッセージが出力されています。</p>
 <h2 id="_5">パラメータ化したテスト<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>上記の例では <code>is_prime(4)</code> のテストに失敗すると、その時点でテストが終わってしまうため、<code>is_prime(5)</code> 以降のテストがどうなるかは分かりませんでした。このようなケースでは <strong>パラメータ化したテスト</strong> を作ることで <code>1～10</code> までのすべての値をテストできるようになります。</p>
@@ -1295,13 +1363,11 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="k">def</span> <span class="nf">test_is_prime</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
-
 <p><code>@pytest.mark.parametrize()</code> はデコレータと呼ばれるもので、これにテストで使用するパラメータを記述します。デコレータの最初の引数 <code>('number', 'expected')</code> はテスト関数に渡すパラメータの引数名になります。第 2 引数は実際に渡すパラメータの値をタプルのリストとして記述します。</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">((</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;expected&#39;</span><span class="p">),</span> <span class="p">[</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
 <span class="p">])</span>
 </code></pre></div>
-
 <p>のように記述すると <code>test_is_prime(1, False)</code> が実行されます。複数記述すればその分だけ <code>number, expected</code> に値が渡され <code>test_is_prime()</code> が実行されます。</p>
 <h3 id="_6">注意点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>デコレータの書き方には注意して下さい。次のいずれも正しい書き方ではありません。</p>
@@ -1321,7 +1387,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="o">...</span>
 <span class="p">])</span>
 </code></pre></div>
-
 </div>
 <div class="admonition check">
 <p class="admonition-title">正</p>
@@ -1329,7 +1394,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="o">...</span>
 <span class="p">])</span>
 </code></pre></div>
-
 </div>
 <p><strong>タプルをリストの要素としない</strong></p>
 <div class="admonition warning">
@@ -1340,7 +1404,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="o">...</span>
 <span class="p">)</span>
 </code></pre></div>
-
 </div>
 <div class="admonition check">
 <p class="admonition-title">正</p>
@@ -1350,7 +1413,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="o">...</span>
 <span class="p">])</span>
 </code></pre></div>
-
 </div>
 <h2 id="_7">フィクスチャ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>フィクスチャはテストの実行前後で行いたい前処理・後処理を記述するために使用する関数のことです。各テストで同じ前処理・後処理を行う必要がある場合に暗黙的にそれが実行できるようになります。</p>
@@ -1368,7 +1430,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="k">return</span> <span class="n">numbers</span>
 </code></pre></div>
-
 <p>この関数は入力値としてファイルのパスを受け取ります。そのため、事前にファイルを用意しなければいけません。このファイルを用意するためにフィクスチャが利用できます。</p>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
@@ -1383,7 +1444,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 3
 1
 </code></pre></div>
-
 <p><code>test_load_numbers_sorted()</code> が実行される前にファイルを用意する必要があるため次のようにフィクスチャを使ってファイルを作成します。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
 
@@ -1396,12 +1456,10 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="k">yield</span> <span class="s1">&#39;numbers.txt&#39;</span>
 </code></pre></div>
-
 <p><code>numbers.txt</code> というファイルを作り、そのファイル名を返却しています。このフィクスチャを使って <code>test_load_numbers_sorted()</code> を実行するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_load_numbers_sorted</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">load_numbers_sorted</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 </code></pre></div>
-
 <p>テスト関数にフィクスチャと同じ名前の引数 <code>txt</code> を渡します。すると <code>txt</code> にはフィクスチャ <code>txt()</code> の戻り値 <code>numbers.txt</code> が入ってきます。このコードを実行すると</p>
 <ol>
 <li><code>txt()</code> が呼ばれる</li>
@@ -1422,7 +1480,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>こうするとテストが終わると <code>os.remove('numbers.txt')</code> が呼び出され、ファイルが削除されます。つまりフィクスチャは</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">txt</span><span class="p">():</span>
@@ -1432,7 +1489,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="c1"># 後処理</span>
 </code></pre></div>
-
 <p>という構造をしています。<code>test_load_numbers_sorted(txt)</code> の引数 <code>txt</code> はフィクスチャ <code>txt()</code> で
 何を返したかで型が決まります。</p>
 <h3 id="_11">フィクスチャの連携<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
@@ -1445,7 +1501,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="k">def</span> <span class="nf">test_load_numbers_sorted</span><span class="p">(</span><span class="n">txt_and_list</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">load_numbers_sorted</span><span class="p">(</span><span class="n">txt_and_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">txt_and_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
-
 <p>この場合 <code>txt() -&gt; txt_and_list()</code> の順にフィクスチャが実行され、その結果が <code>test_load_numbers_sorted()</code> に渡されます。</p>
 <h3 id="_12">テンポラリの作成<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>pytest には安全にテンポラリを作成するための <code>tmpdir</code> というフィクスチャがあらかじめ用意されています。先に見た例ではファイルがローカルに作られるため、大量のファイルが作られるとディレクトリが汚れてしまいますが <code>tmpdir</code> を使うと <code>/tmp</code> 配下にファイルを作成するため、ファイル管理がスマートになります。</p>
@@ -1462,7 +1517,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="n">tmpfile</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
 </code></pre></div>
-
 <h3 id="_13">フィクスチャのスコープ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>通常フィクスチャはテスト単位で呼び出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_sample1</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
@@ -1472,13 +1526,11 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="k">def</span> <span class="nf">test_sample2</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="o">...</span>
 </code></pre></div>
-
 <p>この場合、フィクスチャ <code>txt()</code> は各テスト関数を実行するたびに毎回呼び出されます。場合によってはこれが非効率で冗長になることもあります。このような場合はフィクスチャが呼び出されるタイミングを次のようにして変更することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s1">&#39;module&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">txt</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="o">...</span>
 </code></pre></div>
-
 <p><code>scope</code> に指定できる値は次のとおりです。</p>
 <table>
 <thead>
@@ -1521,7 +1573,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
         ├─test_sample5.py
         └─test_sample6.py
 </code></pre></div>
-
 <h2 id="_14">標準出力のキャプチャ<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>標準出力にメッセージを出力する関数をテストしたい時には標準出力をキャプチャして出力されたメッセージを確認することができます。例えば次のようなフィボナッチ数列を出力する関数を考えます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -1533,7 +1584,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
-
 <p>この関数を <code>fibonacci(5)</code> として呼び出すと標準出力には</p>
 <div class="highlight"><pre><span></span><code>1
 1
@@ -1541,7 +1591,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 3
 5
 </code></pre></div>
-
 <p>と出力されます。本当にこのように出力されるかどうかをテストしたい時には次のように書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_fibonacci</span><span class="p">(</span><span class="n">capsys</span><span class="p">):</span>
     <span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1556,11 +1605,9 @@ test_prime.py:9: <span class="nv">AssertionError</span>
         <span class="s1">&#39;5</span><span class="se">\n</span><span class="s1">&#39;</span>
     <span class="p">)</span>
 </code></pre></div>
-
 <p><code>capsys</code> は標準出力と標準エラー出力をキャプチャするためのフィクスチャです。</p>
 <div class="highlight"><pre><span></span><code><span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
 </code></pre></div>
-
 <p>はキャプチャした標準出力と標準エラー出力の文字列をタプルとして返します。</p>
 <h2 id="_15">モック<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>モックとは関数やクラスが相互に依存して動作する時に、依存する関数やクラスが正しく使われているかどうかをテストする時に使われるオブジェクトのことです。例えば次のコードを見てみましょう。</p>
@@ -1572,7 +1619,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;received: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
 </code></pre></div>
-
 <p>いま関数 <code>send()</code> は引数で受け取った文字列を <code>receive()</code> にそのまま渡さなければならないという仕様があったとします。このとき、 <code>send()</code> が仕様どおりに実装されているかどうかをテストするためには</p>
 <ul>
 <li><code>send()</code> は <code>receive()</code> を1回だけ呼び出しているか？</li>
@@ -1583,30 +1629,25 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[1]: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
     <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[2]: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
 </code></pre></div>
-
 <p>のように仕様に沿っていない実装を間違った実装として検出できるようになります。モックを使うとこのような確認がテストできるようになります。</p>
 <h3 id="_16">モックの使い方<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <p>モックを使うには <a href="https://github.com/pytest-dev/pytest-mock">pytest-mock</a> という pytest のプラグインを使用します。インストールは pipenv で次のようにできます。</p>
 <div class="highlight"><pre><span></span><code>$ pipenv install -d pytest-mock
 </code></pre></div>
-
 <p><code>send()</code> が正しい形式で <code>receive()</code> を呼び出しているかどうかを確認するためには <code>receive()</code> が受け取った引数と呼び出し回数を記憶する仕組みが必要になります。それを実現するために <code>receive()</code> を偽の実装にすり替えて、引数や呼び出し回数を保存できるオブジェクト（すなわちモック）にするというアプローチを取ります（これをモンキーパッチといいます）。<code>pytest-mock</code> をインストールすると <code>mocker</code> というフィクスチャが使用できるようになります。この <code>mocker</code> を使って次のように <code>receive()</code> をモックにすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
     <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>mocker.patch()</code> は引数で受け取った文字列の関数をモック化して返す関数です。<code>mocker.patch()</code> を呼び出した後では <code>send()</code> が呼び出す <code>receive()</code> は <code>interaction.py</code> で定義された <code>receive()</code> の代わりにモック化された偽の <code>receive()</code> が呼び出されるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
     <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
 
     <span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>ここで呼び出した <code>send()</code> は内部で <code>receive()</code> を呼んでいますがその <code>receive()</code> は <code>mocker.patch()</code> が作成したモック化された <code>receive</code> になります。そしてこの <code>receive</code> は引数で受け取った値や呼び出し回数を記録したオブジェクトになっています。</p>
 <p>さらに次のような行をテストコードに追加してみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="n">receive</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>これは <code>receive()</code> が <code>'Hello World!'</code> という文字列を受け取って 1 回だけ呼び出されたかどうかを確認するテストになります。テストコード全体は次のとおりになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
     <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
@@ -1615,14 +1656,12 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="n">receive</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>試しに <code>send()</code> の実装をわざと間違えた実装にしてみましょう。<code>receive.assert_called_once_with()</code> のところでテストが失敗するはずです。</p>
 <h3 id="_17">呼び出し履歴の確認<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <p>モック <code>receive</code> は自分がどのような引数で何回呼ばれたのかを履歴として残しています。その呼び出し履歴を参照するには <code>receive.call_args_list</code> を参照します。</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">receive</span><span class="o">.</span><span class="n">call_args_list</span>
 <span class="p">[</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)]</span>
 </code></pre></div>
-
 <p>これは <code>receive()</code> が <code>'Hello World!'</code> を引数として1回だけ呼ばれたことを意味します。このリストの内容を確認しても <code>send()</code> が <code>receive()</code> を正しく呼んだかどうかをテストすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
     <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;studies.interaction.receive&#39;</span><span class="p">)</span>
@@ -1633,20 +1672,17 @@ test_prime.py:9: <span class="nv">AssertionError</span>
         <span class="n">mocker</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">),</span>
     <span class="p">]</span>
 </code></pre></div>
-
 <p>例えば <code>send()</code> が次のように実装されていたとすると</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[1]: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
     <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[2]: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
 </code></pre></div>
-
 <p>呼び出し履歴のテストは</p>
 <div class="highlight"><pre><span></span><code><span class="k">assert</span> <span class="n">receive</span><span class="o">.</span><span class="n">call_args_list</span> <span class="o">==</span> <span class="p">[</span>
     <span class="n">mocker</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;[1]: Hello World!&#39;</span><span class="p">),</span>
     <span class="n">mocker</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;[2]: Hello World!&#39;</span><span class="p">),</span>
 <span class="p">]</span>
 </code></pre></div>
-
 <p>と書くことができます。</p>
 <h3 id="_18">戻り値の定義<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p><code>send()</code> の振る舞いが <code>receive()</code> の戻り値に依存して変わるケースを考えます。</p>
@@ -1664,7 +1700,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
-
 <p>この場合 <code>receive()</code> の戻り値に応じて <code>send()</code> が出力するメッセージが変わることをテストで確認する必要が出てきます。サンプルの <code>receive()</code> は常に <code>True</code> しか返さないので、 <code>False</code> を返した時の
 <code>send()</code> の振る舞いが確認できません。このような場合でもモックを使って <code>receive()</code> の戻り値を上手く制御することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_send</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
@@ -1678,7 +1713,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="k">assert</span> <span class="n">out</span> <span class="o">==</span> <span class="s1">&#39;failure</span><span class="se">\n</span><span class="s1">&#39;</span>
 </code></pre></div>
-
 <p><code>mocker.patch()</code> の引数に <code>return_value=False</code> を渡すと <code>send()</code> 内で呼び出している <code>receive()</code> は <code>False</code> を返すように偽装されます。</p>
 <h3 id="_19">スパイ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <p>モックを使うと <code>receive()</code> の実装は完全に別物に置き換わりますが場合によっては本物の <code>receive()</code> を呼びつつ、呼び出し回数を確認したいこともあると思います。そのような場合はスパイを作成することで実現できます。例えば <code>receive()</code> が <code>studies/interaction.py</code> に定義されている場合</p>
@@ -1686,7 +1720,6 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
 <span class="n">receive</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">studies</span><span class="o">.</span><span class="n">interaction</span><span class="p">,</span> <span class="s1">&#39;receive&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>とすることでスパイを作成することができます。<code>mocker.spy()</code> が返却する関数は本物の <code>receive()</code> に <code>assert_called_once_with()</code> などのメソッドが追加されたインスタンスになります。使い方はモンキーパッチの場合と同様です。</p>
                 
               
@@ -1706,7 +1739,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch08-01-doctest/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1744,15 +1777,15 @@ test_prime.py:9: <span class="nv">AssertionError</span>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
-      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="ja" class="no-js">
   <head>
@@ -11,13 +9,14 @@
         <meta name="description" content="ゼロから学ぶ Python">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch04-04-venv/">
-      
       
         <meta name="author" content="IDA Kenichiro">
       
+      
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch04-04-venv/">
+      
       <link rel="shortcut icon" href="../img/python.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
     
     
       
@@ -25,20 +24,22 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
         
-        <meta name="theme-color" content="#ffa724">
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -55,10 +56,13 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="orange" data-md-color-accent="blue">
-  
     
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="orange" data-md-color-accent="blue">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
+  
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -75,7 +79,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-header-nav__button md-logo" aria-label="ゼロから学ぶ Python">
       
@@ -86,18 +92,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             ゼロから学ぶ Python
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               4.4. venv
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -108,7 +116,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -149,8 +157,6 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
       
@@ -158,10 +164,16 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="http://rinatz.github.io/python-book" title="ゼロから学ぶ Python" class="md-nav__button md-logo" aria-label="ゼロから学ぶ Python">
       
@@ -191,8 +203,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href=".." title="ホーム" class="md-nav__link">
+    <a href=".." class="md-nav__link">
       ホーム
     </a>
   </li>
@@ -203,9 +216,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
     
     <label class="md-nav__link" for="nav-2">
       1. Python を始める
@@ -224,8 +240,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch01-01-installation/" title="1.1. インストール" class="md-nav__link">
+    <a href="../ch01-01-installation/" class="md-nav__link">
       1.1. インストール
     </a>
   </li>
@@ -236,8 +253,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
+    <a href="../ch01-02-hello-world/" class="md-nav__link">
       1.2. Hello, World!
     </a>
   </li>
@@ -253,9 +271,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
     
     <label class="md-nav__link" for="nav-3">
       2. 基本仕様
@@ -274,8 +295,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
+    <a href="../ch02-01-variables/" class="md-nav__link">
       2.1. 変数
     </a>
   </li>
@@ -286,8 +308,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-02-functions/" title="2.2. 関数" class="md-nav__link">
+    <a href="../ch02-02-functions/" class="md-nav__link">
       2.2. 関数
     </a>
   </li>
@@ -298,8 +321,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-03-comments/" title="2.3. コメント" class="md-nav__link">
+    <a href="../ch02-03-comments/" class="md-nav__link">
       2.3. コメント
     </a>
   </li>
@@ -310,8 +334,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-04-conditions/" title="2.4. 条件文" class="md-nav__link">
+    <a href="../ch02-04-conditions/" class="md-nav__link">
       2.4. 条件文
     </a>
   </li>
@@ -322,8 +347,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-05-loops/" title="2.5. ループ文" class="md-nav__link">
+    <a href="../ch02-05-loops/" class="md-nav__link">
       2.5. ループ文
     </a>
   </li>
@@ -334,8 +360,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-06-list-comprehensions/" title="2.6. リスト内包表記" class="md-nav__link">
+    <a href="../ch02-06-list-comprehensions/" class="md-nav__link">
       2.6. リスト内包表記
     </a>
   </li>
@@ -346,8 +373,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch02-07-lambdas/" title="2.7. ラムダ式" class="md-nav__link">
+    <a href="../ch02-07-lambdas/" class="md-nav__link">
       2.7. ラムダ式
     </a>
   </li>
@@ -363,9 +391,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
     
     <label class="md-nav__link" for="nav-4">
       3. クラス
@@ -384,8 +415,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-01-classes/" title="3.1. クラス" class="md-nav__link">
+    <a href="../ch03-01-classes/" class="md-nav__link">
       3.1. クラス
     </a>
   </li>
@@ -396,8 +428,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-02-scopes/" title="3.2. スコープ" class="md-nav__link">
+    <a href="../ch03-02-scopes/" class="md-nav__link">
       3.2. スコープ
     </a>
   </li>
@@ -408,8 +441,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-03-special-attributes/" title="3.3. 特殊属性" class="md-nav__link">
+    <a href="../ch03-03-special-attributes/" class="md-nav__link">
       3.3. 特殊属性
     </a>
   </li>
@@ -420,8 +454,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch03-04-properties/" title="3.4. プロパティ" class="md-nav__link">
+    <a href="../ch03-04-properties/" class="md-nav__link">
       3.4. プロパティ
     </a>
   </li>
@@ -436,10 +471,13 @@
       
       
 
+
   
 
 
+  
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
     
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
@@ -460,8 +498,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-01-modules/" title="4.1. モジュール" class="md-nav__link">
+    <a href="../ch04-01-modules/" class="md-nav__link">
       4.1. モジュール
     </a>
   </li>
@@ -472,8 +511,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-02-packages/" title="4.2. パッケージ" class="md-nav__link">
+    <a href="../ch04-02-packages/" class="md-nav__link">
       4.2. パッケージ
     </a>
   </li>
@@ -484,8 +524,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-03-pip/" title="4.3. pip" class="md-nav__link">
+    <a href="../ch04-03-pip/" class="md-nav__link">
       4.3. pip
     </a>
   </li>
@@ -494,6 +535,7 @@
           
           
           
+
 
   
 
@@ -510,7 +552,7 @@
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="4.4. venv" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       4.4. venv
     </a>
     
@@ -546,8 +588,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-05-pipenv/" title="4.5. pipenv" class="md-nav__link">
+    <a href="../ch04-05-pipenv/" class="md-nav__link">
       4.5. pipenv
     </a>
   </li>
@@ -558,8 +601,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-06-poetry/" title="4.6. poetry" class="md-nav__link">
+    <a href="../ch04-06-poetry/" class="md-nav__link">
       4.6. poetry
     </a>
   </li>
@@ -570,8 +614,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch04-07-project-structures/" title="4.7. プロジェクト構成" class="md-nav__link">
+    <a href="../ch04-07-project-structures/" class="md-nav__link">
       4.7. プロジェクト構成
     </a>
   </li>
@@ -587,9 +632,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
     
     <label class="md-nav__link" for="nav-6">
       5. ファイル操作
@@ -608,8 +656,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-01-files/" title="5.1. ファイル操作" class="md-nav__link">
+    <a href="../ch05-01-files/" class="md-nav__link">
       5.1. ファイル操作
     </a>
   </li>
@@ -620,8 +669,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-02-contexts/" title="5.2. コンテキスト" class="md-nav__link">
+    <a href="../ch05-02-contexts/" class="md-nav__link">
       5.2. コンテキスト
     </a>
   </li>
@@ -632,9 +682,23 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch05-03-csv/" title="5.3. CSV" class="md-nav__link">
+    <a href="../ch05-03-csv/" class="md-nav__link">
       5.3. CSV
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-04-json/" class="md-nav__link">
+      5.4. JSON
     </a>
   </li>
 
@@ -649,9 +713,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
     
     <label class="md-nav__link" for="nav-7">
       6. 例外
@@ -670,8 +737,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch06-01-exceptions/" title="6.1. 例外" class="md-nav__link">
+    <a href="../ch06-01-exceptions/" class="md-nav__link">
       6.1. 例外
     </a>
   </li>
@@ -687,9 +755,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       7. ジェネレータ
@@ -708,8 +779,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch07-01-generators/" title="7.1. ジェネレータ" class="md-nav__link">
+    <a href="../ch07-01-generators/" class="md-nav__link">
       7.1. ジェネレータ
     </a>
   </li>
@@ -725,9 +797,12 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
     
     <label class="md-nav__link" for="nav-9">
       8. テスト
@@ -746,8 +821,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch08-01-doctest/" title="8.1. doctest" class="md-nav__link">
+    <a href="../ch08-01-doctest/" class="md-nav__link">
       8.1. doctest
     </a>
   </li>
@@ -758,8 +834,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../ch08-02-pytest/" title="8.2. pytest" class="md-nav__link">
+    <a href="../ch08-02-pytest/" class="md-nav__link">
       8.2. pytest
     </a>
   </li>
@@ -777,7 +854,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -817,9 +895,6 @@
                   </a>
                 
                 
-                  
-                
-                
                 <h1 id="venv">venv<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h1>
 <p><code>pip</code> を使ってサードパーティ製のパッケージをインストールすることができましたが、インストールしたいパッケージが稀に競合を起こすことがあります。</p>
 <table>
@@ -846,29 +921,24 @@
 <p>試しにこれから 2 つの仮想環境を作成し、それぞれに異なるバージョンの <code>requests</code> をインストールしてみます。まず下記のように 2 つのディレクトリを作成します。</p>
 <div class="highlight"><pre><span></span><code>$ mkdir program1 program2
 </code></pre></div>
-
 <p>次に program1 配下で仮想環境を作成します。</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> program1
 $ python -m venv venv
 </code></pre></div>
-
 <p>program1 配下に venv というディレクトリが作成されます。仮想環境を有効にするために下記のコマンドを実行します。</p>
 <div class="highlight"><pre><span></span><code>$ . venv/bin/activate
 <span class="o">(</span>venv<span class="o">)</span> $
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">Windows の場合</p>
 <p>Windows で仮想環境を有効にする場合は下記を実行してください。</p>
 <div class="highlight"><pre><span></span><code>$ venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
 <span class="o">(</span>venv<span class="o">)</span> $
 </code></pre></div>
-
 </div>
 <p>この状態で <code>requests</code> 2.21.0 をインストールしてみます。パッケージをバージョン指定でインストールしたければ次のように実行します。</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
 </code></pre></div>
-
 <p>この <code>requests</code> は venv ディレクトリ配下にインストールされ、仮想環境が有効でない限りは参照することができないようになっています。 <code>pip freeze</code> を使ってインストールされているパッケージ一覧を確認してみます。</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ pip freeze
 <span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
@@ -877,19 +947,16 @@ $ python -m venv venv
 <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
 <span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
 </code></pre></div>
-
 <p>仮想環境を無効にする場合は <code>deactivate</code> というコマンドを実行します。このコマンドは仮想環境が有効なときだけ使用することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ deactivate
 $
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">Windows の場合</p>
 <p>Windows で仮想環境を無効にする場合は下記を実行してください。</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ venv<span class="se">\S</span>cripts<span class="se">\d</span>eactivate.bat
 $
 </code></pre></div>
-
 </div>
 <p>program2 配下でも同様に仮想環境を作成してみます。<code>requests</code> のバージョンは 2.20.1 を使用します。</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> program2
@@ -903,11 +970,9 @@ $ . venv/bin/activate
 <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
 <span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
 </code></pre></div>
-
 <p>program1, program2 配下いずれかの仮想環境を有効にすることで異なるバージョンの <code>requests</code> が使用できるようになっています。ちなみに仮想環境が有効でない状態でインストールされたパッケージは全プログラムから参照可能なので競合を起こす可能性があり、使用すべきではありません。そのため、前章の <code>pip</code> の章でインストールしたパッケージは下記のように削除しておくことをおすすめします。</p>
 <div class="highlight"><pre><span></span><code>$ pip freeze <span class="p">|</span> xargs pip uninstall -y
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">Windows の場合</p>
 <p>Windows で全パッケージを削除する場合は下記を実行してください。</p>
@@ -915,7 +980,6 @@ $ . venv/bin/activate
 $ pip uninstall -y -r requirements.txt
 $ del requirements.txt
 </code></pre></div>
-
 </div>
                 
               
@@ -935,7 +999,7 @@ $ del requirements.txt
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../ch04-03-pip/" title="4.3. pip" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch04-03-pip/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -950,7 +1014,7 @@ $ del requirements.txt
           </a>
         
         
-          <a href="../ch04-05-pipenv/" title="4.5. pipenv" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch04-05-pipenv/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
@@ -987,15 +1051,15 @@ $ del requirements.txt
       
     </div>
     
-      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
-      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
