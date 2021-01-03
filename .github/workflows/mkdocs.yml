@@ -14,4 +14,5 @@ jobs:
       - run: python3 -m pip install --no-cache-dir -r requirements.txt
       - run: git config user.name github-actions
       - run: git config user.email github-actions@github.com
+      - run: git fetch origin gh-pages
       - run: python3 -m mkdocs gh-deploy
