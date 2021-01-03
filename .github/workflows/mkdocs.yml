@@ -1,0 +1,13 @@
+name: mkdocs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  gh-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: python3 -m pip install --no-cache-dir -r requirements.txt
+      - run: mkdocs gh-deploy
