@@ -9,10 +9,16 @@ jobs:
   gh-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: python3 -m pip install setuptools
-      - run: python3 -m pip install --no-cache-dir -r requirements.txt
-      - run: git config user.name github-actions
-      - run: git config user.email github-actions@github.com
-      - run: git fetch origin gh-pages
-      - run: python3 -m mkdocs gh-deploy
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Configure Git
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch origin gh-pages
+      - name: Install MkDocs
+        run: |
+          python3 -m pip install setuptools
+          python3 -m pip install --no-cache-dir -r requirements.txt
+      - name: Deploy HTML files
+        run: python3 -m mkdocs gh-deploy
