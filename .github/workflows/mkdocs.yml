@@ -10,6 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: python3 -m pip install -U pip
       - run: python3 -m pip install --no-cache-dir -r requirements.txt
       - run: mkdocs gh-deploy
