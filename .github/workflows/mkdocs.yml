@@ -1,9 +1,11 @@
-name: mkdocs
+name: MkDocs
 
 on:
   push:
     branches:
       - master
+    paths:
+      - docs/**
 
 jobs:
   gh-deploy:
