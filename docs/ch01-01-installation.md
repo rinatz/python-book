@@ -3,7 +3,7 @@
 Python 開発に必要な下記のツールをインストールします。
 
 - Python
-- PyCharm
+- Visual Studio Code
 
 ## Python
 
@@ -12,18 +12,51 @@ Python 開発に必要な下記のツールをインストールします。
 - [macOS](https://www.python.jp/install/macos/install_python.html)
 - [Windows](https://www.python.jp/install/windows/install.html)
 
-## PyCharm のインストール
+コマンドを打って Python が正しくインストールされたかどうかを確認します。
 
-Python 用の IDE（統合開発環境）である PyCharm をインストールします。
+=== "macOS"
 
-!!! Info "PyCharm"
-    https://www.jetbrains.com/pycharm/
+    ターミナル上で下記コマンドを実行します。
 
-PyCharm には Professional 版と Community 版の 2 つのエディションが用意されています。
+    ```shell
+    $ python3 --version
+    ```
 
-| エディション | ライセンス | 機能                 | 本サイトで使用     |
-| ------------ | ---------- | -------------------- |--------------------|
-| Professional | 有料       | 全機能が使用可能     |                    |
-| Community    | 無料       | 一部の機能は使用不可 | :heavy_check_mark: |
+    バージョンが表示されれば成功です。
 
-Community 版をインストールして下さい。
+=== "Windows"
+
+    コマンドプロンプト上で下記コマンドを実行します。
+
+    ```shell
+    $ py -3 --version
+    ```
+
+    バージョンが表示されれば成功です。
+
+## Visual Studio Code のインストール
+
+Visual Studio Code (VSCode) はエンジニアの間で人気のエディタです。
+拡張機能を取り入れることで見た目の変更や機能追加などを自由にカスタマイズできるのが特徴です。
+
+下記のサイトで VSCode をダウンロードし、インストールをしてください。
+
+!!! Info "VSCode"
+    [https://code.visualstudio.com/](https://code.visualstudio.com/)
+
+次に Python の開発環境を整えるための VSCode 拡張機能をインストールします。
+
+| 拡張機能                                  | 概要                        |
+|-------------------------------------------|-----------------------------|
+| [Python extension for Visual Studio Code] | Python 開発のための基本機能 |
+| [Pylance]                                 | コード補完                  |
+| [Visual Studio IntelliCode]               | オートコンプリート          |
+
+[Python extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+[Pylance]: https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance
+[Visual Studio IntelliCode]: https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode
+
+インストールは VSCode を起動した後、左側にあるペインから拡張機能のタブを選択し、
+インストールする拡張機能を検索してインストールします。
+
+[![](img/vscode-01.png)](img/vscode-01.png)

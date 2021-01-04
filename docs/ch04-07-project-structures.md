@@ -6,9 +6,6 @@ Python のソースコードを管理する際にディレクトリの構成を�
 
 Python の理想のプロジェクト構成は Kenneth Reitz 氏によって推奨されている構成に従うのがよいでしょう。どのような構成なのかは [The Hitchhiker’s Guide to Python] というサイトの [Structuring Your Project] の章で詳しく書かれていますのでそちらを参考にしてもらうことにして、ここでは特に注意すべきことについてまとめておきます。
 
-!!! warning "注意"
-    [Structuring Your Project] の章で説明されているプロジェクト構成は Pipenv が登場する前の推奨構成になっているのでやや古い内容になっています。`requirements.txt` の説明は `Pipfile, Pipfile.lock` と適宜読み替えて読んでください。
-
 ディレクトリの基本構成は次のとおりです。
 
 ```
@@ -121,15 +118,31 @@ sample
 
 そして `main()` を実行したい場合はターミナル上で次のようにします。
 
-```shell
-$ python -m sample
-```
+=== "macOS"
+
+    ```shell
+    $ python3 -m sample
+    ```
+
+=== "Windows"
+
+    ```shell
+    $ py -3 -m sample
+    ```
 
 こうすると `sample/__main__.py` が実行されるようになります。決して
 
-```shell
-$ python sample/__main__.py
-```
+=== "macOS"
+
+    ```shell
+    $ python3 sample/__main__.py
+    ```
+
+=== "Windows"
+
+    ```shell
+    $ py -3 sample/__main__.py
+    ```
 
 のように実行してはいけません。たとえ動いたとしてもいつもうまくいくと期待しないほうがいいでしょう。
 

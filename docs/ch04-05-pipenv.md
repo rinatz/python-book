@@ -2,12 +2,12 @@
 
 `pipenv` は `pip` と `venv` の両方の機能を兼ね備えたサードパーティ製のパッケージ管理ツールです。`venv` で仮想環境を作成してから `pip` でパッケージをインストールするまでの手順では下記のように異なるコマンドを実行する必要がありますが、これを 1 つのコマンドで実行できるようにしたものが `pipenv` です。
 
-| 操作                     | コマンド (macOS, Linux) | コマンド (Windows)            |
-|--------------------------|-------------------------|-------------------------------|
-| 仮想環境の作成           | `python -m venv venv`   | `py -m venv venv`             |
-| 仮想環境を有効にする     | `. venv/bin/activate`   | `venv/Scripts/activate.bat`   |
-| 仮想環境を無効にする     | `deactivate`            | `venv/Scripts/deactivate.bat` |
-| パッケージのインストール | `pip install [name]`    | `py -m pip install [name]`    |
+| 操作                     | コマンド (macOS, Linux) | コマンド (Windows)             |
+|--------------------------|-------------------------|--------------------------------|
+| 仮想環境の作成           | `python -m venv .venv`  | `py -m venv .venv`             |
+| 仮想環境を有効にする     | `. .venv/bin/activate`  | `.venv/Scripts/activate.bat`   |
+| 仮想環境を無効にする     | `deactivate`            | `.venv/Scripts/deactivate.bat` |
+| パッケージのインストール | `pip3 install [name]`   | `py -3 -m pip install [name]`  |
 
 各操作に応じて実行するコマンドも異なれば OS ごとにも異なっており、とても複雑です。しかし `pipenv` を使うと上記の操作は次のようになります。
 
@@ -35,7 +35,7 @@ $ pipenv install [name]
 `pipenv` のインストールは下記のようにします。
 
 ```shell
-$ pip install pipenv
+$ pip3 install pipenv
 ```
 
 !!! note
@@ -135,4 +135,4 @@ $ pipenv sync
 `pipenv` はここで説明した機能以外にも便利な機能がたくさんあります。詳細は公式サイトに説明がありますので参考にしてみてください。
 
 !!! note "pipenv 公式サイト"
-    https://pipenv.readthedocs.io/en/latest/
+    [https://pipenv.readthedocs.io/en/latest/](https://pipenv.readthedocs.io/en/latest/)

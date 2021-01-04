@@ -1,71 +1,38 @@
 # Hello, World!
 
-標準出力に `Hello, World!` と表示するプログラムを書いてみます。まずは PyCharm の設定を行います。
-
-## PyCharm の起動
-
-![](img/pycharm-01.png)
-そのまま `OK` を押します。
+標準出力に `Hello, World!` と出力する簡単な Python プログラムを書いてみます。
 
 ---
 
-![](img/pycharm-02.png)
-プライバシーポリシーに同意して `Continue` を押します。
-
----
-
-![](img/pycharm-03.png)
-匿名データを送信してもいいかどうかを選択します。これはどちらを選択しても構いません。
-
----
-
-![](img/pycharm-04.png)
-キーマップを選択します。PyCharm 未経験者であれば左を、経験者であれば右を選択します。
-
----
-
-![](img/pycharm-05.png)
-UI のテーマを選択します。お好みの方を選択してください。
-
----
-
-![](img/pycharm-06.png)
-コマンドラインから使用できる起動スクリプトを作成するかどうかを選択します。作成する場合はチェックボックスにチェックを入れてください。
-
----
-
-![](img/pycharm-07.png)
-プラグインを追加します。ここは何もせず `Start using PyCharm` を押してください。
-
----
-
-![](img/pycharm-08.png)
-`Create New Project` を選択します。
-
----
-
-![](img/pycharm-09.png)
-`New environment using` というラジオボタンを選択します。`Base interpreter` のところにはターミナル上で下記のコマンドの出力結果を貼り付けてください。Windows の場合はここはデフォルトのままで大丈夫です。
+まずターミナル上で `hello` というディレクトリを作成し、それを VSCode で開きます。
 
 ```shell
-$ which python
+$ mkdir hello
+$ cd hello
+$ code .
 ```
 
-macOS の場合は `/Users/kenichiro-ida/.pyenv/shims/python` のような結果になるはずです。
+[![](img/vscode-02.png)](img/vscode-02.png)
 
 ---
 
-![](img/pycharm-10.png)
-これで PyCharm が起動し、新規プロジェクトが作成できました。
+次にファイルの新規作成のアイコンを押して `hello.py` という名前のファイルを作成します。
+
+[![](img/vscode-03.png)](img/vscode-03.png)
 
 ---
 
-## プログラムを作成する
+ファイルを作成してそのファイルを開くとウィンドウの左下に使用する Python のバージョンが表示されます。
+このバージョンがインストールした Python のバージョンと異なる場合は Python のバージョンをクリックすると
+使用する Python を変更することができます。
 
-PyCharm の左にあるプロジェクトツリーを右クリックし `New` > `Python file` を選択します。
+[![](img/vscode-04.png)](img/vscode-04.png)
 
-![](img/pycharm-12.png)
-`Name` のところに `hello` と入力して `OK` を押します。`hello.py` というファイルが作成されるので下記のようにプログラムを作成してください。
+複数の Python をインストールしている場合にはこのようにして使用する Python を変更してください。
+
+---
+
+ここまでできたら `hello.py` にコードを書いてみます。
 
 **hello.py**
 
@@ -81,10 +48,11 @@ if __name__ == '__main__':
     main()
 ```
 
-ここまでできたらファイルを保存してプログラムを実行してみます。
+できたらファイルを保存してプログラムを実行してみます。
 
-![](img/pycharm-11.png)
-8 行目にある再生ボタンをクリックし `Run 'hello'` を選択すると下部に `Hello, World!` というメッセージが表示されます。
+ウィンドウの右上にある再生ボタンをクリックするとプログラムが実行されます。
+
+[![](img/vscode-05.png)](img/vscode-05.png)
 
 ## 構文の説明
 

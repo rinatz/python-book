@@ -3,7 +3,7 @@
 `poetry` は `pipenv`と同様の課題を解決するために作られたサードパーティ製のパッケージ管理ツールです。
 
 !!! note "poetry 公式サイト"
-    https://python-poetry.org/
+    [https://python-poetry.org/](https://python-poetry.org/)
 
 poetry を使った場合の仮想環境の作成からパッケージのインストールまでの手順は下記のとおりです。
 
@@ -18,15 +18,18 @@ poetry を使った場合の仮想環境の作成からパッケージのイン�
 
 `poetry` のインストールは下記のようにします。
 
-```shell
-$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-```
+=== "macOS"
 
-!!! note "Windows の場合"
+    ```shell
+    $ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+    ```
+
+=== "Windows"
+
     PowerShell 上で下記を実行します。
 
     ```shell
-    (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python
+    (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python3
     ```
 
 ## 使い方

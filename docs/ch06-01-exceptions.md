@@ -163,4 +163,4 @@ class MyException(Exception):
 
 !!! tips "組み込み例外の一覧"
     下記ページに例外クラスの一覧が載っていますので参考にして下さい。
-    https://docs.python.org/ja/3/library/exceptions.html
+    [https://docs.python.org/ja/3/library/exceptions.html](https://docs.python.org/ja/3/library/exceptions.html)

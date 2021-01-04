@@ -11,13 +11,8 @@
 ターミナル上で次のコマンドを実行して下さい。
 
 ```shell
-$ pip install requests
+$ pip3 install requests
 ```
-
-!!! note
-    Windows の場合は下記のコマンドを実行して下さい。
-
-    $ py -m pip install requests
 
 成功したら次のようなソースコードを書いてみましょう。
 
@@ -37,14 +32,14 @@ if __name__ == '__main__':
     main()
 ```
 
-実行すると http://example.com のページの HTML 文字列が出力されると思います。
+実行すると [http://example.com](http://example.com) のページの HTML 文字列が出力されると思います。
 
 ## PyPI
 
 `pip` によってインストールされるパッケージはどこから取得されているのでしょうか。 Python は [PyPI] というパッケージを登録しておける Web サイトがあり、 `pip` を実行すると PyPI からパッケージがインストールされます。上記の requests も下記の通り PyPI に登録されています。
 
 !!! info "PyPI"
-    https://pypi.org/project/requests/
+    [https://pypi.org/project/requests/](https://pypi.org/project/requests/)
 
 [PyPI]: https://pypi.org/
 
@@ -53,7 +48,7 @@ if __name__ == '__main__':
 インストール済みのパッケージ一覧を確認するには `freeze` というコマンドを実行します。
 
 ```shell
-$ pip freeze
+$ pip3 freeze
 certifi==2019.3.9
 chardet==3.0.4
 idna==2.8
@@ -68,7 +63,7 @@ urllib3==1.24.1
 インストールしたいパッケージをあらかじめファイルに列挙しておき、そのファイルを指定することでもインストールすることができます。インストールしたいパッケージを記述したファイルは通常 `requirements.txt` という名前で保存します。`requirements.txt` を指定してインストールをするには次のようにします。
 
 ```shell
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 `requirements.txt` は自分の環境にパッケージをインストールする目的で使用することはあまりありません。むしろ他の人の環境で自分が使っているパッケージをインストールして欲しいときに使用します。また `requirements.txt` は手で作成する必要はなく、`pip freeze` の結果を保存しておくだけで使用できます。`pip freeze` の結果にあるような `==version` という形式のものを `pip` でインストールすると指定されたバージョンをインストールしてくれるため、自分で入れたバージョンと全く同じものを他の人の環境でもインストールしてもらえるようになり、環境差分をなくすことができます。
@@ -78,8 +73,8 @@ $ pip install -r requirements.txt
 **自分の環境**
 
 ```shell
-$ pip install name1 name2 ...
-$ pip freeze > requirements.txt
+$ pip3 install name1 name2 ...
+$ pip3 freeze > requirements.txt
 ```
 
 `requirements.txt` は Git などでバージョン管理をしておきます。
@@ -87,5 +82,5 @@ $ pip freeze > requirements.txt
 **他の人の環境**
 
 ```shell
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
