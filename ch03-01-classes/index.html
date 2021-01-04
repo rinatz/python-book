@@ -970,15 +970,14 @@
 <h2 id="_2">定義</h2>
 <p>クラスを定義するには <code>class</code> キーワードにクラス名を付けて定義します。下記の <code>Rectangle</code> クラスは長方形に関する情報を扱うクラスで、長方形の幅と高さをメンバ変数として持ったクラスになります。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
-<span class="hll"><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
-</span><span class="hll">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+<span class="hll">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
 </span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
 </span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+</span><span class="hll">
 </span>
-
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
@@ -1021,7 +1020,6 @@
 <h2 id="_3">関数</h2>
 <p>クラスには関数を定義することもできます。クラスのメンバとして定義された関数はメソッドとも呼ばれます。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
@@ -1029,15 +1027,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
 
-<span class="hll">    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class="hll">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="hll">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+</span><span class="hll">
 </span>
-
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="hll">    <span class="n">area</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
-</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The area is </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+<span class="hll">
+</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The area is </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -1047,7 +1045,6 @@
 <h2 id="_4">継承</h2>
 <p>定義済みのクラスのメンバを持つ新たなクラスを作成することもできます。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
@@ -1094,7 +1091,6 @@
 </code></pre></div>
 <p>ソースコードの全体は次のようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="k">class</span> <span class="nc">A</span><span class="p">:</span>

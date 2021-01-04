@@ -943,10 +943,7 @@
 <p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただしシバンはモジュールを実装するときには不要です。たとえ書いても悪さをすることはありませんが、実行するスクリプトとしては使用しないので書く意味はあまりありません。</p>
 <p>フィボナッチ数列 <code>0, 1, 1, 2, 3, 5, 8, ...</code> を出力するような関数 <code>fib(n)</code> をモジュールとして書いてみましょう。</p>
 <p><strong>fib.py</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
-
-
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 
     <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
@@ -958,7 +955,6 @@
 <p><code>fib.py</code> を別のファイル <code>main.py</code> に取り込んでこの関数を実行するには次のように書きます。</p>
 <p><strong>main.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="kn">import</span> <span class="nn">fib</span>          <span class="c1"># fib.py を取り込む</span>
@@ -974,10 +970,7 @@
 <h2 id="_3">モジュール作成の注意点</h2>
 <p>Python のコードは必ずしも関数内に含める必要はなく、ファイル内に直接処理を書くこともできます。</p>
 <p><strong>fib.py</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
-
-
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 
 <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
@@ -992,7 +985,6 @@
 </code></pre></div>
 <p>このようにすると <code>モジュール名.関数名</code> としていたところが <code>関数名</code> だけで参照できるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="kn">from</span> <span class="nn">fib</span> <span class="kn">import</span> <span class="n">fib</span>     <span class="c1"># fib.py 内の fib() をインポート</span>
@@ -1043,7 +1035,6 @@
 <p>しかしこの変数がモジュール名になるのは別のモジュールからインポートされたときだけです。<code>foo.py</code> を直接実行した場合は <code>__name__</code> には <code>'__main__'</code> が入ります。</p>
 <p><strong>foo.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </code></pre></div>
