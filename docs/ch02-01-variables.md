@@ -4,7 +4,6 @@
 
 ```python hl_lines="6"
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 def main():

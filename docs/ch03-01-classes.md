@@ -8,7 +8,6 @@
 
 ```python hl_lines="5 6 7 8"
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 class Rectangle:
@@ -79,7 +78,6 @@ Rectangle.__init__(rectangle, 10, 20)       # rectangle.width = width, rectangle
 
 ```python hl_lines="10 11 16"
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 class Rectangle:
@@ -110,7 +108,6 @@ if __name__ == '__main__':
 
 ```python
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 class Square(Rectangle):
@@ -171,7 +168,6 @@ def main():
 
 ```python
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 class A:

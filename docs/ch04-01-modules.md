@@ -11,7 +11,6 @@
 **fib.py**
 
 ```python
-# -*- coding: utf-8 -*-
 
 
 def fib(n):
@@ -30,7 +29,6 @@ def fib(n):
 
 ```python
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 import fib          # fib.py を取り込む
@@ -51,7 +49,6 @@ Python のコードは必ずしも関数内に含める必要はなく、ファ�
 **fib.py**
 
 ```python
-# -*- coding: utf-8 -*-
 
 
 a, b = 0, 1
@@ -77,7 +74,6 @@ from (モジュール名) import (関数名)
 
 ```python
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 from fib import fib     # fib.py 内の fib() をインポート
@@ -127,7 +123,6 @@ print(foo.__name__)     # 'foo'
 
 ```python
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 print(__name__)
 ```

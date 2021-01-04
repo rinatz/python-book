@@ -4,7 +4,6 @@
 
 ```python
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
 def another_function():
