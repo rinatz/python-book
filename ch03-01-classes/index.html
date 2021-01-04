@@ -965,9 +965,9 @@
                   </a>
                 
                 
-                <h1 id="_1">クラス</h1>
+                <h1 id="_1">クラス<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>クラスとは新しい型を定義するための仕組みです。クラスを使うことで複数の変数と関数を集約した変数を作ることができるようになります。</p>
-<h2 id="_2">定義</h2>
+<h2 id="_2">定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>クラスを定義するには <code>class</code> キーワードにクラス名を付けて定義します。下記の <code>Rectangle</code> クラスは長方形に関する情報を扱うクラスで、長方形の幅と高さをメンバ変数として持ったクラスになります。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -988,7 +988,7 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="__init__"><code>__init__()</code></h2>
+<h2 id="__init__"><code>__init__()</code><a class="headerlink" href="#__init__" title="Permanent link">&para;</a></h2>
 <p><code>__init__()</code> はいわゆるコンストラクタです。コンストラクタには 2 つの役割があります。</p>
 <ol>
 <li>インスタンス化をするときに最初に呼び出される</li>
@@ -1010,14 +1010,14 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of width is </span><span class="si">{</span><span class="n">rectangle</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of height is </span><span class="si">{</span><span class="n">rectangle</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="self"><code>self</code></h2>
+<h2 id="self"><code>self</code><a class="headerlink" href="#self" title="Permanent link">&para;</a></h2>
 <p><code>Rectangle</code> をインスタンス化する際は <code>10, 20</code> という 2 つの値しか渡してないのに <code>__init__()</code> の第 1 引数には <code>self</code> という変数が含まれており、合計 3 つの引数が用意されています。これは一体どういうことでしょうか。この謎はクラスのインスタンス化の仕組みを理解すれば分かってきます。</p>
 <p><code>rectangle = Rectangle(10, 20)</code> という処理をイメージで説明すると、だいたいこんな感じになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">rectangle</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rectangle</span> <span class="n">クラスの変数を用意</span><span class="p">)</span>  <span class="c1"># この時点では rectangle.width, rectangle.height は存在しない</span>
 <span class="n">Rectangle</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rectangle</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>       <span class="c1"># rectangle.width = width, rectangle.height = height という処理が実行される</span>
 </code></pre></div>
 <p>すなわち <code>self</code> というのはクラスインスタンスを表す変数です。</p>
-<h2 id="_3">関数</h2>
+<h2 id="_3">関数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>クラスには関数を定義することもできます。クラスのメンバとして定義された関数はメソッドとも呼ばれます。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -1042,7 +1042,7 @@
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>クラスに関数を定義するときは第 1 引数が <code>self</code> である必要があります。これは <code>rectangle.area()</code> という呼び出しは実際には <code>Rectangle.area(rectangle)</code> のように呼び出されるためです。</p>
-<h2 id="_4">継承</h2>
+<h2 id="_4">継承<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>定義済みのクラスのメンバを持つ新たなクラスを作成することもできます。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -1063,7 +1063,7 @@
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p><code>Square</code> クラスは <code>Rectangle</code> クラスのメンバを全て引き継いだクラスになっており、これをクラスの継承といいます。<code>Rectangle</code> が長方形を扱うクラスなのに対し、<code>Square</code> は正方形を扱うクラスになっており、<code>Rectangle</code> が持つ全てのメンバ <code>square.width, square.height, square.area()</code> が参照できます。</p>
-<h2 id="_5">インターフェース</h2>
+<h2 id="_5">インターフェース<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>Python にはインターフェースが存在しません。また多態性を実現するのにクラスに継承関係を作る必要もありません。それを確認するために継承関係にない 2 つのクラス <code>A, B</code> を作ってみます。またメソッドとして <code>greet()</code> という関数をそれぞれのクラスで定義しておきます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

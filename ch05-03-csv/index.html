@@ -989,10 +989,10 @@
                   </a>
                 
                 
-                <h1 id="csv">CSV</h1>
+                <h1 id="csv">CSV<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h1>
 <p>Python で CSV の読み書きを行いたい場合は <code>csv</code> モジュールを使います。</p>
-<h2 id="_1">読み込み</h2>
-<h3 id="reader">reader</h3>
+<h2 id="_1">読み込み<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="reader">reader<a class="headerlink" href="#reader" title="Permanent link">&para;</a></h3>
 <p>CSV ファイルを読み込む場合は <code>open()</code> でファイルを開いた後、ファイルオブジェクトを <code>csv.reader()</code> に渡します。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">csv</span>
@@ -1024,7 +1024,7 @@
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="dictreader">DictReader</h3>
+<h3 id="dictreader">DictReader<a class="headerlink" href="#dictreader" title="Permanent link">&para;</a></h3>
 <p>CSV が下記のようなヘッダを持つ場合は <code>reader()</code> の代わりに <code>DictReader</code> を使うと各行を辞書で読むことができるようになります。</p>
 <p><strong>example.csv</strong></p>
 <div class="highlight"><pre><span></span><code>id,name
@@ -1048,8 +1048,8 @@
 <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">}</span>
 <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">}</span>
 </code></pre></div>
-<h2 id="_2">書き込み</h2>
-<h3 id="writer">writer</h3>
+<h2 id="_2">書き込み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="writer">writer<a class="headerlink" href="#writer" title="Permanent link">&para;</a></h3>
 <p>CSV ファイルを作成するには <code>open()</code> でファイルを開いた後 <code>csv.writer()</code> にファイルオブジェクトを渡します。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">csv</span>
@@ -1067,7 +1067,7 @@
 <p class="admonition-title">注意</p>
 <p>書き込みの場合も <code>newline=''</code> は必ず付けるようにしてください。</p>
 </div>
-<h3 id="dictwriter">DictWriter</h3>
+<h3 id="dictwriter">DictWriter<a class="headerlink" href="#dictwriter" title="Permanent link">&para;</a></h3>
 <p>ヘッダ付きの CSV を作成したい場合は <code>writer()</code> の代わりに <code>DictWriter</code> を使うと書き込む要素を辞書で指定できるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">csv</span>

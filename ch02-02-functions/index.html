@@ -993,7 +993,7 @@
                   </a>
                 
                 
-                <h1 id="_1">関数</h1>
+                <h1 id="_1">関数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>関数を定義するには <code>def</code> キーワードを使います。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -1016,7 +1016,7 @@
 <p class="admonition-title">Note</p>
 <p>関数定義の間は慣習的に 2 行開けるルールになっています。</p>
 </div>
-<h2 id="_2">引数</h2>
+<h2 id="_2">引数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>関数には引数を渡すことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1026,7 +1026,7 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">another_function</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_3">デフォルト引数</h2>
+<h2 id="_3">デフォルト引数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>関数には引数を明示的に渡さなかった場合にデフォルト値を暗黙的に渡す機能があります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1061,7 +1061,7 @@
 <p class="admonition-title">Note</p>
 <p>デフォルト引数の定義は慣習的に <code>=</code> の両端にはスペースを入れずに書きます。</p>
 </div>
-<h2 id="_4">キーワード引数</h2>
+<h2 id="_4">キーワード引数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>関数を呼び出すときに引数名を指定すれば引数を順不同で渡すこともできます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1071,7 +1071,7 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="hll">    <span class="n">another_function</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="args-kwargs"><code>*args, **kwargs</code></h2>
+<h2 id="args-kwargs"><code>*args, **kwargs</code><a class="headerlink" href="#args-kwargs" title="Permanent link">&para;</a></h2>
 <p>関数の引数名に <code>*</code> が付いたものがあると、その変数は複数の引数を 1 つのタプルとして受け取るようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>         <span class="c1"># x: 0</span>
@@ -1104,7 +1104,7 @@
 <p class="admonition-title">Note</p>
 <p><code>*</code> 引数と <code>**</code> 引数はどのような名前にしても構いませんが、慣習的に <code>*args, **kwargs</code> が使われます。</p>
 </div>
-<h2 id="_5">引数のアンパック</h2>
+<h2 id="_5">引数のアンパック<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>関数に引数を渡すときにタプルに <code>*</code> を付けて渡すとタプルの各要素を個別の引数として渡せるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>     <span class="c1"># x: 0</span>
@@ -1127,13 +1127,13 @@
     <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
     <span class="n">another_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>          <span class="c1"># another_function(x=0, y=1, z=2)</span>
 </code></pre></div>
-<h2 id="_6">型ヒント</h2>
+<h2 id="_6">型ヒント<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>引数に特定の型だけを渡せるようにしたければ <strong>型ヒント</strong> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">another_function</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x * y is </span><span class="si">{</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>型ヒントを使用しなければどんな型の変数も渡せます。これはしばしば混乱の元となるので、なるべく型ヒントを使うようにしましょう。</p>
-<h2 id="_7">戻り値</h2>
+<h2 id="_7">戻り値<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>関数の呼び出し側に値を返却する場合は <code>return</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plus_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
@@ -1164,7 +1164,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
-<h2 id="_8">空実装</h2>
+<h2 id="_8">空実装<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>関数の実装を空にしたい場合は <code>pass</code> と書いておきます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 何もしない関数</span>
 <span class="k">def</span> <span class="nf">empty_function</span><span class="p">():</span>

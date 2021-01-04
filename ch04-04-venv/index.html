@@ -895,7 +895,7 @@
                   </a>
                 
                 
-                <h1 id="venv">venv</h1>
+                <h1 id="venv">venv<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h1>
 <p><code>pip</code> を使ってサードパーティ製のパッケージをインストールすることができましたが、インストールしたいパッケージが稀に競合を起こすことがあります。</p>
 <table>
 <thead>
@@ -916,7 +916,7 @@
 </tbody>
 </table>
 <p>program1 では <code>requests</code> 2.21.0 を使おうとしているのに対し program2 では 2.20.1 を使いたかったとすると、システムの中に複数バージョンの <code>requests</code> をインストールしておく必要が出てきます。もし使用したいパッケージのバージョンが意図しないものになっているとプログラムが正しく動かない可能性が出てきます。</p>
-<h2 id="_1">仮想環境の作成</h2>
+<h2 id="_1">仮想環境の作成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>このような競合を解決するために Python には各プログラムで使用したいパッケージを互いに影響がない形で個別に管理するための仕組みが用意されており、仮想環境と呼ばれます。仮想環境を作成するためのツールは <code>venv</code> と呼ばれ、Python に標準で同梱されています。</p>
 <p>試しにこれから 2 つの仮想環境を作成し、それぞれに異なるバージョンの <code>requests</code> をインストールしてみます。まず下記のように 2 つのディレクトリを作成します。</p>
 <div class="highlight"><pre><span></span><code>$ mkdir program1 program2

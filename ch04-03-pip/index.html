@@ -937,9 +937,9 @@
                   </a>
                 
                 
-                <h1 id="pip">pip</h1>
+                <h1 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h1>
 <p><code>pip</code> はインターネットで公開されている Python パッケージを取得するためのパッケージ管理ツールです。</p>
-<h2 id="_1">使い方</h2>
+<h2 id="_1">使い方<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><a href="http://docs.python-requests.org/en/master/">requests</a> という HTTP に関する機能を取り扱う有名なライブラリがあります。これを <code>pip</code> で取得して使ってみましょう。</p>
 <p>ターミナル上で次のコマンドを実行して下さい。</p>
 <div class="highlight"><pre><span></span><code>$ pip3 install requests
@@ -960,13 +960,13 @@
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>実行すると <a href="http://example.com">http://example.com</a> のページの HTML 文字列が出力されると思います。</p>
-<h2 id="pypi">PyPI</h2>
+<h2 id="pypi">PyPI<a class="headerlink" href="#pypi" title="Permanent link">&para;</a></h2>
 <p><code>pip</code> によってインストールされるパッケージはどこから取得されているのでしょうか。 Python は <a href="https://pypi.org/">PyPI</a> というパッケージを登録しておける Web サイトがあり、 <code>pip</code> を実行すると PyPI からパッケージがインストールされます。上記の requests も下記の通り PyPI に登録されています。</p>
 <div class="admonition info">
 <p class="admonition-title">PyPI</p>
 <p><a href="https://pypi.org/project/requests/">https://pypi.org/project/requests/</a></p>
 </div>
-<h2 id="freeze">freeze</h2>
+<h2 id="freeze">freeze<a class="headerlink" href="#freeze" title="Permanent link">&para;</a></h2>
 <p>インストール済みのパッケージ一覧を確認するには <code>freeze</code> というコマンドを実行します。</p>
 <div class="highlight"><pre><span></span><code>$ pip3 freeze
 <span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
@@ -976,7 +976,7 @@
 <span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
 </code></pre></div>
 <p><code>requests</code> とその依存パッケージがバージョン番号とともに表示されます。</p>
-<h2 id="requirementstxt">requirements.txt</h2>
+<h2 id="requirementstxt">requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">&para;</a></h2>
 <p>インストールしたいパッケージをあらかじめファイルに列挙しておき、そのファイルを指定することでもインストールすることができます。インストールしたいパッケージを記述したファイルは通常 <code>requirements.txt</code> という名前で保存します。<code>requirements.txt</code> を指定してインストールをするには次のようにします。</p>
 <div class="highlight"><pre><span></span><code>$ pip3 install -r requirements.txt
 </code></pre></div>

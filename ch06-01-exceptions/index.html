@@ -951,9 +951,9 @@
                   </a>
                 
                 
-                <h1 id="_1">例外</h1>
+                <h1 id="_1">例外<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Python のプログラムで不正な処理を行ったときは例外と呼ばれる割り込み処理が通常の処理に変わって実行されます。例外が発生するタイミングにはいろいろなものがありますが、代表的なものには次のようなものがあります。</p>
-<h2 id="_2">不正な構文を実行</h2>
+<h2 id="_2">不正な構文を実行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 
@@ -971,7 +971,7 @@
 SyntaxError: invalid syntax
 </code></pre></div>
 <p><code>SyntexError</code> という種類の例外が発生しています。</p>
-<h2 id="_3">配列のインデックスが不正</h2>
+<h2 id="_3">配列のインデックスが不正<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 
@@ -992,7 +992,7 @@ Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
 IndexError: list index out of range
 </code></pre></div>
 <p><code>IndexError</code> という種類の例外が発生しています。</p>
-<h2 id="_4">存在しないファイルをオープン</h2>
+<h2 id="_4">存在しないファイルをオープン<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 
@@ -1019,7 +1019,7 @@ FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span c
 <li><code>FileNotFoundError</code></li>
 </ul>
 <p>はすべて例外クラスを呼ばれるものです。</p>
-<h2 id="_5">例外を捕捉する</h2>
+<h2 id="_5">例外を捕捉する<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>例外が発生したときにプログラムを停止させる代わりに、例外が発生したときに実行する処理を書くこともできます。<code>try-except</code> 文を使ってそれが実現できます。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -1064,7 +1064,7 @@ FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span c
 <li>どのようなエラーが発生しうるかがコード上で明らかになる</li>
 <li>エラー発生時の原因や解決策を <code>print()</code> などを使って伝えられる</li>
 </ul>
-<h2 id="_6">例外を送出する</h2>
+<h2 id="_6">例外を送出する<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>自分で例外を送出することもできます。例外を送出するには <code>raise</code> を使います。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>

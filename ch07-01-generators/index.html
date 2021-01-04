@@ -923,9 +923,9 @@
                   </a>
                 
                 
-                <h1 id="_1">ジェネレータ</h1>
+                <h1 id="_1">ジェネレータ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>ジェネレータとは処理を一時停止できる機能を持った関数のことです。処理を一時停止できるということがどういうことなのか、具体的なソースコードで説明していきます。</p>
-<h2 id="_2">ジェネレータの例</h2>
+<h2 id="_2">ジェネレータの例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>まず下記のような処理の挙動について確認しておきます。</p>
 <p><strong>main.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -977,7 +977,7 @@
 終了
 </code></pre></div>
 <p>2 回目の <code>f()</code> の呼び出しで <code>終了</code> という文字列がプリントされるはずです。<code>yield</code> は <code>return</code> とよく似た挙動をしますが <code>return</code> が関数の処理を終了するのに対し <code>yield</code> はそこで一時停止をして関数を抜けます。再度 <code>f()</code> が呼ばれると <code>yield</code> の箇所から関数の処理が再開されます。このように <code>yield</code> を使った関数のことをジェネレータといいます。</p>
-<h2 id="_3">ジェネレータを使ったループ</h2>
+<h2 id="_3">ジェネレータを使ったループ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ジェネレータは <code>return</code> と同様 <code>yield</code> で任意の値を返すことができます。</p>
 <p><strong>main.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -1009,7 +1009,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># 0, 1, 2</span>
 </code></pre></div>
 <p>ジェネレータを <code>for</code> に渡すとジェネレータに書かれた <code>yield</code> の個数分だけループが回ります。つまりジェネレータはリストのようなデータ構造とよく似た振る舞いをします。</p>
-<h2 id="_4">ループ処理のカスタマイズ</h2>
+<h2 id="_4">ループ処理のカスタマイズ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>複雑なループ処理はジェネレータを使うことでシンプルに書くことができるようになります。例えば下記のような 2 つのリストの要素の総当たりの組み合わせを得るような処理を考えます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>

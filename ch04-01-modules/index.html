@@ -937,9 +937,9 @@
                   </a>
                 
                 
-                <h1 id="_1">モジュール</h1>
+                <h1 id="_1">モジュール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>モジュールとは関数やクラスなどを別ファイルで利用できる状態で整理した Python のソースコードのことです。これまでのソースコードは実行することを念頭に実装しましたが、モジュールは別のファイルから取り込まれることを念頭に実装を行います。</p>
-<h2 id="_2">モジュールの書き方</h2>
+<h2 id="_2">モジュールの書き方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>拡張子 <code>.py</code> を持った通常の Python ファイルとして作成すれば問題ありません。ただしシバンはモジュールを実装するときには不要です。たとえ書いても悪さをすることはありませんが、実行するスクリプトとしては使用しないので書く意味はあまりありません。</p>
 <p>フィボナッチ数列 <code>0, 1, 1, 2, 3, 5, 8, ...</code> を出力するような関数 <code>fib(n)</code> をモジュールとして書いてみましょう。</p>
 <p><strong>fib.py</strong></p>
@@ -967,7 +967,7 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="_3">モジュール作成の注意点</h2>
+<h2 id="_3">モジュール作成の注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Python のコードは必ずしも関数内に含める必要はなく、ファイル内に直接処理を書くこともできます。</p>
 <p><strong>fib.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
@@ -979,7 +979,7 @@
 <span class="nb">print</span><span class="p">()</span>
 </code></pre></div>
 <p>しかしこの状態で <code>main.py</code> から <code>import fib</code> をすると import した時点でフィボナッチ数列を出力する処理が突然実行されてしまいます。こういった問題が起こらないようにモジュールとして提供する機能は基本的に関数やクラスにまとめておく必要があります。</p>
-<h2 id="from-import"><code>from-import</code></h2>
+<h2 id="from-import"><code>from-import</code><a class="headerlink" href="#from-import" title="Permanent link">&para;</a></h2>
 <p>モジュール内の関数やクラスにアクセスするときは <code>モジュール名.関数名</code> のように <code>.</code> を使ってアクセスしますが、モジュール名や関数名が長くなってくると少し書き方が面倒になります。こういうときは <code>from</code> 文を使って参照名を短くすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="p">(</span><span class="n">モジュール名</span><span class="p">)</span> <span class="kn">import</span> <span class="p">(</span><span class="n">関数名</span><span class="p">)</span>
 </code></pre></div>
@@ -1026,7 +1026,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="__name__"><code>__name__</code></h2>
+<h2 id="__name__"><code>__name__</code><a class="headerlink" href="#__name__" title="Permanent link">&para;</a></h2>
 <p><code>__name__</code> は Python で使用できる隠し変数の 1 つで、モジュール名を表す文字列が入っています。例えば <code>foo.py</code> というモジュールであれば <code>__name__</code> は <code>'foo'</code> になります。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">foo</span>
 
