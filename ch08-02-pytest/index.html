@@ -1197,7 +1197,7 @@
                   </a>
                 
                 
-                <h1 id="pytest">pytest<a class="headerlink" href="#pytest" title="Permanent link">&para;</a></h1>
+                <h1 id="pytest">pytest</h1>
 <p>Python には単体テストを書くためのフレームワークがいくつかあります。</p>
 <table>
 <thead>
@@ -1222,7 +1222,7 @@
 </tbody>
 </table>
 <p>上記の通り Python は標準ライブラリを使って単体テストを書くことができますが、サードパーティ製の pytest の使い勝手が良いため、pytest を使って書かれることが多いです。そこでここでは pytest の簡単な使い方について説明します。</p>
-<h2 id="_1">準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">準備</h2>
 <p><a href="../ch04-07-project-structures/">プロジェクト構成</a> を参考に、単体テストのソースコードは <code>tests</code> 配下に作成するようにします。ソースコードが 1 つで十分な場合はディレクトリを作らなくても構いません。</p>
 <p>下記のような構成でファイルを作成し、素数判定のコードをテストしてみましょう。</p>
 <div class="highlight"><pre><span></span><code>prime
@@ -1233,14 +1233,14 @@
 <p class="admonition-title">注意</p>
 <p>テストを複数ファイルに分割して書く場合は <code>tests</code> ディレクトリを作成し、その中に <code>__init__.py</code> を含めるようにしてください。<code>__init__.py</code> がないとテストが正しく実行できなくなります。詳しくは <a href="../ch04-07-project-structures/">ディレクトリ構成</a> を参考にしてください。</p>
 </div>
-<h2 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">インストール</h2>
 <p>pipenv を使ってインストールします。</p>
 <div class="highlight"><pre><span></span><code>$ mkdir fibonacci
 $ <span class="nb">cd</span> fibonacci
 $ pipenv install -d pytest
 </code></pre></div>
 <p><code>-d</code> というのは開発時にだけ必要となるパッケージをインストールするときに指定するフラグです。単体テストは通常開発時にしか必要ないため大抵のケースで pytest は <code>-d</code> を指定してインストールするのが良いでしょう。</p>
-<h2 id="_3">テストの書き方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">テストの書き方</h2>
 <p>まず素数判定を行う関数を書きます。</p>
 <p><strong>prime.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -1281,7 +1281,7 @@ $ pipenv install -d pytest
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 <p>pytest は <code>test_</code> で始まるファイル・関数を単体テストのコードとみなします。テストしたい関数を <code>import</code> 文で取り込み、<code>assert</code> という文の後ろにテストしたい式を記述します。</p>
-<h2 id="_4">テスト実行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">テスト実行</h2>
 <p>テストを実行するには <code>pytest</code> というコマンドを使います。</p>
 <div class="highlight"><pre><span></span><code>$ pipenv shell
 <span class="o">(</span>prime<span class="o">)</span> $ pytest test_prime.py
@@ -1340,7 +1340,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="o">===========================================</span> <span class="m">1</span> failed in <span class="m">0</span>.09 <span class="nv">seconds</span> <span class="o">============================================</span>
 </code></pre></div>
 <p><code>is_prime(4)</code> が <code>True</code> になっているというエラーメッセージが出力されています。</p>
-<h2 id="_5">パラメータ化したテスト<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">パラメータ化したテスト</h2>
 <p>上記の例では <code>is_prime(4)</code> のテストに失敗すると、その時点でテストが終わってしまうため、<code>is_prime(5)</code> 以降のテストがどうなるかは分かりませんでした。このようなケースでは <strong>パラメータ化したテスト</strong> を作ることで <code>1～10</code> までのすべての値をテストできるようになります。</p>
 <p>パラメータ化したテストはテスト内で使用するパラメータを関数の引数として渡せるように書き直したテストのことです。パラメータ化したテストでテストを記述した場合は、すべてのパラメータのテストを実行するまでテストが続行されます。チュートリアルの <code>test_is_prime()</code> をパラメータ化したテストで書き直すと次のようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
@@ -1369,7 +1369,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="p">])</span>
 </code></pre></div>
 <p>のように記述すると <code>test_is_prime(1, False)</code> が実行されます。複数記述すればその分だけ <code>number, expected</code> に値が渡され <code>test_is_prime()</code> が実行されます。</p>
-<h3 id="_6">注意点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">注意点</h3>
 <p>デコレータの書き方には注意して下さい。次のいずれも正しい書き方ではありません。</p>
 <p><strong>スペルミス</strong></p>
 <div class="admonition warning">
@@ -1414,9 +1414,9 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="p">])</span>
 </code></pre></div>
 </div>
-<h2 id="_7">フィクスチャ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">フィクスチャ</h2>
 <p>フィクスチャはテストの実行前後で行いたい前処理・後処理を記述するために使用する関数のことです。各テストで同じ前処理・後処理を行う必要がある場合に暗黙的にそれが実行できるようになります。</p>
-<h3 id="_8">ファイルを扱うテスト<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_8">ファイルを扱うテスト</h3>
 <p>ファイルを扱う関数はフィクスチャが有効です。今ファイルから整数を受け取り、それを昇順に読み込む関数を考えます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
@@ -1435,7 +1435,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <p class="admonition-title">注意</p>
 <p>関数がファイルを必要とするからと言ってテスト用のファイルをあらかじめリポジトリにコミットするようなことは避けるべきです。そのようなことをするとテストパターンが増えるたびにファイルも増えてしまい、管理が複雑になります。</p>
 </div>
-<h3 id="_9">前処理の書き方<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_9">前処理の書き方</h3>
 <p>下記のような整数を保存したファイルを用意して <code>load_numbers_sorted()</code> のためのテスト <code>test_load_numbers_sorted()</code> を作成してみます。</p>
 <p><strong>numbers.txt</strong></p>
 <div class="highlight"><pre><span></span><code>2
@@ -1467,7 +1467,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <li><code>test_load_numbers_sorted('numbers.txt')</code> が呼ばれる</li>
 </ol>
 <p>という振る舞いをします。</p>
-<h3 id="_10">後処理の書き方<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_10">後処理の書き方</h3>
 <p><code>numbers.txt</code> はテストが終われば不要なため、後処理としてファイルを削除してあげましょう。ファイルを削除するにはフィクスチャ <code>txt()</code> に次の行を追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
@@ -1491,7 +1491,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 </code></pre></div>
 <p>という構造をしています。<code>test_load_numbers_sorted(txt)</code> の引数 <code>txt</code> はフィクスチャ <code>txt()</code> で
 何を返したかで型が決まります。</p>
-<h3 id="_11">フィクスチャの連携<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_11">フィクスチャの連携</h3>
 <p>フィクスチャから別のフィクスチャを呼び出すこともできます。</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">txt_and_list</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
@@ -1502,7 +1502,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="k">assert</span> <span class="n">load_numbers_sorted</span><span class="p">(</span><span class="n">txt_and_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">txt_and_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 <p>この場合 <code>txt() -&gt; txt_and_list()</code> の順にフィクスチャが実行され、その結果が <code>test_load_numbers_sorted()</code> に渡されます。</p>
-<h3 id="_12">テンポラリの作成<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_12">テンポラリの作成</h3>
 <p>pytest には安全にテンポラリを作成するための <code>tmpdir</code> というフィクスチャがあらかじめ用意されています。先に見た例ではファイルがローカルに作られるため、大量のファイルが作られるとディレクトリが汚れてしまいますが <code>tmpdir</code> を使うと <code>/tmp</code> 配下にファイルを作成するため、ファイル管理がスマートになります。</p>
 <p><code>tmpdir</code> の使い方は次のとおりです。</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
@@ -1517,7 +1517,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 
     <span class="n">tmpfile</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
 </code></pre></div>
-<h3 id="_13">フィクスチャのスコープ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_13">フィクスチャのスコープ</h3>
 <p>通常フィクスチャはテスト単位で呼び出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_sample1</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="o">...</span>
@@ -1559,7 +1559,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 </tbody>
 </table>
 <p>ただフィクスチャのスコープはむやみに広げないほうが良いです。フィクスチャの設定をテスト間で共有すると依存関係が生まれてしまい、不意にテストが成功してしまうケースがあるからです。テスト関数ごとにフィクスチャを実行しても問題ない場合はそのようにすべきです。</p>
-<h3 id="conftestpy">conftest.py<a class="headerlink" href="#conftestpy" title="Permanent link">&para;</a></h3>
+<h3 id="conftestpy">conftest.py</h3>
 <p>複数のファイルをまたいで共通のフィクスチャを使用したいこともあると思います。そのような時はフィクスチャを <code>conftest.py</code> というファイルに定義しましょう。<code>conftest.py</code> 内のフィクスチャは pytest によって自動的にインポートされ、<code>conftest.py</code> があるディレクトリ配下で暗黙的に参照できるようになります。</p>
 <div class="highlight"><pre><span></span><code>.
 └─tests
@@ -1573,7 +1573,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
         ├─test_sample5.py
         └─test_sample6.py
 </code></pre></div>
-<h2 id="_14">標準出力のキャプチャ<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="_14">標準出力のキャプチャ</h2>
 <p>標準出力にメッセージを出力する関数をテストしたい時には標準出力をキャプチャして出力されたメッセージを確認することができます。例えば次のようなフィボナッチ数列を出力する関数を考えます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1609,7 +1609,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <div class="highlight"><pre><span></span><code><span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
 </code></pre></div>
 <p>はキャプチャした標準出力と標準エラー出力の文字列をタプルとして返します。</p>
-<h2 id="_15">モック<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h2 id="_15">モック</h2>
 <p>モックとは関数やクラスが相互に依存して動作する時に、依存する関数やクラスが正しく使われているかどうかをテストする時に使われるオブジェクトのことです。例えば次のコードを見てみましょう。</p>
 <p><strong>interaction.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
@@ -1630,7 +1630,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="n">receive</span><span class="p">(</span><span class="s1">&#39;[2]: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
 </code></pre></div>
 <p>のように仕様に沿っていない実装を間違った実装として検出できるようになります。モックを使うとこのような確認がテストできるようになります。</p>
-<h3 id="_16">モックの使い方<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h3 id="_16">モックの使い方</h3>
 <p>モックを使うには <a href="https://github.com/pytest-dev/pytest-mock">pytest-mock</a> という pytest のプラグインを使用します。インストールは pipenv で次のようにできます。</p>
 <div class="highlight"><pre><span></span><code>$ pipenv install -d pytest-mock
 </code></pre></div>
@@ -1657,7 +1657,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="n">receive</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>試しに <code>send()</code> の実装をわざと間違えた実装にしてみましょう。<code>receive.assert_called_once_with()</code> のところでテストが失敗するはずです。</p>
-<h3 id="_17">呼び出し履歴の確認<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h3 id="_17">呼び出し履歴の確認</h3>
 <p>モック <code>receive</code> は自分がどのような引数で何回呼ばれたのかを履歴として残しています。その呼び出し履歴を参照するには <code>receive.call_args_list</code> を参照します。</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">receive</span><span class="o">.</span><span class="n">call_args_list</span>
 <span class="p">[</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)]</span>
@@ -1684,7 +1684,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
 <span class="p">]</span>
 </code></pre></div>
 <p>と書くことができます。</p>
-<h3 id="_18">戻り値の定義<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h3 id="_18">戻り値の定義</h3>
 <p><code>send()</code> の振る舞いが <code>receive()</code> の戻り値に依存して変わるケースを考えます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">ok</span> <span class="o">=</span> <span class="n">receive</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
@@ -1714,7 +1714,7 @@ test_prime.py:9: <span class="nv">AssertionError</span>
     <span class="k">assert</span> <span class="n">out</span> <span class="o">==</span> <span class="s1">&#39;failure</span><span class="se">\n</span><span class="s1">&#39;</span>
 </code></pre></div>
 <p><code>mocker.patch()</code> の引数に <code>return_value=False</code> を渡すと <code>send()</code> 内で呼び出している <code>receive()</code> は <code>False</code> を返すように偽装されます。</p>
-<h3 id="_19">スパイ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="_19">スパイ</h3>
 <p>モックを使うと <code>receive()</code> の実装は完全に別物に置き換わりますが場合によっては本物の <code>receive()</code> を呼びつつ、呼び出し回数を確認したいこともあると思います。そのような場合はスパイを作成することで実現できます。例えば <code>receive()</code> が <code>studies/interaction.py</code> に定義されている場合</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">studies.interaction</span>
 

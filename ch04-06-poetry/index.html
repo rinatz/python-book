@@ -937,7 +937,7 @@
                   </a>
                 
                 
-                <h1 id="poetry">poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h1>
+                <h1 id="poetry">poetry</h1>
 <p><code>poetry</code> は <code>pipenv</code>と同様の課題を解決するために作られたサードパーティ製のパッケージ管理ツールです。</p>
 <div class="admonition note">
 <p class="admonition-title">poetry 公式サイト</p>
@@ -970,17 +970,19 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_1">インストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">インストール</h2>
 <p><code>poetry</code> のインストールは下記のようにします。</p>
-<div class="highlight"><pre><span></span><code>$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py <span class="p">|</span> python
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Windows の場合</p>
-<p>PowerShell 上で下記を実行します。</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing<span class="o">)</span>.Content <span class="p">|</span> python
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py <span class="p">|</span> python3
 </code></pre></div>
 </div>
-<h2 id="_2">使い方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows</label><div class="tabbed-content">
+<p>PowerShell 上で下記を実行します。</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing<span class="o">)</span>.Content <span class="p">|</span> python3
+</code></pre></div>
+</div>
+</div>
+<h2 id="_2">使い方</h2>
 <p>まず作業ディレクトリを用意します。</p>
 <div class="highlight"><pre><span></span><code>$ mkdir sandbox
 </code></pre></div>
@@ -998,7 +1000,7 @@
 <p>上記の 2 行のコマンドは次のように 1 行で実行することもできます。</p>
 <div class="highlight"><pre><span></span><code>$ poetry run python main.py
 </code></pre></div>
-<h2 id="pyprojecttoml-poetrylock">pyproject.toml と poetry.lock<a class="headerlink" href="#pyprojecttoml-poetrylock" title="Permanent link">&para;</a></h2>
+<h2 id="pyprojecttoml-poetrylock">pyproject.toml と poetry.lock</h2>
 <p><code>pyproject.toml</code> は poetry の設定ファイルです。<code>pipenv</code> でいうところの <code>Pipfile</code> と同じ位置づけのファイルになります。</p>
 <p><strong>pyproject.toml</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">[tool.poetry]</span>
@@ -1041,7 +1043,7 @@
 <div class="highlight"><pre><span></span><code>$ poetry install
 </code></pre></div>
 <p><code>pyproject.toml</code> と <code>poetry.lock</code> の両方がある場合は <code>poetry.lock</code> の内容が優先されるという仕組みになっています。</p>
-<h2 id="pipenv">pipenv との違い<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h2>
+<h2 id="pipenv">pipenv との違い</h2>
 <p>詳細は割愛しますが <code>poetry</code> の方が <code>pipenv</code> よりも機能が豊富です。また <code>pyproject.toml</code> は <code>poetry</code> 専用の設定ファイルではなく Python が公式に策定したパッケージ管理用の設定ファイルになっているため、他のパッケージ管理ツールの設定ファイルとしても使われます。<code>pip</code> も新しいバージョンでは <code>pyproject.toml</code> を使用することができるようになっています。</p>
                 
               

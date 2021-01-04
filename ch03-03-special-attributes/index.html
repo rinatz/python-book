@@ -993,7 +993,7 @@
                   </a>
                 
                 
-                <h1 id="_1">特殊属性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">特殊属性</h1>
 <p>クラスには特殊属性と呼ばれるメソッドが存在しており、クラスを使う際に使用される構文はどれも特殊属性の呼び出しに変換されて実行されます。代表的な特殊属性をいくつか紹介します。</p>
 <p>下記のようなクラスを定義したときの特殊属性には次のようなものがあります。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
@@ -1009,24 +1009,24 @@
     <span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="__doc__"><code>__doc__</code><a class="headerlink" href="#__doc__" title="Permanent link">&para;</a></h2>
+<h2 id="__doc__"><code>__doc__</code></h2>
 <p><code>Point.__doc__</code> という変数には <code>"""Point クラスです。"""</code> という文字列が入ります。<code>""" ... """</code> というトリプルクオテーションでくくられた文字列は改行を含む複数行の文字列を定義できる文字列です。</p>
 <div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;この文字列は</span>
 <span class="sd">一つの文字列として</span>
 <span class="sd">扱われます。&quot;&quot;&quot;</span>
 </code></pre></div>
 <p><code>__doc__</code> は docstring と呼ばれ、ドキュメンテーションをする際に使用される文字列として扱われます。</p>
-<h2 id="__init__"><code>__init__</code><a class="headerlink" href="#__init__" title="Permanent link">&para;</a></h2>
+<h2 id="__init__"><code>__init__</code></h2>
 <p>クラスインスタンスを作成するときは <code>__init__()</code> が呼び出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>   <span class="c1"># point.__init__(10, 20)</span>
 </code></pre></div>
-<h2 id="__getattribute__"><code>__getattribute__</code><a class="headerlink" href="#__getattribute__" title="Permanent link">&para;</a></h2>
+<h2 id="__getattribute__"><code>__getattribute__</code></h2>
 <p>クラスのメンバやメソッドを参照したときは <code>__getattribute__()</code> が呼び出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">point</span><span class="o">.</span><span class="n">x</span>             <span class="c1"># point.__getattribute__(&#39;x&#39;)</span>
 <span class="n">point</span><span class="o">.</span><span class="n">distance</span><span class="p">()</span>    <span class="c1"># point.__getattribute__(&#39;distance&#39;)()</span>
 </code></pre></div>
-<h2 id="__getattr__"><code>__getattr__</code><a class="headerlink" href="#__getattr__" title="Permanent link">&para;</a></h2>
+<h2 id="__getattr__"><code>__getattr__</code></h2>
 <p><code>__getattribute__()</code> でのメンバ参照に失敗した場合は <code>__getattr__()</code> が呼び出されます。このような事が起こるのはクラスのメンバとして定義されていないものにアクセスしようとしたときに起こります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point</span><span class="o">.</span><span class="n">x2</span>   <span class="c1"># point.__getattr__(&#39;x2&#39;)</span>
 </code></pre></div>
@@ -1040,7 +1040,7 @@
         <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;y2&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
 </code></pre></div>
-<h2 id="__getitem__"><code>__getitem__</code><a class="headerlink" href="#__getitem__" title="Permanent link">&para;</a></h2>
+<h2 id="__getitem__"><code>__getitem__</code></h2>
 <p>クラスインスタンスに対して <code>[]</code> を使用した際には <code>__getitem__()</code> が呼び出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">point</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>      <span class="c1"># point.__getitem__(&#39;x&#39;)</span>
@@ -1055,12 +1055,12 @@
         <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
 </code></pre></div>
-<h2 id="__setattr__"><code>__setattr__</code><a class="headerlink" href="#__setattr__" title="Permanent link">&para;</a></h2>
+<h2 id="__setattr__"><code>__setattr__</code></h2>
 <p>メンバへの代入が行われた場合は <code>__setattr__()</code> が呼び出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>    <span class="c1"># point.__setattr__(&#39;x&#39;, 30)</span>
 </code></pre></div>
-<h2 id="__eq__"><code>__eq__</code><a class="headerlink" href="#__eq__" title="Permanent link">&para;</a></h2>
+<h2 id="__eq__"><code>__eq__</code></h2>
 <p>インスタンスに対して <code>==</code> が使用された場合は <code>__eq__()</code> が呼ばれます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">point2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
@@ -1097,7 +1097,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="__str__"><code>__str__</code><a class="headerlink" href="#__str__" title="Permanent link">&para;</a></h2>
+<h2 id="__str__"><code>__str__</code></h2>
 <p>クラスインスタンスに対して文字列型へのキャストを行うと <code>__str__()</code> が呼び出されます。明示的なキャストでなくても文字列への変換が必要とされるケースでも同様の振る舞いをします。</p>
 <div class="highlight"><pre><span></span><code><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>    <span class="c1"># print(point.__str__())</span>

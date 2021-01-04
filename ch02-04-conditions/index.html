@@ -1005,9 +1005,9 @@
                   </a>
                 
                 
-                <h1 id="_1">条件文<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">条件文</h1>
 <p>ある条件を満たしている時だけ行いたい処理がある場合は条件文を使って処理を書きます。</p>
-<h2 id="if"><code>if</code><a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
+<h2 id="if"><code>if</code></h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -1038,7 +1038,7 @@
 <li><code>0, 0.0, '', b'', [], (), {}, set(), None</code> のとき <code>False</code></li>
 <li>それ以外のとき <code>True</code></li>
 </ul>
-<h2 id="elif"><code>elif</code><a class="headerlink" href="#elif" title="Permanent link">&para;</a></h2>
+<h2 id="elif"><code>elif</code></h2>
 <p>複数の条件を見たい場合は <code>if, elif, else</code> を使います。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1059,14 +1059,14 @@
 <p class="admonition-title">switch 文</p>
 <p>Python には switch 文がありませんので <code>if, elif, else</code> を使用して下さい。</p>
 </div>
-<h2 id="_2">空の条件文<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">空の条件文</h2>
 <p>条件文内の処理を空にしたい場合は <code>pass</code> と書いておきます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div>
-<h2 id="_3">演算子<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">演算子</h2>
 <p>条件文で使用できる演算子には次のようなものがあります。</p>
-<h3 id="and"><code>and</code><a class="headerlink" href="#and" title="Permanent link">&para;</a></h3>
+<h3 id="and"><code>and</code></h3>
 <p>複数の条件が成立するかどうかを調べるときに使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
@@ -1085,7 +1085,7 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="or"><code>or</code><a class="headerlink" href="#or" title="Permanent link">&para;</a></h3>
+<h3 id="or"><code>or</code></h3>
 <p>複数の条件のうちどれか 1 つが成立するかどうかを調べるときに使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -1095,7 +1095,7 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">check</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="in"><code>in</code><a class="headerlink" href="#in" title="Permanent link">&para;</a></h3>
+<h3 id="in"><code>in</code></h3>
 <p>リスト・タプル・集合内に特定の要素が含まれているかどうかを調べます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
@@ -1114,7 +1114,7 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">check</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="is"><code>is</code><a class="headerlink" href="#is" title="Permanent link">&para;</a></h3>
+<h3 id="is"><code>is</code></h3>
 <p><code>is</code> は 2 つの変数が同じインスタンスを参照しているかどうかを調べるときに使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">y</span><span class="p">:</span>

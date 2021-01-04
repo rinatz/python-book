@@ -895,7 +895,7 @@
                   </a>
                 
                 
-                <h1 id="venv">venv<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h1>
+                <h1 id="venv">venv</h1>
 <p><code>pip</code> を使ってサードパーティ製のパッケージをインストールすることができましたが、インストールしたいパッケージが稀に競合を起こすことがあります。</p>
 <table>
 <thead>
@@ -916,31 +916,47 @@
 </tbody>
 </table>
 <p>program1 では <code>requests</code> 2.21.0 を使おうとしているのに対し program2 では 2.20.1 を使いたかったとすると、システムの中に複数バージョンの <code>requests</code> をインストールしておく必要が出てきます。もし使用したいパッケージのバージョンが意図しないものになっているとプログラムが正しく動かない可能性が出てきます。</p>
-<h2 id="_1">仮想環境の作成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">仮想環境の作成</h2>
 <p>このような競合を解決するために Python には各プログラムで使用したいパッケージを互いに影響がない形で個別に管理するための仕組みが用意されており、仮想環境と呼ばれます。仮想環境を作成するためのツールは <code>venv</code> と呼ばれ、Python に標準で同梱されています。</p>
 <p>試しにこれから 2 つの仮想環境を作成し、それぞれに異なるバージョンの <code>requests</code> をインストールしてみます。まず下記のように 2 つのディレクトリを作成します。</p>
 <div class="highlight"><pre><span></span><code>$ mkdir program1 program2
 </code></pre></div>
 <p>次に program1 配下で仮想環境を作成します。</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">macOS</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> program1
-$ python -m venv venv
-</code></pre></div>
-<p>program1 配下に venv というディレクトリが作成されます。仮想環境を有効にするために下記のコマンドを実行します。</p>
-<div class="highlight"><pre><span></span><code>$ . venv/bin/activate
-<span class="o">(</span>venv<span class="o">)</span> $
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Windows の場合</p>
-<p>Windows で仮想環境を有効にする場合は下記を実行してください。</p>
-<div class="highlight"><pre><span></span><code>$ venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
-<span class="o">(</span>venv<span class="o">)</span> $
+$ python3 -m venv .venv
 </code></pre></div>
 </div>
-<p>この状態で <code>requests</code> 2.21.0 をインストールしてみます。パッケージをバージョン指定でインストールしたければ次のように実行します。</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> program1
+$ py -3 -m venv .venv
 </code></pre></div>
-<p>この <code>requests</code> は venv ディレクトリ配下にインストールされ、仮想環境が有効でない限りは参照することができないようになっています。 <code>pip freeze</code> を使ってインストールされているパッケージ一覧を確認してみます。</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ pip freeze
+</div>
+</div>
+<p>program1 配下に <code>.venv</code> というディレクトリが作成されます。仮想環境を有効にするために下記のコマンドを実行します。</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ . .venv/bin/activate
+<span class="o">(</span>.venv<span class="o">)</span> $
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ .venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
+<span class="o">(</span>.venv<span class="o">)</span> $
+</code></pre></div>
+</div>
+</div>
+<p>この状態で <code>requests</code> 2.21.0 をインストールしてみます。パッケージをバージョン指定でインストールしたければ次のように実行します。</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>.venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.21.0
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>仮想環境が有効な場合であれば pip コマンドは <code>pip</code> が使用できます。
+<code>pip3</code> コマンドも使用できますが、どちらを使用しても効果は同じです。</p>
+<p>一方で仮想環境が無効な状態であれば <code>pip</code> は Python 2 系の古い pip を呼び出すことになり
+<code>pip3</code> とは挙動が異なるので注意してください。</p>
+</div>
+<p>この <code>requests</code> は .venv ディレクトリ配下にインストールされ、仮想環境が有効でない限りは参照することができないようになっています。 <code>pip freeze</code> を使ってインストールされているパッケージ一覧を確認してみます。</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>.venv<span class="o">)</span> $ pip freeze
 <span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
 <span class="nv">chardet</span><span class="o">==</span><span class="m">3</span>.0.4
 <span class="nv">idna</span><span class="o">==</span><span class="m">2</span>.8
@@ -948,39 +964,49 @@ $ python -m venv venv
 <span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
 </code></pre></div>
 <p>仮想環境を無効にする場合は <code>deactivate</code> というコマンドを実行します。このコマンドは仮想環境が有効なときだけ使用することができます。</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ deactivate
-$
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Windows の場合</p>
-<p>Windows で仮想環境を無効にする場合は下記を実行してください。</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> $ venv<span class="se">\S</span>cripts<span class="se">\d</span>eactivate.bat
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="o">(</span>.venv<span class="o">)</span> $ deactivate
 $
 </code></pre></div>
 </div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="o">(</span>.venv<span class="o">)</span> $ venv<span class="se">\S</span>cripts<span class="se">\d</span>eactivate.bat
+$
+</code></pre></div>
+</div>
+</div>
 <p>program2 配下でも同様に仮想環境を作成してみます。<code>requests</code> のバージョンは 2.20.1 を使用します。</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">macOS</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> program2
-$ python -m venv venv
-$ . venv/bin/activate
-<span class="o">(</span>venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
-<span class="o">(</span>venv<span class="o">)</span> $ pip freeze
+$ python3 -m venv .venv
+$ . .venv/bin/activate
+<span class="o">(</span>.venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
+<span class="o">(</span>.venv<span class="o">)</span> $ pip freeze
 <span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
 <span class="nv">chardet</span><span class="o">==</span><span class="m">3</span>.0.4
 <span class="nv">idna</span><span class="o">==</span><span class="m">2</span>.7
 <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
 <span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
 </code></pre></div>
-<p>program1, program2 配下いずれかの仮想環境を有効にすることで異なるバージョンの <code>requests</code> が使用できるようになっています。ちなみに仮想環境が有効でない状態でインストールされたパッケージは全プログラムから参照可能なので競合を起こす可能性があり、使用すべきではありません。そのため、前章の <code>pip</code> の章でインストールしたパッケージは下記のように削除しておくことをおすすめします。</p>
-<div class="highlight"><pre><span></span><code>$ pip freeze <span class="p">|</span> xargs pip uninstall -y
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Windows の場合</p>
-<p>Windows で全パッケージを削除する場合は下記を実行してください。</p>
-<div class="highlight"><pre><span></span><code>$ pip freeze &gt; requirements.txt
-$ pip uninstall -y -r requirements.txt
-$ del requirements.txt
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> program2
+$ py -3 -m venv .venv
+$ .venv<span class="se">\b</span>in<span class="se">\a</span>ctivate.bat
+<span class="o">(</span>.venv<span class="o">)</span> $ pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
+<span class="o">(</span>.venv<span class="o">)</span> $ pip freeze
+<span class="nv">certifi</span><span class="o">==</span><span class="m">2019</span>.3.9
+<span class="nv">chardet</span><span class="o">==</span><span class="m">3</span>.0.4
+<span class="nv">idna</span><span class="o">==</span><span class="m">2</span>.7
+<span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.20.1
+<span class="nv">urllib3</span><span class="o">==</span><span class="m">1</span>.24.1
 </code></pre></div>
 </div>
+</div>
+<p>program1, program2 配下いずれかの仮想環境を有効にすることで異なるバージョンの <code>requests</code> が使用できるようになっています。ちなみに仮想環境が有効でない状態でインストールされたパッケージは全プログラムから参照可能なので競合を起こす可能性があり、使用すべきではありません。そのため、前章の <code>pip</code> の章でインストールしたパッケージは下記のように削除しておくことをおすすめします。</p>
+<div class="highlight"><pre><span></span><code>$ pip3 freeze &gt; requirements.txt
+$ pip3 uninstall -y -r requirements.txt
+</code></pre></div>
                 
               
               

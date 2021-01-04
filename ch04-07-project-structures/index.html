@@ -895,14 +895,10 @@
                   </a>
                 
                 
-                <h1 id="_1">プロジェクト構成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">プロジェクト構成</h1>
 <p>Python のソースコードを管理する際にディレクトリの構成をちゃんと考えておくことはとても重要なことです。なぜなら Python は適切な構成になっていないとプログラムを正しく動かすことができなくなるからです。そこで Python 開発ではどのような構成で管理すれば問題が起こりにくいのかについて説明します。</p>
-<h2 id="the-hitchhikers-guide-to-python">The Hitchhiker's Guide to Python<a class="headerlink" href="#the-hitchhikers-guide-to-python" title="Permanent link">&para;</a></h2>
+<h2 id="the-hitchhikers-guide-to-python">The Hitchhiker's Guide to Python</h2>
 <p>Python の理想のプロジェクト構成は Kenneth Reitz 氏によって推奨されている構成に従うのがよいでしょう。どのような構成なのかは <a href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python</a> というサイトの <a href="https://docs.python-guide.org/writing/structure/">Structuring Your Project</a> の章で詳しく書かれていますのでそちらを参考にしてもらうことにして、ここでは特に注意すべきことについてまとめておきます。</p>
-<div class="admonition warning">
-<p class="admonition-title">注意</p>
-<p><a href="https://docs.python-guide.org/writing/structure/">Structuring Your Project</a> の章で説明されているプロジェクト構成は Pipenv が登場する前の推奨構成になっているのでやや古い内容になっています。<code>requirements.txt</code> の説明は <code>Pipfile, Pipfile.lock</code> と適宜読み替えて読んでください。</p>
-</div>
 <p>ディレクトリの基本構成は次のとおりです。</p>
 <div class="highlight"><pre><span></span><code>(project)
 ├── (project)  ............ プログラムのソースコードディレクトリ
@@ -1001,11 +997,25 @@
    └── *.py
 </code></pre></div>
 <p>そして <code>main()</code> を実行したい場合はターミナル上で次のようにします。</p>
-<div class="highlight"><pre><span></span><code>$ python -m sample
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ python3 -m sample
 </code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ py -3 -m sample
+</code></pre></div>
+</div>
+</div>
 <p>こうすると <code>sample/__main__.py</code> が実行されるようになります。決して</p>
-<div class="highlight"><pre><span></span><code>$ python sample/__main__.py
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ python3 sample/__main__.py
 </code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ py -3 sample/__main__.py
+</code></pre></div>
+</div>
+</div>
 <p>のように実行してはいけません。たとえ動いたとしてもいつもうまくいくと期待しないほうがいいでしょう。</p>
                 
               

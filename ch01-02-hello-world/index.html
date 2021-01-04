@@ -288,21 +288,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pycharm" class="md-nav__link">
-    PyCharm の起動
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    プログラムを作成する
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     構文の説明
   </a>
   
@@ -310,7 +296,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     シバン
   </a>
   
@@ -331,7 +317,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     シンプルな書き方
   </a>
   
@@ -920,21 +906,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pycharm" class="md-nav__link">
-    PyCharm の起動
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    プログラムを作成する
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     構文の説明
   </a>
   
@@ -942,7 +914,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     シバン
   </a>
   
@@ -963,7 +935,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     シンプルな書き方
   </a>
   
@@ -991,46 +963,26 @@
                   </a>
                 
                 
-                <h1 id="hello-world">Hello, World!<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h1>
-<p>標準出力に <code>Hello, World!</code> と表示するプログラムを書いてみます。まずは PyCharm の設定を行います。</p>
-<h2 id="pycharm">PyCharm の起動<a class="headerlink" href="#pycharm" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="../img/pycharm-01.png" />
-そのまま <code>OK</code> を押します。</p>
+                <h1 id="hello-world">Hello, World!</h1>
+<p>標準出力に <code>Hello, World!</code> と出力する簡単な Python プログラムを書いてみます。</p>
 <hr />
-<p><img alt="" src="../img/pycharm-02.png" />
-プライバシーポリシーに同意して <code>Continue</code> を押します。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-03.png" />
-匿名データを送信してもいいかどうかを選択します。これはどちらを選択しても構いません。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-04.png" />
-キーマップを選択します。PyCharm 未経験者であれば左を、経験者であれば右を選択します。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-05.png" />
-UI のテーマを選択します。お好みの方を選択してください。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-06.png" />
-コマンドラインから使用できる起動スクリプトを作成するかどうかを選択します。作成する場合はチェックボックスにチェックを入れてください。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-07.png" />
-プラグインを追加します。ここは何もせず <code>Start using PyCharm</code> を押してください。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-08.png" />
-<code>Create New Project</code> を選択します。</p>
-<hr />
-<p><img alt="" src="../img/pycharm-09.png" />
-<code>New environment using</code> というラジオボタンを選択します。<code>Base interpreter</code> のところにはターミナル上で下記のコマンドの出力結果を貼り付けてください。Windows の場合はここはデフォルトのままで大丈夫です。</p>
-<div class="highlight"><pre><span></span><code>$ which python
+<p>まずターミナル上で <code>hello</code> というディレクトリを作成し、それを VSCode で開きます。</p>
+<div class="highlight"><pre><span></span><code>$ mkdir hello
+$ <span class="nb">cd</span> hello
+$ code .
 </code></pre></div>
-<p>macOS の場合は <code>/Users/kenichiro-ida/.pyenv/shims/python</code> のような結果になるはずです。</p>
+<p><a href="../img/vscode-02.png"><img alt="" src="../img/vscode-02.png" /></a></p>
 <hr />
-<p><img alt="" src="../img/pycharm-10.png" />
-これで PyCharm が起動し、新規プロジェクトが作成できました。</p>
+<p>次にファイルの新規作成のアイコンを押して <code>hello.py</code> という名前のファイルを作成します。</p>
+<p><a href="../img/vscode-03.png"><img alt="" src="../img/vscode-03.png" /></a></p>
 <hr />
-<h2 id="_1">プログラムを作成する<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>PyCharm の左にあるプロジェクトツリーを右クリックし <code>New</code> &gt; <code>Python file</code> を選択します。</p>
-<p><img alt="" src="../img/pycharm-12.png" />
-<code>Name</code> のところに <code>hello</code> と入力して <code>OK</code> を押します。<code>hello.py</code> というファイルが作成されるので下記のようにプログラムを作成してください。</p>
+<p>ファイルを作成してそのファイルを開くとウィンドウの左下に使用する Python のバージョンが表示されます。
+このバージョンがインストールした Python のバージョンと異なる場合は Python のバージョンをクリックすると
+使用する Python を変更することができます。</p>
+<p><a href="../img/vscode-04.png"><img alt="" src="../img/vscode-04.png" /></a></p>
+<p>複数の Python をインストールしている場合にはこのようにして使用する Python を変更してください。</p>
+<hr />
+<p>ここまでできたら <code>hello.py</code> にコードを書いてみます。</p>
 <p><strong>hello.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -1042,11 +994,11 @@ UI のテーマを選択します。お好みの方を選択してください�
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<p>ここまでできたらファイルを保存してプログラムを実行してみます。</p>
-<p><img alt="" src="../img/pycharm-11.png" />
-8 行目にある再生ボタンをクリックし <code>Run 'hello'</code> を選択すると下部に <code>Hello, World!</code> というメッセージが表示されます。</p>
-<h2 id="_2">構文の説明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">シバン<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>できたらファイルを保存してプログラムを実行してみます。</p>
+<p>ウィンドウの右上にある再生ボタンをクリックするとプログラムが実行されます。</p>
+<p><a href="../img/vscode-05.png"><img alt="" src="../img/vscode-05.png" /></a></p>
+<h2 id="_1">構文の説明</h2>
+<h3 id="_2">シバン</h3>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="ch">#!/usr/bin/env python</span>
 </span>
 
@@ -1065,7 +1017,7 @@ UI のテーマを選択します。お好みの方を選択してください�
 </code></pre></div>
 <p>と書いて下さい。</p>
 </div>
-<h3 id="main"><code>main()</code><a class="headerlink" href="#main" title="Permanent link">&para;</a></h3>
+<h3 id="main"><code>main()</code></h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 
@@ -1082,7 +1034,7 @@ UI のテーマを選択します。お好みの方を選択してください�
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>と書くと構文エラーになるからです。関数の実装は必ずインデントしてから記述するルールになっています。</p>
-<h3 id="__name__"><code>__name__</code><a class="headerlink" href="#__name__" title="Permanent link">&para;</a></h3>
+<h3 id="__name__"><code>__name__</code></h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 
@@ -1094,7 +1046,7 @@ UI のテーマを選択します。お好みの方を選択してください�
 </span><span class="hll">    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
 <p><code>main()</code> は関数を呼び出しています。<code>if __name__ == '__main__':</code> については <a href="../ch04-01-modules/">モジュール</a> の章で説明しますので、今はおまじないだと思って下さい。<code>main()</code> の呼び出しは必ずインデントをして下さい。さもないと構文エラーになります。</p>
-<h3 id="_4">シンプルな書き方<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_3">シンプルな書き方</h3>
 <p>Python の処理はソースコードの上の行から逐次実行されます。そのため、処理を関数内に収めなくても正しく実行することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 

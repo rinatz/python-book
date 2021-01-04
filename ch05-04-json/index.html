@@ -989,10 +989,10 @@
                   </a>
                 
                 
-                <h1 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h1>
+                <h1 id="json">JSON</h1>
 <p>Python で JSON の読み書きを行いたい場合は <code>json</code> モジュールを使います。</p>
-<h2 id="_1">読み込み<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="_2">ファイルから読み込み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h2 id="_1">読み込み</h2>
+<h3 id="_2">ファイルから読み込み</h3>
 <p>JSON ファイルを読み込む場合は <code>open()</code> でファイルを開いた後、ファイルオブジェクトを <code>json.load()</code> に渡します。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -1022,7 +1022,7 @@
     <span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_3">文字列から読み込み<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">文字列から読み込み</h3>
 <p><code>json.loads()</code> を使うと文字列で作成された JSON をパースすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">json_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">{</span>
@@ -1042,8 +1042,8 @@
 <p class="admonition-title">Note</p>
 <p><code>json.loads()</code> の <code>s</code> は <code>string</code> の <code>s</code> です。</p>
 </div>
-<h2 id="_4">書き込み<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">ファイルに書き込み<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h2 id="_4">書き込み</h2>
+<h3 id="_5">ファイルに書き込み</h3>
 <p>JSON ファイルを作成するには <code>open()</code> でファイルを開いた後、<code>json.dump()</code> にファイルオブジェクトを渡します。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -1111,7 +1111,7 @@
     <span class="nt">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_6">文字列に出力<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">文字列に出力</h3>
 <p>JSON を文字列に出力したい場合は <code>json.dumps()</code> を使います。</p>
 <div class="highlight"><pre><span></span><code><span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span>

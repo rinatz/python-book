@@ -1141,7 +1141,7 @@
                   </a>
                 
                 
-                <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">変数</h1>
 <p>次のようなコードを書いて色々な変数を出力してみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -1155,14 +1155,14 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="_2">数値型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="int">整数 <code>int</code><a class="headerlink" href="#int" title="Permanent link">&para;</a></h3>
+<h2 id="_2">数値型</h2>
+<h3 id="int">整数 <code>int</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div>
-<h3 id="float">浮動小数点 <code>float</code><a class="headerlink" href="#float" title="Permanent link">&para;</a></h3>
+<h3 id="float">浮動小数点 <code>float</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>
 </code></pre></div>
-<h3 id="_3">数値演算<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">数値演算</h3>
 <p>数値に対しては四則演算ができます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 加算</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">10</span>
@@ -1207,16 +1207,16 @@
 </tbody>
 </table>
 </div>
-<h2 id="bool">真偽値 <code>bool</code><a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
+<h2 id="bool">真偽値 <code>bool</code></h2>
 <p>真偽値を扱うための型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">y</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
-<h2 id="str">文字列 <code>str</code><a class="headerlink" href="#str" title="Permanent link">&para;</a></h2>
+<h2 id="str">文字列 <code>str</code></h2>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;日本語&#39;</span>
 </code></pre></div>
-<h3 id="f-string">f-string<a class="headerlink" href="#f-string" title="Permanent link">&para;</a></h3>
+<h3 id="f-string">f-string</h3>
 <p>文字列の先頭に <code>f</code> を付けると文字列内に変数や式の埋め込みができるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;The value of x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span>           <span class="c1"># &#39;The value of x is 10&#39;</span>
@@ -1227,13 +1227,13 @@
 <span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;The value of x * x is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 <p>f-string は <code>'...'.format()</code> のシンプルな書き方を提供する機能です。</p>
-<h2 id="byte">バイト <code>byte</code><a class="headerlink" href="#byte" title="Permanent link">&para;</a></h2>
+<h2 id="byte">バイト <code>byte</code></h2>
 <p>バイト列を扱う型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;0xDEADBEEF&#39;</span>
 </code></pre></div>
-<h2 id="_4">コレクション型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">コレクション型</h2>
 <p>コレクション型は複数の値をまとめて扱える型の総称です。</p>
-<h3 id="list">リスト <code>list</code><a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
+<h3 id="list">リスト <code>list</code></h3>
 <p>配列を扱うための型です。リストの各要素は必ずしも同じ型である必要はありません。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">]</span>
@@ -1263,7 +1263,7 @@
 <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>    <span class="c1"># 10</span>
 </code></pre></div>
 <p>要素が空のリストを作る場合は <code>x = []</code> とします。</p>
-<h3 id="tuple">タプル <code>tuple</code><a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h3>
+<h3 id="tuple">タプル <code>tuple</code></h3>
 <p>リストとよく似た扱いができる型ですが、タプルは要素の変更も追加もできません。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -1279,7 +1279,7 @@
 <p class="admonition-title">Note</p>
 <p>要素の変更が必要ない場合はリストよりタプルを使う方が安全です。</p>
 </div>
-<h3 id="_5">アンパック代入<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">アンパック代入</h3>
 <p>リストやタプルの要素を複数の変数に同時に代入する構文を <strong>アンパック代入</strong> といいます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># a: 10, b: 3.14, c: &#39;Hello, World!&#39;</span>
@@ -1292,7 +1292,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="n">x</span>     <span class="c1"># a: 0, b: 1, c: [2, 3, 4]</span>
 </code></pre></div>
-<h3 id="dict">辞書 <code>dict</code><a class="headerlink" href="#dict" title="Permanent link">&para;</a></h3>
+<h3 id="dict">辞書 <code>dict</code></h3>
 <p>キーに対する値を管理するための型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
 
@@ -1300,7 +1300,7 @@
 <span class="n">x</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>    <span class="c1"># 30</span>
 </code></pre></div>
 <p>要素が空の辞書を作る場合は <code>x = {}</code> とします。</p>
-<h3 id="set">集合 <code>set</code><a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<h3 id="set">集合 <code>set</code></h3>
 <p>重複を取り除いて複数の要素を扱うための型です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1"># {0, 1, 2, 3, 4}</span>
 </code></pre></div>
@@ -1309,12 +1309,12 @@
 <span class="n">y</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>   <span class="c1"># {&#39;x&#39;, 3.14, [1, 2]}</span>
 </code></pre></div>
 <p>空の集合を作る場合は <code>x = set()</code> とします。<code>x = {}</code> としても空の辞書となるので注意してください。</p>
-<h2 id="none"><code>None</code><a class="headerlink" href="#none" title="Permanent link">&para;</a></h2>
+<h2 id="none"><code>None</code></h2>
 <p>変数に <code>None</code> というキーワードを代入すると、その変数はどの型にも属さない変数になります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
 <p>変数は用意したいけど、どのような値を入れるかは後で決めたいといったケースでは <code>None</code> が使用されます。</p>
-<h2 id="_6">定数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">定数</h2>
 <p>Python には定数の概念がありません。しかし、書き換えを想定しない変数は大文字で書いて定数であることを示すというルールがあります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14</span>
 </code></pre></div>

@@ -937,7 +937,7 @@
                   </a>
                 
                 
-                <h1 id="_1">パッケージ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">パッケージ</h1>
 <p>モジュールを使うことで関数やクラスをまとめることができますが、1 つのモジュール内にたくさんの定義を含めてしまうとコードが長くなってしまい分かりづらくなってしまいます。そういうときはファイルを分割して複数のモジュールを作成し、それを 1 つのディレクトリに集約することで綺麗に整理することができます。このように複数のモジュールを集約したディレクトリのことをパッケージといいます。</p>
 <p>モジュールとパッケージの関係はファイルシステムでいうところのファイルとディレクトリの関係に一致します。</p>
 <table>
@@ -959,7 +959,7 @@
 </tbody>
 </table>
 <p>ファイル・ディレクトリのことを Python の世界ではモジュール・パッケージと呼んでいると理解して概ね問題ありません。</p>
-<h2 id="_2">パッケージの作り方<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">パッケージの作り方</h2>
 <p>パッケージはディレクトリのことだと説明しましたが、単に Python のソースコードをディレクトリに集約しただけではパッケージにはなりません。ディレクトリをパッケージとして扱うためには <code>__init__.py</code> というファイルをディレクトリ内に用意しておく必要があります。</p>
 <div class="highlight"><pre><span></span><code>example
 ├── __init__.py     # これがないとパッケージとは呼べない
@@ -967,7 +967,7 @@
 └── b.py
 </code></pre></div>
 <p><code>__init__.py</code> は空ファイルとして作成してもらって問題ありません。Python のソースコードをディレクトリに集約するときは必ず <code>__init__.py</code> を作るようにしましょう。</p>
-<h2 id="_3">パッケージを使用する<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">パッケージを使用する</h2>
 <p>パッケージもモジュールと同様、他のファイルに取り込まれることを想定した機能なので <code>import</code> 構文を使って取り込む
 ことができます。いま、パッケージの構成が次のようになっていたとしましょう。</p>
 <div class="highlight"><pre><span></span><code>example
@@ -1005,7 +1005,7 @@
 </ul>
 <p>モジュール名であっても区切り文字はできるだけ使用しない方が好まれます。パッケージ名は例え複数語であっても区切り文字は使用しません。</p>
 </div>
-<h2 id="__init__py"><code>__init__.py</code><a class="headerlink" href="#__init__py" title="Permanent link">&para;</a></h2>
+<h2 id="__init__py"><code>__init__.py</code></h2>
 <p><code>__init__.py</code> というファイルがどのような働きをするのか見ていきたいと思います。上記のサンプルにある</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">example.a</span>
 </code></pre></div>
@@ -1022,7 +1022,7 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">a</span>
 </code></pre></div>
 <p>これは <code>__init__.py</code> と同一のディレクトリ階層から <code>a</code> をインポートするという構文で <strong>相対インポート</strong> といいます。こうすることで <code>__init__.py</code> 内でモジュール <code>a</code> が参照できるようになるため <code>import example</code> としても <code>example.a.fib()</code> が参照できるようになります。</p>
-<h2 id="_4">モジュール検索パス<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">モジュール検索パス</h2>
 <p><code>__init__.py</code> 内の記述を</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">a</span>
 </code></pre></div>
