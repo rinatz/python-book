@@ -36,15 +36,15 @@ Python 開発に必要な下記のツールをインストールします。
 
 ## Visual Studio Code のインストール
 
-Visual Studio Code (VSCode) はエンジニアの間で人気のエディタです。
+Visual Studio Code (VS Code) はエンジニアの間で人気のエディタです。
 拡張機能を取り入れることで見た目の変更や機能追加などを自由にカスタマイズできるのが特徴です。
 
-下記のサイトで VSCode をダウンロードし、インストールをしてください。
+下記のサイトで VS Code をダウンロードし、インストールをしてください。
 
-!!! Info "VSCode"
+!!! Info "VS Code"
     [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
-次に Python の開発環境を整えるための VSCode 拡張機能をインストールします。
+次に Python の開発環境を整えるための VS Code 拡張機能をインストールします。
 
 | 拡張機能                                  | 概要                        |
 |-------------------------------------------|-----------------------------|
@@ -56,7 +56,7 @@ Visual Studio Code (VSCode) はエンジニアの間で人気のエディタで�
 [Pylance]: https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance
 [Visual Studio IntelliCode]: https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode
 
-インストールは VSCode を起動した後、左側にあるペインから拡張機能のタブを選択し、
+インストールは VS Code を起動した後、左側にあるペインから拡張機能のタブを選択し、
 インストールする拡張機能を検索してインストールします。
 
 [![](img/vscode-01.png)](img/vscode-01.png)
