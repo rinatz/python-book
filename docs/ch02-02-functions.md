@@ -50,8 +50,8 @@ def another_function(x, y=10):
 
 
 def main():
-    another_functin(5, 3)   # x: 5, y: 3
-    another_functin(7)      # x: 7, y: 10
+    another_function(5, 3)   # x: 5, y: 3
+    another_function(7)      # x: 7, y: 10
 ```
 
 デフォルト引数は引数内で一番最後に渡す必要があります。

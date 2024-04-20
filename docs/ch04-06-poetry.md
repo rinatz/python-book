@@ -18,18 +18,18 @@ poetry を使った場合の仮想環境の作成からパッケージのイン�
 
 `poetry` のインストールは下記のようにします。
 
-=== "macOS"
+=== "Linux, macOS, Windows (WSL)"
 
     ```shell
-    $ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+    $ curl -sSL https://install.python-poetry.org | python3 -
     ```
 
-=== "Windows"
+=== "Windows (Powershell)"
 
     PowerShell 上で下記を実行します。
 
     ```shell
-    (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python3
+    (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
     ```
 
 ## 使い方
