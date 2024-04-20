@@ -1028,7 +1028,7 @@
 <p>のように記述していた部分を</p>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </code></pre></div>
-<p>という構文で書き直します。そうするとファイルインスタンス <code>f</code> は <code>with</code> のブロック内だけで使用できるようになり、ブロックを抜けると暗黙的に <code>f.lose()</code> を読んでファイルをクローズしてくれるようになります。下記は <code>with</code> を使ってファイルを読み込む例です。</p>
+<p>という構文で書き直します。そうするとファイルインスタンス <code>f</code> は <code>with</code> のブロック内だけで使用できるようになり、ブロックを抜けると暗黙的に <code>f.close()</code> を読んでファイルをクローズしてくれるようになります。下記は <code>with</code> を使ってファイルを読み込む例です。</p>
 <p><strong>main.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
