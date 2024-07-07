@@ -46,9 +46,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.tabbed
   - footnotes
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - meta
 
 nav:
