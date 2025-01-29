@@ -76,8 +76,6 @@ nav:
     - 4.2. パッケージ: ch04-02-packages.md
     - 4.3. pip: ch04-03-pip.md
     - 4.4. venv: ch04-04-venv.md
-    - 4.5. pipenv: ch04-05-pipenv.md
-    - 4.6. poetry: ch04-06-poetry.md
     - 4.7. プロジェクト構成: ch04-07-project-structures.md
   - 5. ファイル操作:
     - 5.1. ファイル操作: ch05-01-files.md
@@ -91,3 +89,7 @@ nav:
   - 8. テスト:
     - 8.1. doctest: ch08-01-doctest.md
     - 8.2. pytest: ch08-02-pytest.md
+  - 9. 便利ツール:
+    - 9.1. ツール一覧: ch09-01-tools.md
+    - 9.2. pipenv: ch09-02-pipenv.md
+    - 9.3. poetry: ch09-03-poetry.md
