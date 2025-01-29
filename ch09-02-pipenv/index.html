@@ -12,13 +12,13 @@
         <meta name="author" content="IDA Kenichiro">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/python-book/ch05-02-contexts/">
+        <link rel="canonical" href="http://rinatz.github.io/python-book/ch09-02-pipenv/">
       
       
-        <link rel="prev" href="../ch05-01-files/">
+        <link rel="prev" href="../ch09-01-tools/">
       
       
-        <link rel="next" href="../ch05-03-csv/">
+        <link rel="next" href="../ch09-03-poetry/">
       
       
       <link rel="icon" href="../img/python.svg">
@@ -26,7 +26,7 @@
     
     
       
-        <title>5.2. コンテキスト - ゼロから学ぶ Python</title>
+        <title>9.2. pipenv - ゼロから学ぶ Python</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#pipenv" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.2. コンテキスト
+              9.2. pipenv
             
           </span>
         </div>
@@ -818,19 +818,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -844,7 +842,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             5. ファイル操作
@@ -876,30 +874,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    5.2. コンテキスト
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ch05-02-contexts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,35 +886,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#with" class="md-nav__link">
-    <span class="md-ellipsis">
-      with 文
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1205,17 +1154,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
         
           
           <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
@@ -1229,7 +1180,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             9. 便利ツール
@@ -1261,10 +1212,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ch09-02-pipenv/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    9.2. pipenv
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1273,6 +1244,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      特徴
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      インストール
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使い方
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipfile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfilelock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipfile.lock
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      公式サイト
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1333,9 +1378,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#with" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      with 文
+      特徴
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      インストール
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使い方
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipfile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipfilelock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipfile.lock
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      公式サイト
     </span>
   </a>
   
@@ -1359,30 +1449,143 @@
   
 
 
-<h1 id="_1">コンテキスト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p><code>open()</code> を使ってファイルの読み書きをした後は必ず <code>close()</code> を使ってファイルを閉じる必要があります。しかしファイルの閉じ忘れがよくあるミスの 1 つです。このファイルの閉じ忘れをなくすために Python にはコンテキストマネージャという機能が用意されています。コンテキストマネージャを使えばファイルの読み書きが不要になったときに暗黙的にファイルを閉じてくれるようになります。</p>
-<h2 id="with"><code>with</code> 文<a class="headerlink" href="#with" title="Permanent link">&para;</a></h2>
-<p>コンテキストマネージャを使うには <code>with</code> 文という構文を使用します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+<h1 id="pipenv">pipenv<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h1>
+<p><code>pipenv</code> は <code>pip</code> と <code>venv</code> の両方の機能を兼ね備えたサードパーティ製のパッケージ管理ツールです。<code>venv</code> で仮想環境を作成してから <code>pip</code> でパッケージをインストールするまでの手順では下記のように異なるコマンドを実行する必要がありますが、これを 1 つのコマンドで実行できるようにしたものが <code>pipenv</code> です。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>コマンド (macOS, Linux)</th>
+<th>コマンド (Windows)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仮想環境の作成</td>
+<td><code>python -m venv .venv</code></td>
+<td><code>py -m venv .venv</code></td>
+</tr>
+<tr>
+<td>仮想環境を有効にする</td>
+<td><code>. .venv/bin/activate</code></td>
+<td><code>.venv/Scripts/activate.bat</code></td>
+</tr>
+<tr>
+<td>仮想環境を無効にする</td>
+<td><code>deactivate</code></td>
+<td><code>.venv/Scripts/deactivate.bat</code></td>
+</tr>
+<tr>
+<td>パッケージのインストール</td>
+<td><code>pip3 install [name]</code></td>
+<td><code>py -3 -m pip install [name]</code></td>
+</tr>
+</tbody>
+</table>
+<p>各操作に応じて実行するコマンドも異なれば OS ごとにも異なっており、とても複雑です。しかし <code>pipenv</code> を使うと上記の操作は次のようになります。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仮想環境の作成</td>
+<td><code>pipenv --three</code></td>
+</tr>
+<tr>
+<td>仮想環境を有効にする</td>
+<td><code>pipenv shell</code></td>
+</tr>
+<tr>
+<td>仮想環境を無効にする</td>
+<td><code>exit</code></td>
+</tr>
+<tr>
+<td>パッケージのインストール</td>
+<td><code>pipenv install [name]</code></td>
+</tr>
+</tbody>
+</table>
+<p>このように <code>pipenv</code> というコマンド 1 つで仮想環境の作成とパッケージのインストールの両方が実行できるため、操作がシンプルになります。また実行するコマンドは OS によらず同じです。</p>
+<h2 id="_1">特徴<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><code>pipenv</code> はパッケージのインストールを必ず仮想環境内で実行するように作られています。そのため仮想環境を有効にしていない状態で</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pipenv<span class="w"> </span>install<span class="w"> </span><span class="o">[</span>name<span class="o">]</span>
 </code></pre></div>
-<p>のように記述していた部分を</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<p>というコマンドを打っても自動的に仮想環境を作成して、それを有効にした上でパッケージのインストールを実行します。</p>
+<h2 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>pipenv</code> のインストールは下記のようにします。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>pipenv
 </code></pre></div>
-<p>という構文で書き直します。そうするとファイルインスタンス <code>f</code> は <code>with</code> のブロック内だけで使用できるようになり、ブロックを抜けると暗黙的に <code>f.close()</code> を読んでファイルをクローズしてくれるようになります。下記は <code>with</code> を使ってファイルを読み込む例です。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>pipenv</code> のインストールは仮想環境内で行う必要はありません。なぜなら <code>pipenv</code> 自体が仮想環境を作成するツールだからです。</p>
+</div>
+<h2 id="_3">使い方<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>まず作業用ディレクトリを用意します。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>sandbox
+</code></pre></div>
+<p><code>pipenv</code> を使ってサードパーティライブラリの <code>requests</code> をインストールするには次のようにします。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>sandbox
+$<span class="w"> </span>pipenv<span class="w"> </span>install<span class="w"> </span>requests
+</code></pre></div>
+<p>自動的に仮想環境が作成され、その仮想環境内に <code>requests</code> がインストールされます。次に <code>requests</code> を使用した次のようなソースコードを用意します。</p>
 <p><strong>main.py</strong></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<p>ファイルの閉じ忘れを防ぐためにもファイル操作を行う際はいつもコンテキストマネージャを用いたほうが良いでしょう。</p>
+<p>ソースコードを作成したら仮想環境を有効にして実行してみます。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pipenv<span class="w"> </span>shell
+<span class="o">(</span>sandbox<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>main.py
+</code></pre></div>
+<p>上記の 2 行のコマンドは次のように 1 行で実行することもできます。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pipenv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</code></pre></div>
+<p><code>pipenv run [command]</code> は仮想環境を有効にした上で <code>[command]</code> を実行してくれる機能です。</p>
+<h2 id="pipfile">Pipfile<a class="headerlink" href="#pipfile" title="Permanent link">&para;</a></h2>
+<p><code>pip</code> にはインストールしたいパッケージをテキストファイルに記述しておく <code>requirements.txt</code> という仕組みがありましたが、<code>pipenv</code> はこれの代替として <code>Pipfile</code> というテキストファイルが使用できます。先程の <code>requests</code> をインストールするとディレクトリ内に <code>Pipfile</code> が作成されていると思います。</p>
+<p><strong>Pipfile</strong></p>
+<div class="highlight"><pre><span></span><code><span class="o">[[</span>source<span class="o">]]</span>
+<span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pypi&quot;</span>
+<span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://pypi.org/simple&quot;</span>
+<span class="nv">verify_ssl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="o">[</span>dev-packages<span class="o">]</span>
+
+<span class="o">[</span>packages<span class="o">]</span>
+<span class="nv">requests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+
+<span class="o">[</span>requires<span class="o">]</span>
+<span class="nv">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.7&quot;</span>
+</code></pre></div>
+<p><code>pipenv</code> はパッケージをインストールすると <code>Pipfile</code> にインストールしたパッケージを記録するようになっています。もしディレクトリ内に <code>Pipfile</code> がある場合、下記のコマンドを実行すると <code>Pipfile</code> 内に記述されたパッケージをインストールしてくれます。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pipenv<span class="w"> </span>install
+</code></pre></div>
+<p>つまり <code>Pipfile</code> をバージョン管理しておくことで他の人の環境でも自分がインストールしたパッケージと同じものをインストールできるようになります。</p>
+<h2 id="pipfilelock">Pipfile.lock<a class="headerlink" href="#pipfilelock" title="Permanent link">&para;</a></h2>
+<p><code>Pipfile</code> と合わせて <code>Pipfile.lock</code> というファイルも作成されていると思います。このファイルはインストールしたパッケージのバージョンを保存しているファイルです。<code>pipenv install</code> でパッケージをインストールすると、インストールされるパッケージのバージョンはその時点での最新版が取得されるようになっているため、自分がインストールしたパッケージのバージョンとは厳密には異なるバージョンのパッケージが他の人の環境にインストールされる可能性があります。もしバージョンも含めて完全に一致するものをインストールしたい場合は <code>Pipfile</code> の代わりに <code>Pipfile.lock</code> を使ってインストールすることで実現できます。</p>
+<p><code>Pipfile.lock</code> を使ってインストールするには次のようにします。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pipenv<span class="w"> </span>sync
+</code></pre></div>
+<h2 id="_4">公式サイト<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>pipenv</code> はここで説明した機能以外にも便利な機能がたくさんあります。詳細は公式サイトに説明がありますので参考にしてみてください。</p>
+<div class="admonition note">
+<p class="admonition-title">pipenv 公式サイト</p>
+<p><a href="https://pipenv.readthedocs.io/en/latest/">https://pipenv.readthedocs.io/en/latest/</a></p>
+</div>
 
 
 
