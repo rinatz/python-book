@@ -1,0 +1,9 @@
+[project]
+name = "python-book"
+version = "1.0.0"
+description = "ゼロから学ぶPython"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocs-material>=9.5.50",
+]
